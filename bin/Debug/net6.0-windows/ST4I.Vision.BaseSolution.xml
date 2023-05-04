@@ -1,0 +1,1880 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ST4I.Vision.BaseSolution</name>
+    </assembly>
+    <members>
+        <member name="T:ST4I.Vision.Component.BoolCondition">
+            <summary>
+            Điều kiện dạng boolean
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.BoolCondition.EqualFalse">
+            <summary>
+            Nếu thiết lập biến này = true thì kết quả của điều kiện này sẽ đúng khi = false.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.BoolCondition.PropCondition">
+            <summary>
+            Tham số lưu trữ Text property
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.BoolCondition.TextPreview">
+            <summary>
+            Nội dung được hiển thị khi cài đặt
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.BoolCondition.FullTextPreview">
+            <summary>
+            Nội dung được hiển thị khi cài đặt
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.BoolCondition.GetResult(ST4I.Vision.Component.INode,System.Boolean@)">
+            <summary>
+            Đọc kết quả tham số trong điều kiện
+            </summary>
+            <param name="node"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.BoolCondition.Verify(ST4I.Vision.Component.INode)">
+            <summary>
+            Kiểm tra kết quả của điều kiện
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.TextConverter.ToString(System.Object)">
+            <summary>
+            Chuyển đổi đối tượng sang dạng ký tự
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Component.EmptyNodeData">
+            <summary>
+            Kết quả rỗng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.EmptyNodeData.Status">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeData.Status"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.EmptyNodeData.NodeID">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeData.NodeID"/>
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.ImageFileTransfer">
+            <summary>
+            Image of loal file transfer
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.ImageFileTransfer.Path">
+            <summary>
+            Path File
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.ImageFileTransfer.Name">
+            <summary>
+            Name of file
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.ImageTransfer">
+            <summary>
+            Truyền dữ liệu dạng ảnh
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.ImageTransfer.NodeID">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeData.NodeID"/>
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.INodeData">
+            <summary>
+            Lớp Interface dành cho kết quả của node
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INodeData.Status">
+            <summary>
+            Trạng thái kết quả của dữ liệu
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INodeData.NodeID">
+            <summary>
+            Mã ID sản sinh ra dữ liệu
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.INodeDataSupportLocating">
+            <summary>
+            Lớp interface hỗ trợ cho việc định vị đối tướng
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.INodeDataSupportLocating.GetTemplatePosition">
+            <summary>
+            Vị trí tiêu chuẩn của đối tượng
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.INodeDataSupportLocating.GetPosition">
+            <summary>
+            Hàm trả về vị trí hiện tại của đối tượng
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Component.NodeDataTransfer">
+            <summary>
+            Kết quả chỉ bao gồm trạng thái của node
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeDataTransfer.CreatedTime">
+            <summary>
+            Thời gian tạo lập data
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeDataTransfer.NodeID">
+            <summary>
+            Automatic ID which generated by GUID
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeDataTransfer.Status">
+            <summary>
+            Status of this node
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeDataTransfer.Finalize">
+            <summary>
+            Hàm hủy
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeDataTransfer.Dispose">
+            <summary>
+            Public implementation of Dispose pattern callable by consumers.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeDataTransfer.Dispose(System.Boolean)">
+            <summary>
+            Protected implementation of Dispose pattern.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:ST4I.Vision.Component.DisplayOverlaySetting">
+            <summary>
+            Cài đặt hiển thị overlay
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.DisplayOverlaySetting.DisplayMode">
+            <summary>
+            Chế đọ hiển thị
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.DisplayOverlaySetting.DisplayMode.OnlyNG">
+            <summary>
+            Hiển thị khi NG
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.DisplayOverlaySetting.DisplayMode.All">
+            <summary>
+            Luôn hiển thị
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.IsEnabled">
+            <summary>
+            Cho phép bật/tắt hiển thị toàn bộ nội dung
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.PassColor">
+            <summary>
+             Màu của lớp overlay khi kết quả đúng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.FailColor">
+            <summary>
+            Màu của lớp overlay khi kết quả sai
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.ProcessingFeatureExisted">
+            <summary>
+            Biến thể hiện lớp cài đặt có chức năng thể hiện processing region (vùng xử lý của thuật toán) hoặc processing content (tên module) hay không.
+            Chức năng này được sử dụng chính để cho phép có hiển thị lên giao diện những chức năng liên quan.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.IsShowProcessingLabel">
+            <summary>
+            Cho phép hiển thị tên module. Nội dung sẽ được hiển thị ở vùng Processing Roi
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.IsShowProcessingContent">
+            <summary>
+            Cho phép hiển thị nội dung kết quả. Nội dung sẽ được hiển thị ở vùng Processing Roi
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.IsUseCustomProcessingContent">
+            <summary>
+            Cho phép hiển thị nội dung được tùy chỉnh
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.IsShowProcessingRegion">
+            <summary>
+            Cho phép hiển thị vùng tìm kiếm/xử lý hình ảnh
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.ProcessingTextSize">
+            <summary>
+            Kích thước hiển thị của chữ
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.ProcessingBorderThickness">
+            <summary>
+            Chiều dày border của vùng kết quả
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.WorkingRegionDisplayMode">
+            <summary>
+            Cài đặt chế độ hiển thị cho vùng làm việc
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.ObjectFeatureExisted">
+            <summary>
+            Biến thể hiện lớp cài đặt có chức năng thể hiện object region hoặc object content hay không (giả sử như vùng đối tượng bắt được của template hoặc vùng barcode xác định được).
+            Chức năng này được sử dụng chính để cho phép có hiển thị lên giao diện những chức năng liên quan.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.IsShowObjectRegion">
+            <summary>
+            Cho phép hiển thị vùng bắt được đối tượng. Ví dụ như vùng đối tượng bắt được của template hoặc vùng barcode xác định được
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.IsShowObjectContent">
+            <summary>
+            Cho phép hiển thị nội dung liên quan tới đối tượng. Ví dụ đối tượng là barcode sẽ hiển thị nội dung của barcode đó
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.IsUseSpecificObjectColor">
+            <summary>
+            Sử dụng màu sắc riêng của đối tượng. Nếu không dùng thì sẽ theo màu sắc của trạng thái PASS/NG
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.ObjectColor">
+            <summary>
+             Màu cơ bản của lớp overlay
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.ObjectTextSize">
+            <summary>
+            Kích thước hiển thị của chữ cho vùng đối tượng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.ObjectBorderThickness">
+            <summary>
+            Chiều dày border của vùng đối tượng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.ObjectDisplayMode">
+            <summary>
+            Cài đặt chế độ hiển thị cho vùng đối tượng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.SearchLinesFeatureExisted">
+            <summary>
+            Biến thể hiện lớp cài đặt có chức năng chỉ hướng tìm kiếm.
+            Chức năng này được sử dụng chính để cho phép có hiển thị lên giao diện những chức năng liên quan.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.FeaturePointsExisted">
+            <summary>
+            Biến thể hiện lớp cài đặt có chức năng tìm ra những điểm đặc biệt trong hình ảnh.
+            Chức năng này được sử dụng chính để cho phép có hiển thị lên giao diện những chức năng liên quan.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.IsShowSearchLines">
+            <summary>
+            Cho phép hiển thị những đường tìm kiếm. Ví dụ module tìm cạnh, tìm đường tròn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.IsShowFeaturePoints">
+            <summary>
+            Cho phép hiển thị những điểm đặc tính tìm thấy. Ví dụ module tìm cạnh, tìm đường tròn.
+            Điểm tìm thấy thường được đánh dấu bằng hình tròn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.SearchLineColor">
+            <summary>
+            Màu đường tìm kiếm
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.FeaturePointFillColor">
+            <summary>
+            Màu điểm tìm thấy
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.SearchLineBorderThickness">
+            <summary>
+            Chiều dày đường tìm kiếm
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.FeaturePointSize">
+            <summary>
+            Kích thước của feature point. Kích thước mặc định là (2,2)
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.SearchLineDisplayMode">
+            <summary>
+            Cài đặt chế độ hiển thị cho Search Line
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.DisplayOverlaySetting.FeaturePointDisplayMode">
+            <summary>
+            Cài đặt chế độ hiển thị cho Feature Point
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderProcessingTextOverlay(ST4I.Vision.IRoi,System.String,System.String,System.Boolean)">
+            <summary>
+            Tạo lớp text overlay dựa theo dữ liệu đầu vào. Màu sắc của overlay sẽ theo trạng thái đầu vào
+            </summary>
+            <param name="roi">Vùng xử lý</param>
+            <param name="label">Nội dung tiêu đề</param>
+            <param name="data">Nội dung dữ liệu</param>
+            <param name="status">Trạng thái kết quả</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderProcessingTextOverlay(OpenCvSharp.Point2d[],System.String,System.String,System.Boolean)">
+            <summary>
+            Tạo lớp text overlay dựa theo dữ liệu đầu vào. Màu sắc của overlay sẽ theo trạng thái đầu vào
+            </summary>
+            <param name="vertices">Vùng xử lý</param>
+            <param name="label">Nội dung tiêu đề</param>
+            <param name="data">Nội dung dữ liệu</param>
+            <param name="status">Trạng thái kết quả</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderProcessingRegionOverlay(ST4I.Vision.IRoi,System.String)">
+            <summary>
+            Tạo lớp overlay thể hiện vùng Roi xử lý tính toán. Màu sắc của overlay sẽ theo màu sắc đầu vào
+            </summary>
+            <param name="roi">Vùng xử lý</param>
+            <param name="color">Màu sắc lớp overlay</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderProcessingRegionOverlay(OpenCvSharp.Point2d[],System.String)">
+            <summary>
+            Tạo lớp overlay thể hiện vùng Roi xử lý tính toán. Màu sắc của overlay sẽ theo màu sắc đầu vào
+            </summary>
+            <param name="vertices">Vùng xử lý</param>
+            <param name="color">Màu sắc lớp overlay</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderProcessingRegionOverlay(OpenCvSharp.Point[],System.String)">
+            <summary>
+            Tạo lớp overlay thể hiện vùng Roi xử lý tính toán. Màu sắc của overlay sẽ theo màu sắc đầu vào
+            </summary>
+            <param name="vertices">Vùng xử lý</param>
+            <param name="color">Màu sắc lớp overlay</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderProcessingRegionOverlay(ST4I.Vision.IRoi,System.Boolean)">
+            <summary>
+            Tạo lớp overlay thể hiện vùng Roi xử lý tính toán. Màu sắc của overlay sẽ theo trạng thái đầu vào
+            </summary>
+            <param name="roi">Vùng xử lý</param>
+            <param name="status">Trạng thái vùng xử lý</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderProcessingRegionOverlay(OpenCvSharp.Point2d[],System.Boolean)">
+            <summary>
+            Tạo lớp overlay thể hiện vùng Roi xử lý tính toán. Màu sắc của overlay sẽ theo trạng thái đầu vào
+            </summary>
+            <param name="vertices">Vùng xử lý</param>
+            <param name="status">Trạng thái vùng xử lý</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderProcessingRegionOverlay(OpenCvSharp.Point[],System.Boolean)">
+            <summary>
+            Tạo lớp overlay thể hiện vùng Roi xử lý tính toán. Màu sắc của overlay sẽ theo trạng thái đầu vào
+            </summary>
+            <param name="vertices">Vùng xử lý</param>
+            <param name="status">Trạng thái vùng xử lý</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderObjectTextOverlay(OpenCvSharp.Point2d,System.String,System.String)">
+            <summary>
+            Tạo lớp overlay hiển thị nội dung dành riêng cho đối tượng
+            </summary>
+            <param name="position"></param>
+            <param name="content"></param>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderObjectTextOverlay(ST4I.Vision.IRoi,System.String,System.Boolean)">
+            <summary>
+            Tạo lớp text overlay dựa theo dữ liệu đầu vào. Function này chuyên dùng cho vẽ overlay đối tượng.
+            Màu sắc của vùng sẽ theo trạng thái kết quả hoặc màu sắc chỉ định của đối tượng.
+            Nếu cài đặt sử dụng màu sắc riêng của đối tượng thì kết quả màu sẽ theo màu sắc riêng.
+            </summary>
+            <param name="roi">Vùng xử lý</param>
+            <param name="content">Nội dung dữ liệu</param>
+            <param name="status">Trạng thái kết quả</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderObjectTextOverlay(OpenCvSharp.Point2d[],System.String,System.Boolean)">
+            <summary>
+            Tạo lớp text overlay dựa theo dữ liệu đầu vào. Function này chuyên dùng cho vẽ overlay đối tượng.
+            Màu sắc của vùng sẽ theo trạng thái kết quả hoặc màu sắc chỉ định của đối tượng.
+            Nếu cài đặt sử dụng màu sắc riêng của đối tượng thì kết quả màu sẽ theo màu sắc riêng.
+            </summary>
+            <param name="vertices">Vùng xử lý</param>
+            <param name="content">Nội dung dữ liệu</param>
+            <param name="status">Trạng thái kết quả</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderObjectTextOverlay(OpenCvSharp.Point[],System.String,System.Boolean)">
+            <summary>
+            Tạo lớp text overlay dựa theo dữ liệu đầu vào. Function này chuyên dùng cho vẽ overlay đối tượng.
+            Màu sắc của vùng sẽ theo trạng thái kết quả hoặc màu sắc chỉ định của đối tượng.
+            Nếu cài đặt sử dụng màu sắc riêng của đối tượng thì kết quả màu sẽ theo màu sắc riêng.
+            </summary>
+            <param name="vertices">Vùng xử lý</param>
+            <param name="content">Nội dung dữ liệu</param>
+            <param name="status">Trạng thái kết quả</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderObjectRegionOverlay(ST4I.Vision.IRoi,System.String)">
+            <summary>
+            Tạo lớp overlay thể hiện vùng đối tượng
+            </summary>
+            <param name="roi">Vùng xử lý</param>
+            <param name="color">Màu sắc lớp overlay</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderObjectRegionOverlay(OpenCvSharp.Point2d[],System.String)">
+            <summary>
+            Tạo lớp overlay thể hiện vùng đối tượng. Màu sắc của overlay sẽ theo màu sắc đầu vào
+            </summary>
+            <param name="vertices">Vùng xử lý</param>
+            <param name="color">Màu sắc lớp overlay</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderObjectRegionOverlay(OpenCvSharp.Point[],System.String)">
+            <summary>
+            Tạo lớp overlay thể hiện vùng đối tượng. Màu sắc của overlay sẽ theo màu sắc đầu vào
+            </summary>
+            <param name="vertices">Vùng xử lý</param>
+            <param name="color">Màu sắc lớp overlay</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderObjectRegionOverlay(ST4I.Vision.IRoi,System.Boolean)">
+            <summary>
+            Tạo lớp overlay thể hiện vùng đối tượng. Màu sắc của vùng sẽ theo trạng thái kết quả hoặc màu sắc chỉ định của đối tượng.
+            Nếu cài đặt sử dụng màu sắc riêng của đối tượng thì kết quả màu sẽ theo màu sắc riêng
+            </summary>
+            <param name="roi">Vùng xử lý</param>
+            <param name="status">Trạng thái vùng xử lý</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderObjectRegionOverlay(OpenCvSharp.Point2d[],System.Boolean)">
+            <summary>
+            Tạo lớp overlay thể hiện vùng đối tượng. Màu sắc của vùng sẽ theo trạng thái kết quả hoặc màu sắc chỉ định của đối tượng.
+            Nếu cài đặt sử dụng màu sắc riêng của đối tượng thì kết quả màu sẽ theo màu sắc riêng
+            </summary>
+            <param name="vertices">Vùng xử lý</param>
+            <param name="status">Trạng thái vùng xử lý</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.RenderObjectRegionOverlay(OpenCvSharp.Point[],System.Boolean)">
+            <summary>
+            Tạo lớp overlay thể hiện vùng đối tượng. Màu sắc của vùng sẽ theo trạng thái kết quả hoặc màu sắc chỉ định của đối tượng.
+            Nếu cài đặt sử dụng màu sắc riêng của đối tượng thì kết quả màu sẽ theo màu sắc riêng
+            </summary>
+            <param name="vertices">Vùng xử lý</param>
+            <param name="status">Trạng thái vùng xử lý</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.CanShowProcessingRegion(System.Boolean)">
+            <summary>
+            Kiểm tra cài đặt và trạng thái có cho phép hiển thị vùng làm việc ko
+            </summary>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.CanShowProcessingText(System.Boolean)">
+            <summary>
+            Kiểm tra cài đặt và trạng thái có cho phép hiển thị nội dung vùng xử lý
+            </summary>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.CanShowObjectRegion(System.Boolean)">
+            <summary>
+            Kiểm tra cài đặt và trạng thái có cho phép hiển thị vùng đối tượng
+            </summary>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.CanShowObjectText(System.Boolean)">
+            <summary>
+            Kiểm tra cài đặt và trạng thái có cho phép hiển thị nội dung vùng đối tượng
+            </summary>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.CanShowSearchLine(System.Boolean)">
+            <summary>
+            Kiểm tra cài đặt và trạng thái có cho phép hiển thị đường tìm kiếm
+            </summary>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.DisplayOverlaySetting.CanShowFeaturePoint(System.Boolean)">
+            <summary>
+            Kiểm tra cài đặt và trạng thái có cho phép hiển thị đường tìm kiếm
+            </summary>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Component.Edge">
+            <summary>
+            Đường liên kết giữa các cổng của node trong Graph
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.Edge.SourcePort">
+            <summary>
+            Cổng nguồn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.Edge.DestPort">
+            <summary>
+            Cổng đích
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.Edge.PriorityWeight">
+            <summary>
+            Trọng số ưu tiên
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.Edge.ID">
+            <summary>
+            Mã ID của edge
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.Edge.SourcePortID">
+            <summary>
+            Mã ID của cổng nguồn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.Edge.DestPortID">
+            <summary>
+            Mã ID của cổng đích
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.Edge.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Component.Edge"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.Edge.#ctor(ST4I.Vision.Component.Port,ST4I.Vision.Component.Port)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Component.Edge"/>
+            </summary>
+            <param name="sourcePort">Cổng nguồn</param>
+            <param name="destPort">Cổng đích</param>
+        </member>
+        <member name="T:ST4I.Vision.Component.EdgeChangeEventType">
+            <summary>
+            Định nghĩa enum cho sự kiện liên kết giữa các port
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.EdgeChangeEventType.AddEdge">
+            <summary>
+            Thêm một liên kết mới
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.EdgeChangeEventType.RemoveEdge">
+            <summary>
+            Xóa một liên kết
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.InputEdgeChangedEventHandler">
+            <summary>
+            Sự kiện khi có thay đổi kết nối từ node trước đó
+            </summary>
+            <param name="previousNode"></param>
+            <param name="type"></param>
+        </member>
+        <member name="T:ST4I.Vision.Component.NodeException">
+            <summary>
+            Lớp exception dành cho Node
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeException.#ctor(System.Int32)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Component.NodeException"/>
+            </summary>
+            <param name="hResult">Mã lỗi</param>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeException.#ctor(System.String)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Component.NodeException"/>
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeException.#ctor(System.Int32,System.String)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Component.NodeException"/>
+            </summary>
+            <param name="hResult">Mã lỗi</param>
+            <param name="message">Nội dung lỗi</param>
+        </member>
+        <member name="T:ST4I.Vision.Component.INodeDisplayResult">
+            <summary>
+            Lớp interface dành cho node hỗ trợ hiển thị kết quả lên giao diện
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INodeDisplayResult.OverlaySetting">
+            <summary>
+            Cài đặt hiển thị lớp overlay
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.INodeDisplayResult.GetOverlays(ST4I.Vision.Component.INodeData,System.Boolean)">
+            <summary>
+            Lấy lớp hiển thị dạng overlay
+            </summary>
+            <param name="data">Dữ liệu được truyền vào</param>
+            <param name="debugMode">Sử dụng ở chế độ debug hay không</param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Component.INodeRequireIntial">
+            <summary>
+            Lớp interface dành cho những node cần khởi tạo trước khi sử dụng. Ví dụ node cần learning template, hoặc liên kết với các
+            thiết bị ngoại vi
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.INodeRequireIntial.Initial">
+            <summary>
+            Khởi tạo node
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.INodeSaveFileParameters">
+            <summary>
+            Node có lưu trữ thông số từ file
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.INodeSaveFileParameters.SaveParameters(System.String)">
+            <summary>
+            Lưu thông số vào dạng file, ví dụ như ảnh hay model training
+            </summary>
+            <param name="pathFolder"></param>
+        </member>
+        <member name="M:ST4I.Vision.Component.INodeSaveFileParameters.LoadParameters(System.String)">
+            <summary>
+            Load thông số từ dạng file
+            </summary>
+            <param name="pathFolder"></param>
+        </member>
+        <member name="T:ST4I.Vision.Component.NodeComponent">
+            <summary>
+            Cấu trúc node cơ bản
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.Name">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.Name"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.Type">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.Type"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.Module">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.Module"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeComponent.Excute">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.INode.Excute"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeComponent.ExcuteIndependent">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.INode.ExcuteIndependent"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.BreakPointFlag">
+            <summary>
+            If true, this process will stop at this node
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.NodeID">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.NodeID"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.MinNextNode">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.MinNextNode"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.MaxNextNode">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.MaxNextNode"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.MinPreviousNode">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.MinPreviousNode"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.MaxPreviousNode">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.MaxPreviousNode"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.Ports">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.Ports"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.AttachedEdges">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.AttachedEdges"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.PreviousNodes">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.PreviousNodes"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.NextNodes">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.NextNodes"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.CurrOutPortChannel">
+            <summary>
+            Cổng hiện tại được cấp phép truyền dữ liệu đi (dành riêng cho output). Khi giá trị = -1 có nghĩa là gửi broadcast
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.CurrInPortChannel">
+            <summary>
+            Cổng hiện tại được cấp phép nhận dữ liệu (dành riêng cho input). Khi giá trị = -1 có nghĩa là gửi có thể nhận tất cả dữ liệu từ các nguồn khác tới
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.DataResult">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.DataResult"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeComponent.UpdateParams">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeComponent.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Component.NodeComponent"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeComponent.IsExcutionReady">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.INode.IsExcutionReady"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeComponent.BreakExecution">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.INode.BreakExecution"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeComponent.IsSetupCompleted(System.Int32[]@)">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.NodeComponent.IsSetupCompleted(System.Int32[]@)"/>
+            </summary>
+            <param name="errorCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeComponent.Finalize">
+            <summary>
+            Hủy NodeComponent
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeComponent.Dispose">
+            <summary>
+            Public implementation of Dispose pattern callable by consumers.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeComponent.Dispose(System.Boolean)">
+            <summary>
+            Protected implementation of Dispose pattern.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:ST4I.Vision.Component.NodeExtension">
+            <summary>
+            Chức năng mở rộng hỗ trợ cho node
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeExtension.CheckType(System.Object,System.Type[])">
+            <summary>
+            Check object has same type with list of given type or not
+            </summary>
+            <param name="o"></param>
+            <param name="types"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeExtension.ContainType(System.Type[],System.Type)">
+            <summary>
+            Kiểm tra xem danh sách type có chứa type đầu vào không
+            </summary>
+            <param name="sourceTypes">Danh sách type</param>
+            <param name="type">Type cần kiểm tra</param>
+            <returns>True nếu có và ngược lại</returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeExtension._FindPreviousNodeWithOutputType(ST4I.Vision.Component.INode,System.Type,System.Collections.Generic.List{ST4I.Vision.Component.INode}@)">
+            <summary>
+            Tìm kiếm tất cả những node dạng output trước node chỉ định và có kết quả output là dạng type theo yêu cầu
+            </summary>
+            <param name="node">Điểm node đầu tiên bắt đầu tìm kiếm</param>
+            <param name="type">Định dạng của output data của node</param>
+            <param name="listOutput">Danh sách kết quả</param>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeExtension.FindPreviousNodeWithOutputType(ST4I.Vision.Component.INode,System.Type)">
+            <summary>
+            Tìm kiếm tất cả những node dạng output trước node chỉ định và có kết quả output là dạng type theo yêu cầu
+            </summary>
+            <param name="node">Điểm node đầu tiên bắt đầu tìm kiếm</param>
+            <param name="type">Định dạng của output data của node</param>
+            <returns>Danh sách node tìm thấy</returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeExtension.FindPreviousNodeWithOutputType(ST4I.Vision.Component.INode,System.Type[])">
+            <summary>
+            Tìm kiếm tất cả những node dạng output trước node chỉ định và có kết quả output là dạng type theo yêu cầu
+            </summary>
+            <param name="node">Điểm node đầu tiên bắt đầu tìm kiếm</param>
+            <param name="types">Danh sách Định dạng của output data của node</param>
+            <returns>Danh sách node tìm thấy</returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeExtension.FindDataFromPreviousNodes(ST4I.Vision.Component.INode,System.String)">
+            <summary>
+            Tìm kiếm dữ liệu từ những node trước đó
+            </summary>
+            <param name="node">Node bắt đầu tìm kiếm (sẽ không bao gồm chính nó)</param>
+            <param name="nodeID">Mã ID của node</param>
+            <returns>Kết quả dữ liệu tìm được hoặc null nếu không tìm thấy</returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeExtension.FindPreviousNode(ST4I.Vision.Component.INode,System.String)">
+            <summary>
+            Tìm kiếm dữ liệu từ những node trước đó
+            </summary>
+            <param name="node">Node bắt đầu tìm kiếm (sẽ không bao gồm chính nó)</param>
+            <param name="nodeID">Mã ID của node</param>
+            <returns>Kết quả dữ liệu tìm được hoặc null nếu không tìm thấy</returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeExtension._FindPreviousNodeType(ST4I.Vision.Component.INode,System.Type,System.Collections.Generic.List{ST4I.Vision.Component.INode}@)">
+            <summary>
+            Tìm kiếm toàn bộ những node đứng đằng trước node chỉ định và có dạng type theo yêu cầu
+            </summary>
+            <param name="node">Điểm node đầu tiên bắt đầu tìm kiếm</param>
+            <param name="type">Định dạng của node</param>
+            <param name="listNode">Danh sách node</param>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeExtension.FindPreviousOutputNode(ST4I.Vision.Component.INode)">
+            <summary>
+            Tìm kiếm toàn bộ những node trước đó là dạng node output
+            </summary>
+            <param name="node">Điểm node đầu tiên bắt đầu tìm kiếm</param>
+            <returns>Danh sách node tìm được</returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeExtension.GetInputImage(ST4I.Vision.Component.INode,System.String)">
+            <summary>
+            Tìm kiếm dữ liệu dạng ảnh từ node trước đó
+            </summary>
+            <param name="node"></param>
+            <param name="sourceID"></param>
+            <returns>Dữ liệu nếu tìm thấy hoặc null nếu không tìm thấy</returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeExtension.GetFirstPortType(ST4I.Vision.Component.Port[],ST4I.Vision.Component.PortType)">
+            <summary>
+            Lựa chọn cổng đầu tiên theo định dạng từ danh sách cổng
+            </summary>
+            <param name="ports">Danh sách cổng</param>
+            <param name="type">Loại cổng</param>
+            <returns>Cổng tìm thấy. Nếu không tìm thấy sẽ trả về null</returns>
+        </member>
+        <member name="T:ST4I.Vision.Component.NodeInOut">
+            <summary>
+            Node hỗ trợ input và output
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeInOut.ReceivedData">
+            <summary>
+            Kết quả nhận dữ liệu từ node phía trước
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeInOut.ReceiveDataType">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeInput.ReceiveDataType"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeInOut.TransferDataType">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeOutput.TransferDataType"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeInOut.ReceiveData(ST4I.Vision.Component.INodeData)">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.INodeInput.ReceiveData(ST4I.Vision.Component.INodeData)"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeInOut.FinishWork(ST4I.Vision.Component.INodeData)">
+            <summary>
+            Xử lý dữ liệu sau khi kết thúc tính toán
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeInOut.SendData(ST4I.Vision.Component.INodeData)">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.INodeOutput.SendData(ST4I.Vision.Component.INodeData)"/>
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeInOut.UpdateInputData">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.INodeInput.UpdateInputData"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeInOut.OnInputEdgeChanged(ST4I.Vision.Component.INode,ST4I.Vision.Component.EdgeChangeEventType)">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.INodeInput.OnInputEdgeChanged(ST4I.Vision.Component.INode,ST4I.Vision.Component.EdgeChangeEventType)"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeInOut.ClearAllMarked">
+            <summary>
+            Xoá đánh dấu thông tin của những node trước đó đã gửi thông tin tới
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.INode">
+            <summary>
+            Interface cơ bản cho node
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.Name">
+            <summary>
+            Tên node
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.NodeID">
+            <summary>
+            Mã ID của node, mã được tạo ra theo GUID
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.PreviousNodes">
+            <summary>
+            Danh sách những node đằng trước liên kết với node
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.NextNodes">
+            <summary>
+            Danh sách những node kế tiếp mà node liên kết tới
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.MinNextNode">
+            <summary>
+            Số lượng tối thiểu node kế tiếp
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.MaxNextNode">
+            <summary>
+            Số lượng tối đa node kế tiếp
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.MinPreviousNode">
+            <summary>
+            Số lượng tối thiểu node trước đó
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.MaxPreviousNode">
+            <summary>
+            Số lượng tối đa node trước đó
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.INode.Excute">
+            <summary>
+            Thực hiện tính toán
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.INode.ExcuteIndependent">
+            <summary>
+            Thực hiện tính toán chỉ riêng trong node mà không sử dụng những dự liệu hỗ trợ định vị v.vv
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.INode.IsExcutionReady">
+            <summary>
+            Kiểm tra xem node đã có đầy đủ dữ liệu cho việc tính toán hay chưa dựa vào thông tin các node trước đó đã hoàn thành và đã gửi dữ liệu tới. 
+            Nếu node không có những node đằng trước thì kết quả luôn trả về true
+            </summary>
+            <returns>True nếu tất các node trước đó đã gửi dữ liệu tới</returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.INode.IsSetupCompleted(System.Int32[]@)">
+            <summary>
+            Kiểm tra xem cài đặt cho node đã hoàn thành chưa
+            </summary>
+            <param name="errorCode">Danh sách mã lỗi nếu cài đặt chưa được hoàn thành</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.INode.BreakExecution">
+            <summary>
+            Yêu cầu module dừng xử lý
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.Type">
+            <summary>
+            Định nghĩa loại node
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.Ports">
+            <summary>
+            Danh sách cổng input/output của node
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.AttachedEdges">
+            <summary>
+            Danh sách đường kết nối đang kết nối tới node
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.DataResult">
+            <summary>
+            Kết quả xử lý hiện tại của node
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.Module">
+            <summary>
+            Vision core module
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INode.UpdateParams">
+            <summary>
+            Chức năng này được bật thông báo cho các module cập nhật các parameters mới khi thực thi. Được dùng khi đang cài đặt chương trình
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.IRootNode">
+            <summary>
+            Lớp interface dành cho Root node
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.INodeOutput">
+            <summary>
+            Interface cho node có đẩu ra dữ liệu
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INodeOutput.TransferDataType">
+            <summary>
+            Danh sách type kết quả đầu ra của node
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.INodeOutput.SendData(ST4I.Vision.Component.INodeData)">
+            <summary>
+            Chuyển tiếp dữ liệu cho những node kế tiếp
+            </summary>
+            <param name="data">Dữ liệu</param>
+            <returns>Số lượng chuyển tiếp cho những node kế tiếp thành công</returns>
+        </member>
+        <member name="T:ST4I.Vision.Component.INodeInput">
+            <summary>
+            Interface cho node cho phép dữ liệu chuyển tới
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.INodeInput.OnInputEdgeChanged(ST4I.Vision.Component.INode,ST4I.Vision.Component.EdgeChangeEventType)">
+            <summary>
+            Hàm xử lý sự kiện khi có kết nối mới hoặc xóa liên kết, node sẽ cập nhật lại luồng dữ liệu khi có sự thay đổi. Gửi thông báo tới chuỗi node tiếp theo
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INodeInput.ReceiveDataType">
+            <summary>
+            Danh sách những loại dữ liệu node cho phép nhận
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.INodeInput.ReceiveData(ST4I.Vision.Component.INodeData)">
+            <summary>
+            Hàm nhận dữ liệu từ node trước đó
+            </summary>
+            <param name="data">Dữ liệu</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.INodeInput.UpdateInputData">
+            <summary>
+            Cập nhật lại toàn bộ dữ liệu từ những node đằng trước. 
+            Hàm này được sử dụng khi khởi tạo một project hoặc khi có sự thay đổi về kết nối giữa các node
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.INodeInputTrigger">
+            <summary>
+            Interface cho node nhận tín hiệu dạng trigger
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.INodeInputTrigger.ReceiveTrigger(ST4I.Vision.Component.INodeData)">
+            <summary>
+            Nhận tín hiệu dạng trigger
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Component.INodeOutputTrigger">
+            <summary>
+            Interface cho node gửi tín hiệu dạng trigger
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.INodeOutputTrigger.SendTrigger(ST4I.Vision.Component.INodeData)">
+            <summary>
+            Trigger tới node kế tiếp
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Component.INodeInputImage">
+            <summary>
+            Interface cho đối tượng có sử dụng đầu vào là ảnh
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INodeInputImage.ImageSourceID">
+            <summary>
+            ID của node trước đó có đầu ra là ảnh
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.INodeInputImage.GetInputImage">
+            <summary>
+            Đọc dữ liệu ảnh đầu vào
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ST4I.Vision.Component.INodeInputImage.ImageSupportedType">
+            <summary>
+            Danh sách loại ảnh được hỗ trợ. MatType dưới dạng number
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.INodeSupportSetupRoi">
+            <summary>
+            Interface cho node hỗ trợ cài đặt roi
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INodeSupportSetupRoi.RoiSelectedType">
+            <summary>
+            Loại Roi lựa chọn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INodeSupportSetupRoi.IsEnableReposition">
+            <summary>
+            Cho phép thay đổi vùng ROI dựa trên hệ thống tọa độ mới được trỏ tới bởi SystemCoordinateSourceID
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INodeSupportSetupRoi.SystemCoordinateSourceID">
+            <summary>
+            Mã ID của system coordinate. Được dùng để thay đổi vùng tính toán theo tọa độ mới của System Coordinate
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INodeSupportSetupRoi.TransformMode">
+            <summary>
+            Chế độ định vị đối tượng
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.INodeUseCamera">
+            <summary>
+            Interface cho node sử dụng camera
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.INodeUseCamera.CameraProperty">
+            <summary>
+            Thông số camera mà node sử dụng
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.NodeType">
+            <summary>
+            Định nghĩa loại chức năng của node
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.Undefined">
+            <summary>
+            Không được định nghĩa
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.RootNode">
+            <summary>
+            Node khởi đầu
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.EndNode">
+            <summary>
+            Node kết thúc
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.ReadImageFile">
+            <summary>
+            Đọc ảnh từ dạng file
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.ReadImageUriSource">
+            <summary>
+            Đọc ảnh từ nguồn stream. Có thể dạng path file hoặc nguồn stream
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.ReadVisionImageUriNode">
+            <summary>
+            Đọc ảnh từ nguồn stream, trả về dạng VisionImage. Có thể dạng path file hoặc nguồn stream
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.GrabImageCameraSoftwareTrigger">
+            <summary>
+            Trích xuất ảnh từ camera ở chế độ cài đặt software trigger
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.GrabImageCameraIOTrigger">
+            <summary>
+            Trích xuất ảnh từ camera ở chế độ cài đặt hardware trigger
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.CreateROI">
+            <summary>
+            Tạo Roi
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.GrayMatchingNCC">
+            <summary>
+            Gray matching theo phương pháp NCC
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.GrayMatchingNI">
+            <summary>
+            Gray matching dựa trên thư viện NI
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.MeasureIntensity">
+            <summary>
+            Đo cường độ sáng
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.MeasureColor">
+            <summary>
+            Đo màu sắc
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.CustomOverlay">
+            <summary>
+            Lớp hiển thị dành cho người dùng điều chỉnh
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.StringBuilder">
+            <summary>
+            Xây dựng chuỗi ký tự
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.Branch">
+            <summary>
+            Phân nhánh dữ liệu theo If Else
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.Loop">
+            <summary>
+            Dạng vòng lặp
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.FindLine">
+            <summary>
+            Tìm đường thẳng
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.FindCircle">
+            <summary>
+            Tìm hình tròn
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.Caliper">
+            <summary>
+            Tìm khoảng cách dạng thước kẹp
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.ReadBarcode">
+            <summary>
+            Đọc barcode
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.ReadBarcodeNI">
+            <summary>
+            Đọc barcode dựa trên thư viện NI
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.Read2DCode">
+            <summary>
+            Đọc mã 2D code
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.Read2DCodeNI">
+            <summary>
+            Đọc mã 2D code dựa trên thư viện NI
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.ConvertMatToVisionImage">
+            <summary>
+            Chuyển đổi ảnh Mat sang Vision Image của NI
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.ConvertVisionImageToMat">
+            <summary>
+            Chuyển đổi ảnh từ 
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.ColorConversion">
+            <summary>
+            Chuyển đổi hệ màu
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.ExtractColorPlane">
+            <summary>
+            Trích xuất channel màu
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.CountPixel">
+            <summary>
+            Đếm pixel theo ngưỡng đo
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.OCR_ClassifySVM">
+            <summary>
+            Đọc OCR dạng classify theo SVM
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.OCR_ClassifyCNN">
+            <summary>
+            Đọc OCR dạng classify theo mạng CNN
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.OCR_Tesseract">
+            <summary>
+            Đọc OCR theo thư viện tesseract
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.OCR_Paddle">
+            <summary>
+            Đọc OCR theo thư viện paddle
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.OCV_Basic">
+            <summary>
+            Kiểm tra chất lượng chữ
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.ShapeClassify">
+            <summary>
+            Phân loại theo biên dạng
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.ColorClassify">
+            <summary>
+            Phân loại theo màu sắc
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.BlobDetection">
+            <summary>
+            Phát hiện blob
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.BgcEnhancement">
+            <summary>
+            Cải thiện chất lượng ảnh: brightness, gain, contrast
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.PlcWriteRegister">
+            <summary>
+            Viết vào thanh ghi PLC
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.NodeType.PlcReadRegister">
+            <summary>
+            Đọc từ thanh ghi PLC
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.NodeVisionModule">
+            <summary>
+            Abstract cho node xử lý ảnh cơ bản, node có đầu vào là dạng ảnh
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeVisionModule.ImageSourceID">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeInputImage.ImageSourceID"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeVisionModule.IsEnableReposition">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeSupportSetupRoi.IsEnableReposition"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeVisionModule.SystemCoordinateSourceID">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeSupportSetupRoi.SystemCoordinateSourceID"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeVisionModule.TransformMode">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeSupportSetupRoi.TransformMode"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeVisionModule.RoiSelectedType">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeSupportSetupRoi.RoiSelectedType"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeVisionModule.ReceiveDataType">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeInput.ReceiveDataType"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.NodeVisionModule.ImageSupportedType">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeInputImage.ImageSupportedType"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeVisionModule.UpdateInputData">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.INodeInput.UpdateInputData"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeVisionModule.EuclideanTransformRoi(ST4I.Vision.IRoi,ST4I.Vision.IRoi@)">
+            <summary>
+            Dịch chuyển roi khi sử dụng chức năng Reposition. Cần bật IsEnableReposition và cài đặt SystemCoordinateSourceID
+            </summary>
+            <param name="roi">Roi tiêu chuẩn</param>
+            <param name="newRoi">Roi mới sau khi được dịch chuyển</param>
+            <returns>True nếu dịch chuyển Roi thành công</returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeVisionModule.GetInputImage">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.INodeInputImage.GetInputImage"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.NodeVisionModule.IsSetupCompleted(System.Int32[]@)">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.NodeVisionModule.IsSetupCompleted(System.Int32[]@)"/>
+            </summary>
+            <param name="errorCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Component.InputPort">
+            <summary>
+            Port dạng input
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.InputPort.AttachedNodes">
+            <summary>
+            Danh sách những node được liên kết từ port này
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.InputPort.markReceivedData">
+            <summary>
+            Sử dụng để đánh dấu những node đằng trước đã gửi dữ liệu tới port này
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.InputPort.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Component.InputPort"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.InputPort.AddEdge(ST4I.Vision.Component.Edge)">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.Port.AddEdge(ST4I.Vision.Component.Edge)"/>
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.InputPort.RemoveEdge(ST4I.Vision.Component.Edge)">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.Port.RemoveEdge(ST4I.Vision.Component.Edge)"/>
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.InputPort.ReceiveData(ST4I.Vision.Component.INodeData)">
+            <summary>
+            Nhận dữ liệu từ port output liên kết tới
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.InputPort.IsReceivedAllData">
+            <summary>
+            Kiểm tra xem đã nhận được tất cả dữ liệu từ những node đằng trước chưa
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.InputPort.ClearAllMarked">
+            <summary>
+            Xóa đánh dấu những node đã gửi dữ liệu
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.OutputPort">
+            <summary>
+            Port dạng output
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.OutputPort.AttachedNodes">
+            <summary>
+            Danh sách những node được liên kết từ port này
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.OutputPort.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Component.OutputPort"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.OutputPort.SendData(ST4I.Vision.Component.INodeData)">
+            <summary>
+            Gửi dữ liệu đi tới những port liên kết
+            </summary>
+            <param name="data">Dữ liệu cần gửi</param>
+            <returns>Số lượng node đã được gửi thành công</returns>
+        </member>
+        <member name="T:ST4I.Vision.Component.Port">
+            <summary>
+            Cổng thông tin in/out của node
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.Port.ParentNode">
+            <summary>
+            Node sở hữu port
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.Port.Type">
+            <summary>
+            Loại cổng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.Port.Channel">
+            <summary>
+            Kênh thông tin của port, mỗi port sẽ có một channel duy nhất và channel được dùng như một ID để định danh port
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.Port.ID">
+            <summary>
+            Mã ID của Port
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.Port.Edges">
+            <summary>
+            Danh sách edge đang được kết nối tới
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.Port.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Component.Port"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.Port.AddEdge(ST4I.Vision.Component.Edge)">
+            <summary>
+            Thêm một liên kết vào port
+            </summary>
+            <param name="edge">Liên kết</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.Port.RemoveEdge(ST4I.Vision.Component.Edge)">
+            <summary>
+            Xóa một liên kết với port
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Component.PortType">
+            <summary>
+            Cổng giao tiếp của node
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.PortType.Input">
+            <summary>
+            Dạng input
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.PortType.Output">
+            <summary>
+            Dạng output
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.IDraw">
+            <summary>
+            Lớp interface của item overlay sẽ được vẽ lên imagebox
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.IDraw.ConditionalStyling">
+            <summary>
+            Điều kiện style cho lớp overlay
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.IDraw.UpdateOverlay(ST4I.Vision.Component.INode)">
+            <summary>
+            Cập nhật thông số và giá trị cho lớp overlay
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ST4I.Vision.Component.IDrawPannel.Overlay">
+            <summary>
+            Lớp thuộc tính overlay gốc được cài đặt
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.IDrawPannel.TopLeftOffset">
+            <summary>
+            Điều chỉnh offset cho tọa độ Top-Left
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.IDrawPannel.BottomRightOffset">
+            <summary>
+            Điều chỉnh offset cho tọa độ Bottom-Right
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.IDrawEllipse.Overlay">
+            <summary>
+            Lớp thuộc tính overlay gốc được cài đặt
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.IDrawEllipse.CenterOffset">
+            <summary>
+            Điều chỉnh offset cho tọa độ tâm
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.TextDrawing.GetString(ST4I.Vision.Component.INode)">
+            <summary>
+            Lấy dữ liệu string từ đối tượng
+            </summary>
+            <param name="node">Đối tượng gốc, từ đối tượng này hàm sẽ tra ngược vễ những node trước đó và tìm ra đối tượng chứa string</param>
+            <returns></returns>
+        </member>
+        <member name="P:ST4I.Vision.Component.PanelDrawing.PropTopleft">
+            <summary>
+            Lựa chọn tham số kết quả (kết quả từng những nodes trước đo) cho tọa độ Top-Left. 
+            Nếu không lựa chọn thì tọa độ Top-Left của panel sẽ do người dùng định nghĩa
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.PanelDrawing.PropBottomRight">
+            <summary>
+            Lựa chọn tham số kết quả (kết quả từng những nodes trước đo) cho tọa độ Bottom-Right.
+            Nếu không lựa chọn thì tọa độ Top-Left của panel sẽ do người dùng định nghĩa
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.PanelDrawing.Update(ST4I.Vision.Component.INode)">
+            <summary>
+            Cập nhật hình dạng của overlay
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="T:ST4I.Vision.Component.OverlayConditionStructure">
+            <summary>
+            Cấu trúc lớp điều kiện style cho overlay
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.OverlayStyleCondition">
+            <summary>
+            Style lớp overlay theo điều kiện cụ thể
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.OverlayStyleCondition.IsEnable">
+            <summary>
+            Enable/disable điều kiện style
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.OverlayStyleCondition.DecisionStyle(ST4I.Vision.Component.INode)">
+            <summary>
+            Xác định style của lớp overlay dựa trên kết quả điều kiện
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ST4I.Vision.Component.PropertyItemKey.Parent">
+            <summary>
+            Parent
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.PropertyItemKey.Children">
+            <summary>
+            Children property
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.PropertyItemKey.Name">
+            <summary>
+            Property Name
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.PropertyItemKey.PropertyType">
+            <summary>
+            Type of property
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.PropertyItemKey.Attribute">
+            <summary>
+            Key attribute
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.PropertyItemKey.IndexInCollection">
+            <summary>
+            Index of item in collection. This index is only exist if the parent is collection
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.PropertyItemKey.IsCollection">
+            <summary>
+            Get/set indicate this item is collection
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.PropertyItemKey.KeyString">
+            <summary>
+            Key render string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Component.PropertyExtract">
+            <summary>
+            Class lưu trữ thông tin truy xuất dữ liệu từ một object
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.PropertyExtract.ObjectID">
+            <summary>
+            Mã ID của object lưu trữ dữ liệu
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.PropertyExtract.QueryCommand">
+            <summary>
+            Chuỗi query được sử dụng để lấy dữ liệu
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.PropertyExtract.PropertyType">
+            <summary>
+            Loại dữ liệu
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Component.PropertyManager">
+            <summary>
+            Property Manager will help to search all properties of object or get value from specific property
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.PropertyManager.HierarchicalSearchProperties(System.Object,ST4I.Vision.Component.PropertyItemKey@)">
+            <summary>
+            Hierarchical search all properties
+            </summary>
+            <param name="obj"></param>
+            <param name="propKey"></param>
+        </member>
+        <member name="M:ST4I.Vision.Component.PropertyManager.FindRootOfItem(ST4I.Vision.Component.PropertyItemKey)">
+            <summary>
+            Find root item from the given item
+            </summary>
+            <param name="prop"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.PropertyManager.RenderQueryString(ST4I.Vision.Component.PropertyItemKey)">
+            <summary>
+            Render query string to get value for Property item
+            </summary>
+            <param name="prop"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.PropertyManager.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            Get property value from object
+            </summary>
+            <param name="srcobj">Input object</param>
+            <param name="queryCommand">Support query by dot notation, ex: "Property1.Property2[1].Property3"</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.PropertyManager.GetPropertyValue``1(System.Object,System.String,``0@)">
+            <summary>
+            Get property value from object
+            </summary>
+            <typeparam name="T">Type cast</typeparam>
+            <param name="obj">Input object</param>
+            <param name="propertyName">Support query by dot notation, ex: "Property1.Property2[1].Property3"</param>
+            <param name="value">Reference value</param>
+            <returns>Result of get value</returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.PropertyManager.ConvertBuiltInTypeToAttrType(System.Type)">
+            <summary>
+            Convert built in type to attribute type
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ST4I.Vision.Component.TextPropertyExtract.CustomText">
+            <summary>
+            Nội dung được người dùng nhập
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.TextPropertyExtract.Converter">
+            <summary>
+            Hỗ trợ chuyển đổi dữ liệu sang dạng text
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.TextPropertyExtract.PropText">
+            <summary>
+            Tham số lưu trữ Text property
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.TextPropertyExtract.TextPreview">
+            <summary>
+            Nội dung được hiển thị khi cài đặt
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.TextPropertyExtract.GetString(ST4I.Vision.Component.INode)">
+            <summary>
+            Lấy dữ liệu string từ đối tượng
+            </summary>
+            <param name="obj">Đối tượng chứa dữ liệu</param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Component.ReadImageUriNode">
+            <summary>
+            Node có chức năng đọc ảnh từ nguồn stream
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.ReadImageUriNode.Type">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.Type"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.ReadImageUriNode.UriSource">
+            <summary>
+            Đường dẫn tới ảnh
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Component.ReadImageUriNode.Result">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.DataResult"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.ReadImageUriNode.DataResult">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INode.DataResult"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.ReadImageUriNode.ReceiveDataType">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeInput.ReceiveDataType"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Component.ReadImageUriNode.TransferDataType">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeOutput.TransferDataType"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Component.ReadImageUriNode.Excute">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.INode.Excute"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Component.ReadImageUriNode.IsSetupCompleted(System.Int32[]@)">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Component.ReadImageUriNode.IsSetupCompleted(System.Int32[]@)"/>
+            </summary>
+            <param name="errorCode"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

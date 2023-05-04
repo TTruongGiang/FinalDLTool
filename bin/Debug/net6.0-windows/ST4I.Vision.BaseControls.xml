@@ -1,0 +1,857 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ST4I.Vision.BaseControls</name>
+    </assembly>
+    <members>
+        <member name="T:ST4I.Vision.Controls.AdapterRangeLimit`1">
+            <summary>
+            Adapter hỗ trợ class PropRange có thể sự trong MVVM
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.Controls.AdapterRangeLimit`1.NotifyChanged">
+            <summary>
+            Event thông báo giá trị tham số đã được thay đổi
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.Controls.AdapterRangeLimit`1.PropertyChanged">
+            <summary>
+            <inheritdoc cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.AdapterRangeLimit`1.#ctor(ST4I.Vision.PropRange{`0})">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Controls.AdapterRangeLimit`1"/>
+            </summary>
+            <param name="range"></param>
+        </member>
+        <member name="P:ST4I.Vision.Controls.AdapterRangeLimit`1.IsEnabled">
+            <summary>
+            Enable/disable the limitation
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.AdapterRangeLimit`1.LowerValue">
+            <summary>
+            Set or get lower value
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.AdapterRangeLimit`1.UpperValue">
+            <summary>
+            Set or get upper value
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.AdapterRangeLimit`1.Minimum">
+            <summary>
+            Set or get thresh minimum value. LowerValue must greater or equal Minimum
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.AdapterRangeLimit`1.Maximum">
+            <summary>
+            Set or get thresh maximum value. UpperValue must less or equal Maximum
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.AdapterLimitThresh`1">
+            <summary>
+            Adapter hỗ trợ class PropThresh có thể sự trong MVVM
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.Controls.AdapterLimitThresh`1.NotifyChanged">
+            <summary>
+            Event thông báo giá trị tham số đã được thay đổi
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.AdapterLimitThresh`1.#ctor(ST4I.Vision.PropThresh{`0})">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Controls.AdapterLimitThresh`1"/>
+            </summary>
+            <param name="limit"></param>
+        </member>
+        <member name="P:ST4I.Vision.Controls.AdapterLimitThresh`1.IsEnabled">
+            <summary>
+            Enable/disable the limitation
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.AdapterLimitThresh`1.ThreshValue">
+            <summary>
+            Set or get thresh value
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.FieldRangeLimit`1">
+            <summary>
+            Class hỗ trợ người dùng cài đặt thông số dạng Limit Range
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.FieldRangeLimit`1.#ctor(ST4I.Vision.PropRange{`0})">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Controls.FieldRangeLimit`1"/>
+            </summary>
+            <param name="range"></param>
+        </member>
+        <member name="P:ST4I.Vision.Controls.FieldRangeLimit`1.Name">
+            <summary>
+            Tên thuộc tính được hiển thị trên giao diện
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.FieldThreshLimit`1">
+            <summary>
+            Class hỗ trợ người dùng cài đặt thông số dạng Limit Range
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.FieldThreshLimit`1.#ctor(ST4I.Vision.PropThresh{`0})">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Controls.FieldRangeLimit`1"/>
+            </summary>
+            <param name="range"></param>
+        </member>
+        <member name="P:ST4I.Vision.Controls.FieldThreshLimit`1.Name">
+            <summary>
+            Tên thuộc tính được hiển thị trên giao diện
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.IndexUserConverter">
+            <summary>
+            Chuyển đổi index giữa người dùng (hệ đếm từ 1) và programming (hệ đếm từ 0)
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.IndexUserConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            <inheritdoc cref="M:System.Windows.Data.IValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/>
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Controls.IndexUserConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            <inheritdoc cref="M:System.Windows.Data.IValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/>
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Controls.StatusTypeConverter">
+            <summary>
+            Chuyển đổi dạng enum status sang Pass/NG string
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.StatusTypeConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            <inheritdoc cref="M:System.Windows.Data.IValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/>
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Controls.StatusTypeConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            <inheritdoc cref="M:System.Windows.Data.IValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/>
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>Sta
+        </member>
+        <member name="T:ST4I.Vision.Controls.DisplayOverlaySettingContext">
+            <summary>
+            Lớp context dành cho cài đặt Overlay Setting
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.DisplayOverlaySettingContext.Setting">
+            <summary>
+            Cài đặt
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.DisplayOverlaySettingContext.FeaturePointSize">
+            <summary>
+            Kích thước của feature point
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.DisplayOverlaySettingContext.#ctor(ST4I.Vision.Component.DisplayOverlaySetting)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Controls.DisplayOverlaySettingContext"/>
+            </summary>
+            <param name="setting"></param>
+        </member>
+        <member name="T:ST4I.Vision.Controls.DisplayOverlaySettingControl">
+            <summary>
+            Interaction logic for DisplayOverlaySetting.xaml
+            </summary>
+            <summary>
+            DisplayOverlaySettingControl
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.DisplayOverlaySettingControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.ControlClosedEventHandler">
+            <summary>
+            Hàm xử lý sự kiện khi có control được đóng lại
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="T:ST4I.Vision.Controls.VisionMessageBox">
+            <summary>
+            <inheritdoc cref="T:System.Windows.MessageBox"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionMessageBox.Show(System.String)">
+            <summary>
+            <inheritdoc cref="M:System.Windows.MessageBox.Show(System.String)"/>
+            </summary>
+            <param name="messageBoxText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionMessageBox.Show(System.String,System.String)">
+            <summary>
+            <inheritdoc cref="M:System.Windows.MessageBox.Show(System.String,System.String)"/>
+            </summary>
+            <param name="messageBoxText"></param>
+            <param name="caption"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionMessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton)">
+            <summary>
+            <inheritdoc cref="M:System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton)"/>
+            </summary>
+            <param name="messageBoxText"></param>
+            <param name="caption"></param>
+            <param name="button"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionMessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)">
+            <summary>
+            <inheritdoc cref="M:System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)"/>
+            </summary>
+            <param name="messageBoxText"></param>
+            <param name="caption"></param>
+            <param name="button"></param>
+            <param name="icon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionMessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult)">
+            <summary>
+            <inheritdoc cref="M:System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult)"/>
+            </summary>
+            <param name="messageBoxText"></param>
+            <param name="caption"></param>
+            <param name="button"></param>
+            <param name="icon"></param>
+            <param name="defaultResult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionMessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult,System.Windows.MessageBoxOptions)">
+            <summary>
+            <inheritdoc cref="M:System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult,System.Windows.MessageBoxOptions)"/>
+            </summary>
+            <param name="messageBoxText"></param>
+            <param name="caption"></param>
+            <param name="button"></param>
+            <param name="icon"></param>
+            <param name="defaultResult"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Controls.BaseModuleContext">
+            <summary>
+            Lớp trừu tượng cơ bản cho View Model của property control
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.Controls.BaseModuleContext.PropertyChanged">
+            <summary>
+            <inheritdoc cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.BaseModuleContext.OnPropertyChanged(System.String)">
+            <summary>
+            Thông báo thay đổi lên giao diện
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="P:ST4I.Vision.Controls.BaseModuleContext.Status">
+            <summary>
+             Kết quả xử lý ảnh
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.BaseModuleContext.ExcutionTime">
+            <summary>
+            Thời gian xử lý của module
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.BaseModuleContext.StatusPresent">
+            <summary>
+            Kết quả xử lý ảnh được hiển thị lên giao diện
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.Controls.BaseModuleContext.ControlClosed">
+            <summary>
+            <inheritdoc cref="E:ST4I.Vision.Controls.IBaseModuleContext.ControlClosed"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.BaseModuleContext.NodeLink">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Controls.IBaseModuleContext.NodeLink"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.BaseModuleContext.OnStartupControl">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Controls.IBaseModuleContext.OnStartupControl"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.BaseModuleContext.InitialControl">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Controls.IBaseModuleContext.InitialControl"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.BaseModuleContext.SaveModuleCommand">
+            <summary>
+            Lệnh Lưu cài đặt module
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.BaseModuleContext.CancelControlCommand">
+            <summary>
+            Lệnh đóng control
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.BaseModuleContext.ExcuteModuleCommand">
+            <summary>
+            Lệnh thực thi chạy module
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.BaseModuleContext.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Controls.BaseModuleContext"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.BaseModuleContext.OnSaveModuleCommand(System.Object)">
+            <summary>
+            Lưu cài đặt module
+            </summary>
+            <param name="o"></param>
+        </member>
+        <member name="M:ST4I.Vision.Controls.BaseModuleContext.OnCancelControlCommand(System.Object)">
+            <summary>
+            Hàm xử lý yêu cầu đóng propery control
+            </summary>
+            <param name="o"></param>
+        </member>
+        <member name="M:ST4I.Vision.Controls.BaseModuleContext.Close">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Controls.IBaseModuleContext.Close"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.BaseModuleContext.OnExcuteModuleCommand(System.Object)">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Controls.BaseModuleContext.ExcuteModuleCommand"/>
+            </summary>
+            <param name="o"></param>
+        </member>
+        <member name="P:ST4I.Vision.Controls.CameraModuleContext.SelectedCameraPropertyIndex">
+            <summary>
+            Thứ tự lựa chọn camera
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.CameraModuleContext.NotFoundCameraProperty">
+            <summary>
+            Báo không tìm thấy camera
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.CameraModuleContext.ImageBox">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Controls.IInteractImageBox"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.CameraModuleContext.CameraDevicesSource">
+            <summary>
+            Danh sách camera được liệt kê từ những hệ thống
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.CameraModuleContext.SelectedCameraProperty">
+            <summary>
+            Lựa chọn camera
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.CameraModuleContext.UpdateInputData">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Controls.InputModuleContext.UpdateInputData"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.CameraModuleContext.OnStartupControl">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Controls.IBaseModuleContext.OnStartupControl"/>
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.CameraViewProperty">
+            <summary>
+            Hỗ trợ xem thông tin camera
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.CameraViewProperty.IsConnected">
+            <summary>
+            Trạng thái kết nối camera
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.CameraViewProperty.IsDeviceFound">
+            <summary>
+            Trạng thái camera được tìm thấy
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.CameraViewProperty.IsAccessible">
+            <summary>
+            Trạng thái camera được tìm thấy
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.CameraViewProperty.#ctor(ST4I.Vision.Camera.CameraFactoryProperty)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Controls.CameraViewProperty"/>
+            </summary>
+            <param name="property"></param>
+        </member>
+        <member name="M:ST4I.Vision.Controls.CameraViewProperty.ToString">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Controls.PlcModuleContext">
+            <summary>
+            Lớp abstract context dành cho module dạng interface
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.PlcModuleContext.PlcConfigSource">
+            <summary>
+            Danh sách cài đặt kết nối PLC
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.IBaseModuleContext">
+            <summary>
+            Lớp Interface cơ bản dành cho Property Control
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.IBaseModuleContext.NodeLink">
+            <summary>
+            Con trỏ tới Node của solution
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.Controls.IBaseModuleContext.ControlClosed">
+            <summary>
+            Sự kiện trang property control bị đóng
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.IBaseModuleContext.OnStartupControl">
+            <summary>
+            Hàm được gọi khi control được tạo mới hoặc khi người dùng lựa chọn node để cài đặt
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.IBaseModuleContext.InitialControl">
+            <summary>
+            Khởi tạo control khi có một node mới được tạo
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.IBaseModuleContext.Close">
+            <summary>
+            Hàm đóng control
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.IInteractImageBox">
+            <summary>
+            Interface dành cho property control cần tương tác với ImageBox của trang chính
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.IInteractImageBox.ImageBox">
+            <summary>
+            Con trỏ tới ImageBox Model ở trang chính
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.INeedUpdateControl">
+            <summary>
+            Interface dành cho property control sẽ cần thay đổi khi có dữ liệu thay đổi
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.INeedUpdateControl.RequestExcution">
+            <summary>
+            Hàm này được gọi khi module đang được cài đặt và người dùng thực hiện chạy toàn bộ solution. 
+            Mục đích là thực hiện xử lý với cài đặt trong Property Control và hiển thị thông tin lên Property Control
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.INeedUpdateControl.RequestUpdateViewResult(ST4I.Vision.Component.INodeData)">
+            <summary>
+            Hàm này được gọi khi module đang được cài đặt và người dùng thực hiện chạy toàn bộ project. 
+            Mục đích là hiển thị kết quả của module lên Property Control tương ứng
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="T:ST4I.Vision.Controls.InputModuleContext">
+            <summary>
+            Dành cho property control cài đặt module có đầu vào dữ liệu
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.InputModuleContext.UpdateInputData">
+            <summary>
+            Cập nhật lại toàn bộ dữ liệu từ những node đằng trước. Hàm này sẽ được gọi khi property control được mở 
+            hoặc khi có sự thay đổi liên kết từ node trước đó
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.InputModuleContext.OnInputEdgeChanged(ST4I.Vision.Component.INode,ST4I.Vision.Component.EdgeChangeEventType)">
+            <summary>
+            Xử lý thông tin khi có sự thay đổi từ những Node trước đó
+            </summary>
+            <param name="previousNode"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:ST4I.Vision.Controls.InputModuleContext.OnStartupControl">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Controls.BaseModuleContext.OnStartupControl"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.InputModuleContext.RequestExcution">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Controls.INeedUpdateControl.RequestExcution"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.InputModuleContext.RequestUpdateViewResult(ST4I.Vision.Component.INodeData)">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Controls.INeedUpdateControl.RequestUpdateViewResult(ST4I.Vision.Component.INodeData)"/>
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.ViewUIModuleContext">
+            <summary>
+            Dành cho property control cần cập nhật kết quả lên giao diện
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.ViewUIModuleContext.ImageBox">
+            <summary>
+            ImageBox được link với ImageBox của trang chính
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.ViewUIModuleContext.OnInputEdgeChanged(ST4I.Vision.Component.INode,ST4I.Vision.Component.EdgeChangeEventType)">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Controls.InputModuleContext.OnInputEdgeChanged(ST4I.Vision.Component.INode,ST4I.Vision.Component.EdgeChangeEventType)"/>
+            </summary>
+            <param name="previousNode"></param>
+            <param name="type"></param>
+        </member>
+        <member name="T:ST4I.Vision.Controls.VisionModuleAdvancedContext">
+            <summary>
+            Control cho vision control nâng cao: hỗ trợ cài đặt liên kết tới system coordinate
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.VisionModuleAdvancedContext.SystemCoordinateSourceCollection">
+            <summary>
+            Danh sách system coordinate được liệt kê từ những node liên kết trước đó
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.VisionModuleAdvancedContext.SelectedIndexSystemCoordinateSource">
+            <summary>
+            Số thứ tự lựa chọn ảnh nguồn (trên giao diện)
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.VisionModuleAdvancedContext.IsEnableReposition">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeSupportSetupRoi.IsEnableReposition"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.VisionModuleAdvancedContext.RoiSelectedType">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Component.INodeSupportSetupRoi.IsEnableReposition"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionModuleAdvancedContext.UpdateInputData">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Controls.InputModuleContext.UpdateInputData"/>
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.VisionModuleContext">
+            <summary>
+            Dành cho property control chuyên cài đặt module vision, có đầu vào dữ liệu là ảnh, xử lý thông tin và cho kết quả đầu ra
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Controls.VisionModuleContext.isUpdateImageEnabled">
+            <summary>
+            Biến được sử dụng để bật/tắt chế độ cho phép cập nhật ảnh lên imagebox
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.VisionModuleContext.RoiTypeSupported">
+            <summary>
+            Loại Roi hỗ trợ
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.VisionModuleContext.ImageSource">
+            <summary>
+            Danh sách ảnh được liệt kê từ những node liên kết trước đó
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.VisionModuleContext.SelectedIndexImageSource">
+            <summary>
+            Số thứ tự lựa chọn ảnh nguồn (trên giao diện)
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionModuleContext.TryGetImageSource">
+            <summary>
+            Thử lấy ảnh từ nguồn
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ST4I.Vision.Controls.VisionModuleContext.ImageBox">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Controls.IInteractImageBox.ImageBox"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.VisionModuleContext.InputImage">
+            <summary>
+            Con trỏ tới ảnh đầu vào
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.VisionModuleContext.HadInputImage">
+            <summary>
+            Biến biểu hiện có ảnh đầu vào
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.VisionModuleContext.AutoExcuteWhenPropertyChanged">
+            <summary>
+            Cho phép tự động tính toán khi người dùng thay đổi thông số bất kỳ trên giao diện
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionModuleContext.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Controls.VisionModuleContext"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionModuleContext.UpdateInputData">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Controls.InputModuleContext.UpdateInputData"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionModuleContext.OnRoiAdded(System.Object,ST4I.Vision.IRoi)">
+            <summary>
+            Hàm xử lý sự kiện thêm một Roi mới
+            </summary>
+            <param name="o"></param>
+            <param name="roi"></param>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionModuleContext.OnRoiChanged(System.Object,ST4I.Vision.IRoi)">
+            <summary>
+            Hàm xử lý sự kiện chỉnh sửa Roi
+            </summary>
+            <param name="o"></param>
+            <param name="roi"></param>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionModuleContext.OnRoiDeleted(System.Object,ST4I.Vision.IRoi)">
+            <summary>
+            Hàm xử lý sự kiện xóa ROI
+            </summary>
+            <param name="o"></param>
+            <param name="roi"></param>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionModuleContext.OnStartupControl">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.Controls.InputModuleContext.OnStartupControl"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionModuleContext.Finalize">
+            <summary>
+            Hàm hủy class
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionModuleContext.Dispose">
+            <summary>
+            Public implementation of Dispose pattern callable by consumers.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.VisionModuleContext.Dispose(System.Boolean)">
+            <summary>
+            Protected implementation of Dispose pattern
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:ST4I.Vision.Controls.OcrSetupControl">
+            <summary>
+            Interaction logic for OcrSetupControl.xaml
+            </summary>
+            <summary>
+            OcrSetupControl
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.OcrSetupControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.MatchedObjectReportView">
+            <summary>
+            Kết quả tìm kiếm template dùng để hiển thị lên giao diện
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.MatchedObjectReportView.Index">
+            <summary>
+            Thứ tự trong kết quả
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.MatchedObjectReportView.X">
+            <summary>
+            Tọa độ X của template
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.MatchedObjectReportView.Y">
+            <summary>
+            Tọa độ Y của template
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.MatchedObjectReportView.Angle">
+            <summary>
+            Góc xoay
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.MatchedObjectReportView.Score">
+            <summary>
+            Kết quả score
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.SelectNodeDataContext.HasChanged">
+            <summary>
+            Biến thể hiện người dùng đã có sự thay đổi về dữ liệu
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.SelectNodeDataContext.SaveCommand">
+            <summary>
+            Save command
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.SelectNodeDataContext.CancelCommand">
+            <summary>
+            Save command
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Controls.SelectNodeDataContext.SelectedObject">
+            <summary>
+            Mã ID của đối tượng được lựa chọn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.SelectNodeDataContext.SelectedMenuItem">
+            <summary>
+            Current selected menu item
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.SelectNodeDataContext.DataPreview">
+            <summary>
+            Preview string data
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.SelectNodeDataContext.SelectedProperty">
+            <summary>
+            Selected property
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.SelectNodeDataWindow">
+            <summary>
+            Interaction logic for SelectNodeDataWindow.xaml
+            </summary>
+            <summary>
+            SelectNodeDataWindow
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.SelectNodeDataWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Controls.LanguageUtils">
+            <summary>
+            Công cụ hỗ trợ đa ngôn ngữ
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.LanguageUtils.SelectFromGlobalLanguage(System.String,System.String)">
+            <summary>
+            Lựa chọn ngôn ngữ theo cài đặt ngôn ngữ của application
+            </summary>
+            <param name="pathLanguageFile">Đường dẫn tệp language dictionary</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Controls.LanguageUtils.TryGetString(System.Windows.ResourceDictionary,System.String,System.String)">
+            <summary>
+            Lấy chuỗi ký tự được định nghĩa trong file Resource Dictionary
+            </summary>
+            <param name="languageDict">File Resource Dictionary</param>
+            <param name="key">Tên key</param>
+            <param name="alternativeString">Chuỗi ký tự thay thế nếu không tồn tại</param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Controls.NodeInfo">
+            <summary>
+            Cấu trúc chứa thông tin giản lược về node
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.NodeInfo.NodeID">
+            <summary>
+            ID của node
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Controls.NodeInfo.Name">
+            <summary>
+            Tên của node
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.Controls.RelayCommand.CanExecuteChanged">
+            <summary>
+            Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Controls.RelayCommand.#ctor(System.Action{System.Object})">
+            <summary>
+            Initializes a new instance of <see cref="!:DelegateCommand&lt;T&gt;"/>.
+            </summary>
+            <param name="execute">Delegate to execute when Execute is called on the command.  This can be null to just hook up a CanExecute delegate.</param>
+            <remarks><seealso cref="M:ST4I.Vision.Controls.RelayCommand.CanExecute(System.Object)"/> will always return true.</remarks>
+        </member>
+        <member name="M:ST4I.Vision.Controls.RelayCommand.#ctor(System.Action{System.Object},System.Func{System.Object,System.Boolean})">
+            <summary>
+            Creates a new command.
+            </summary>
+            <param name="execute">The execution logic.</param>
+            <param name="canExecute">The execution status logic.</param>
+        </member>
+        <member name="M:ST4I.Vision.Controls.RelayCommand.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state.
+            </summary>
+            <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
+            <returns>
+            true if this command can be executed; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:ST4I.Vision.Controls.RelayCommand.Execute(System.Object)">
+            <summary>
+            Defines the method to be called when the command is invoked.
+            </summary>
+            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to <see langword="null" />.</param>
+        </member>
+        <member name="T:ST4I.Vision.Controls.StatusType">
+            <summary>
+            Trạng thái kết quả
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Controls.StatusType.None">
+            <summary>
+            Chưa có kết quả
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Controls.StatusType.Pass">
+            <summary>
+            Kết quả pass
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Controls.StatusType.Fail">
+            <summary>
+            Kết quả Fail
+            </summary>
+        </member>
+    </members>
+</doc>

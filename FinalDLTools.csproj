@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+    <PackageReference Include="OpenCvSharp4" Version="4.5.5.20211231" />
+    <PackageReference Include="OpenCvSharp4.Extensions" Version="4.5.5.20211231" />
+    <PackageReference Include="OpenCvSharp4.Windows" Version="4.5.5.20211231" />
+    <PackageReference Include="WPF-UI" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ST4I.Vision.BaseComponent">
+      <HintPath>C:\SharePackages\ST4I\Any\ST4I.Vision.BaseComponent.dll</HintPath>
+    </Reference>
+    <Reference Include="ST4I.Vision.BaseControls">
+      <HintPath>C:\SharePackages\ST4I\Any\ST4I.Vision.BaseControls.dll</HintPath>
+    </Reference>
+    <Reference Include="ST4I.Vision.BaseCore">
+      <HintPath>C:\SharePackages\ST4I\Any\ST4I.Vision.BaseCore.dll</HintPath>
+    </Reference>
+    <Reference Include="ST4I.Vision.BaseModule">
+      <HintPath>C:\SharePackages\ST4I\Any\ST4I.Vision.BaseModule.dll</HintPath>
+    </Reference>
+    <Reference Include="ST4I.Vision.BaseSolution">
+      <HintPath>C:\SharePackages\ST4I\Any\ST4I.Vision.BaseSolution.dll</HintPath>
+    </Reference>
+    <Reference Include="ST4I.Vision.Common">
+      <HintPath>C:\SharePackages\ST4I\Any\ST4I.Vision.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ST4I.Vision.ImageBox">
+      <HintPath>C:\SharePackages\ST4I\Any\ST4I.Vision.ImageBox.dll</HintPath>
+    </Reference>
+    <Reference Include="ST4I.Wpf.Themes">
+      <HintPath>C:\SharePackages\ST4I\Any\ST4I.Wpf.Themes.dll</HintPath>
+    </Reference>
+    <Reference Include="ST4IVisionCoreNet">
+      <HintPath>C:\SharePackages\ST4I\Any\ST4IVisionCoreNet\netstandard2.0\ST4IVisionCoreNet.dll</HintPath>
+    </Reference>
+    <Reference Include="ST4IVisionCoreNet.WpfExtensions">
+      <HintPath>C:\SharePackages\ST4I\Any\ST4IVisionCoreNet\net6.0\ST4IVisionCoreNet.WpfExtensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

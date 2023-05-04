@@ -1,0 +1,1392 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ST4I.Vision.Common</name>
+    </assembly>
+    <members>
+        <member name="T:ST4I.Vision.KeyAttributeType">
+            <summary>
+            Loại thuộc tính
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.KeyAttributeType.Undefined">
+            <summary>
+            Undefined
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.KeyAttributeType.Ignore">
+            <summary>
+            Bỏ qua thuộc tính
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.KeyAttributeType.Bool">
+            <summary>
+            Boolean
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.KeyAttributeType.String">
+            <summary>
+            String
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.KeyAttributeType.Number">
+            <summary>
+            Numeric
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.KeyAttributeType.Image">
+            <summary>
+            Image Type
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.KeyAttributeType.Dictionary">
+            <summary>
+            Dictionary
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.KeyAttributeType.Collection">
+            <summary>
+            Collection
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.KeyAttributeType.Class">
+            <summary>
+            Class
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.KeyAttributeType.Point">
+            <summary>
+            Point
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.KeyAttributeType.Rectangle">
+            <summary>
+            Rectangle
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.KeyAttribute">
+            <summary>
+            Được dùng để dánh dấu những thuộc tính quan trọng trong class
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.KeyAttribute.Type">
+            <summary>
+            Loại thuộc tính
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.KeyAttribute.Description">
+            <summary>
+            Mô tả thuộc tính
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.KeyAttribute.#ctor(ST4I.Vision.KeyAttributeType,System.String)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.KeyAttribute"/>
+            </summary>
+            <param name="type">Kiểu thuộc tính</param>
+            <param name="description">Mô tả thuộc tính</param>
+        </member>
+        <member name="T:ST4I.Vision.KeyAttributeIgnore">
+            <summary>
+            Đánh dấu thuộc tính không quan trọng
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.KeyAttributeIgnore.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.KeyAttributeIgnore"/>
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.CustomDefinitionProperty">
+            <summary>
+            Định nghĩa thuộc tính cho Property
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.CustomDefinitionProperty.Name">
+            <summary>
+            Tên thuộc tính
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.CustomDefinitionProperty.Description">
+            <summary>
+            Mô tả
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.CustomDefinitionProperty.Type">
+            <summary>
+            Dạng attribute
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.CustomDefinitionProperty.#ctor(System.String,System.String,ST4I.Vision.KeyAttributeType)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.CustomDefinitionProperty"/>
+            </summary>
+            <param name="name">Tên thuộc tính</param>
+            <param name="description">Mô tả</param>
+            <param name="type">Dạng attribute</param>
+        </member>
+        <member name="T:ST4I.Vision.Utils.ReflectionCloner">
+            <summary>Clones objects using reflection</summary>
+            <remarks>
+              <para>
+                This type of cloning is a lot faster than cloning by serialization and
+                incurs no set-up cost, but requires cloned types to provide a default
+                constructor in order to work.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:ST4I.Vision.Utils.ReflectionCloner.DeepCopy``1(``0)">
+            <summary>
+              Creates a deep clone of the specified object, also creating clones of all
+              child objects being referenced
+            </summary>
+            <typeparam name="TCloned">Type of the object that will be cloned</typeparam>
+            <param name="objectToClone">Object that will be cloned</param>
+            <returns>A deep clone of the provided object</returns>
+        </member>
+        <member name="M:ST4I.Vision.Utils.ReflectionCloner.deepCloneSingleFieldBased(System.Object)">
+            <summary>Copies a single object using field-based value transfer</summary>
+            <param name="original">Original object that will be cloned</param>
+            <returns>A clone of the original object</returns>
+        </member>
+        <member name="M:ST4I.Vision.Utils.ReflectionCloner.deepCloneComplexFieldBased(System.Object)">
+            <summary>Clones a complex type using field-based value transfer</summary>
+            <param name="original">Original instance that will be cloned</param>
+            <returns>A clone of the original instance</returns>
+        </member>
+        <member name="M:ST4I.Vision.Utils.ReflectionCloner.deepCloneArrayFieldBased(System.Array,System.Type)">
+            <summary>Clones an array using field-based value transfer</summary>
+            <param name="original">Original array that will be cloned</param>
+            <param name="elementType">Type of elements the original array contains</param>
+            <returns>A clone of the original array</returns>
+        </member>
+        <member name="M:ST4I.Vision.Utils.ReflectionCloner.deepCloneSinglePropertyBased(System.Object)">
+            <summary>Copies a single object using property-based value transfer</summary>
+            <param name="original">Original object that will be cloned</param>
+            <returns>A clone of the original object</returns>
+        </member>
+        <member name="M:ST4I.Vision.Utils.ReflectionCloner.deepCloneComplexPropertyBased(System.Object)">
+            <summary>Clones a complex type using property-based value transfer</summary>
+            <param name="original">Original instance that will be cloned</param>
+            <returns>A clone of the original instance</returns>
+        </member>
+        <member name="M:ST4I.Vision.Utils.ReflectionCloner.deepCloneArrayPropertyBased(System.Array,System.Type)">
+            <summary>Clones an array using property-based value transfer</summary>
+            <param name="original">Original array that will be cloned</param>
+            <param name="elementType">Type of elements the original array contains</param>
+            <returns>A clone of the original array</returns>
+        </member>
+        <member name="M:ST4I.Vision.Utils.ClonerHelpers.GetFieldInfosIncludingBaseClasses(System.Type,System.Reflection.BindingFlags)">
+            <summary>
+              Returns all the fields of a type, working around a weird reflection issue
+              where explicitly declared fields in base classes are returned, but not
+              automatic property backing fields.
+            </summary>
+            <param name="type">Type whose fields will be returned</param>
+            <param name="bindingFlags">Binding flags to use when querying the fields</param>
+            <returns>All of the type's fields, including its base types</returns>
+        </member>
+        <member name="T:ST4I.Vision.Common.DongleLicense">
+            <summary>
+            Sử dụng usb dongle key
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Common.DongleLicense.IsLicenseValid">
+            <summary>
+            License đã được kích hoạt hay chưa
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Common.DongleLicense.ActiveLicense(System.UInt16,System.UInt16,System.UInt16,System.UInt16)">
+            <summary>
+            Kích hoạt license
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:ST4I.Vision.Common.DongleLicense.TryActiveByPowerLicense">
+            <summary>
+            Kích hoạt license
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:ST4I.Vision.Common.DongleLicense.ActiveLicenseByFile(System.String)">
+            <summary>
+            Kích hoạt license theo dạng file
+            </summary>
+            <param name="pathLicenseFile"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:ST4I.Vision.Common.DongleLicense.ActiveLicense(System.String)">
+            <summary>
+            Kích hoạt license theo dạng file
+            </summary>
+            <param name="license"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:ST4I.Vision.Common.DongleLicense.AlterContent(System.String,System.Boolean)">
+            <summary>
+            Chuỗi quy đổi
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Graph.NodeGraphType">
+            <summary>
+            Định nghĩa những dạng node được hỗ trợ
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.NodeGraphType.Undefined">
+            <summary>
+            Không được định dạng
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.NodeGraphType.Normal">
+            <summary>
+            Dạng node thông thường gồm 4 đầu vào/ra 2 chiều
+            </summary>
+            
+        </member>
+        <member name="F:ST4I.Vision.Graph.NodeGraphType.OnlyInput">
+            <summary>
+            Dạng node chỉ hỗ trợ đầu vào input
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.NodeGraphType.OnlyOutput">
+            <summary>
+            Dạng node chỉ hỗ trợ đầu ra output
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.NodeGraphType.StartNode">
+            <summary>
+            Node bắt đầu thuật toán
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.NodeGraphType.EndNode">
+            <summary>
+            Node kết thúc thuật toán
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.NodeGraphType.Loop">
+            <summary>
+            Node dạng vòng lặp
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.NodeGraphType.Branch">
+            <summary>
+            Node dạng rẽ nhánh If-Else
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Graph.NodeStructure">
+            <summary>
+            Cấu trúc node được dùng trong vùng Graph
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Graph.NodeStructure.Type">
+            <summary>
+            Type của đối tượng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Graph.NodeStructure.Title">
+            <summary>
+            Tiêu đề
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Graph.NodeStructure.BodyContent">
+            <summary>
+            Nội dung
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Graph.NodeStructure.X">
+            <summary>
+            Tọa độ X
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Graph.NodeStructure.Y">
+            <summary>
+            Tọa độ Y
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Graph.LoopPortChannelType">
+            <summary>
+            Định nghĩa channel của port node loop
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.LoopPortChannelType.InputToLoop">
+            <summary>
+            Channel (Input) kết nối tới node bên ngoài trước đó
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.LoopPortChannelType.InputInternal">
+            <summary>
+            Channel (Input) kết nối với các node được loop
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.LoopPortChannelType.OutputInternal">
+            <summary>
+            Channel (Output) kết nối tới các node sẽ được gọi trong loop
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.LoopPortChannelType.OutputEndLoop">
+            <summary>
+            Channel (Output) kết nối với các node tiếp theo sau khi kết thúc loop
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Graph.BranchPortChannelType">
+            <summary>
+            Định nghĩa channel của cổng node branch
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.BranchPortChannelType.Input">
+            <summary>
+            Nhận input từ các node trước
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.BranchPortChannelType.TrueFlow">
+            <summary>
+            Luồng dữ liệu kết quả đúng
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Graph.BranchPortChannelType.FalseFlow">
+            <summary>
+            Luồng dữ liệu kết quả sai
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Drawing.OverlayDisplayMode">
+            <summary>
+            Chế độ hoạt động của overlay
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Drawing.OverlayDisplayMode.Replace">
+            <summary>
+            Thay thế
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Drawing.OverlayDisplayMode.Retain">
+            <summary>
+            Duy trì
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Drawing.ITextOverlay">
+            <summary>
+            Interface cho overlay dạng text
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.ITextOverlay.Text">
+            <summary>
+            Nội dung (dạng hex 8 bytes)
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.ITextOverlay.Foreground">
+            <summary>
+            Màu sắc của chữ (dạng hex 8 bytes)
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.ITextOverlay.BackgroundText">
+            <summary>
+            Màu sắc nền chữ (dạng hex 8 bytes) 
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.ITextOverlay.TextFamily">
+            <summary>
+            Text family
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.ITextOverlay.TextSize">
+            <summary>
+            Kích thước chữ
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.ITextOverlay.TextIsBold">
+            <summary>
+            Cài đặt bold/normal
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.ITextOverlay.TextIsItalic">
+            <summary>
+            Cài đặt italic/normal
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.ITextOverlay.TextIsUnderline">
+            <summary>
+            Cài đặt underline/normal
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Drawing.IPanelOverlay">
+            <summary>
+            Lớp Interface hỗ trợ dạng panel overlay: rectangle, ellipse, circle, polygon
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.IPanelOverlay.Fill">
+            <summary>
+            Màu nền của panel (dạng hex 8 bytes)
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.IPanelOverlay.Stroke">
+            <summary>
+            Màu cạnh của panel (dạng hex 8 bytes)
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.IPanelOverlay.StrokeThickness">
+            <summary>
+            Chiều dày của cạnh
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Drawing.ILineOverlay">
+            <summary>
+            Lớp interface dành cho overlay dạng đường
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.ILineOverlay.Stroke">
+            <summary>
+            Màu cạnh của đường (dạng hex 8 bytes)
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.ILineOverlay.StrokeThickness">
+            <summary>
+            Chiều dày của cạnh
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Drawing.OverlayItem">
+            <summary>
+            Lớp abstract overlay được dùng để vẽ trên ImageBox
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.OverlayItem.ZIndex">
+            <summary>
+            Chỉ số Z-Index
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.OverlayItem.ID">
+            <summary>
+            Mã ID của overlay
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.OverlayItem.DisplayMode">
+            <summary>
+            Chế độ hiển thị
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.OverlayItem.TagName">
+            <summary>
+            Thẻ tên của lớp overlay
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.OverlayItem.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.OverlayItem"/>
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Drawing.RoiOverlay">
+            <summary>
+            Lớp overlay có shape được hình thành từ IRoi
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.RoiOverlay.ROI">
+            <summary>
+            Region of Interest
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.RoiOverlay.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.RoiOverlay"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.RoiOverlay.#ctor(ST4I.Vision.IRoi)">
+            <summary>
+            Khởi tạo một đối tượng với đầu vào ROI
+            </summary>
+            <param name="roi">ROI</param>
+        </member>
+        <member name="T:ST4I.Vision.Drawing.PanelOverlay">
+            <summary>
+            Lớp overlay hiển thị dạng panel
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelOverlay.Fill">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.IPanelOverlay.Fill"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelOverlay.Stroke">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.IPanelOverlay.Stroke"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelOverlay.StrokeThickness">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.IPanelOverlay.StrokeThickness"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.PanelOverlay.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.PanelOverlay"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.PanelOverlay.#ctor(ST4I.Vision.IRoi)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.PanelOverlay"/>
+            </summary>
+            <param name="roi">ROI</param>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.PanelOverlay.#ctor(ST4I.Vision.IRoi,System.String,System.Double,System.String)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.PanelOverlay"/>
+            </summary>
+            <param name="roi">ROI</param>
+            <param name="fill">Màu nền. Mặc định là không có</param>
+            <param name="strokeThickness">Kích thước cạnh</param>
+            <param name="stroke">Màu sắc của cạnh</param>
+        </member>
+        <member name="T:ST4I.Vision.Drawing.PanelTextOverlay">
+            <summary>
+            Lớp Panel overlay hỗ trợ text
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelTextOverlay.Fill">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.IPanelOverlay.Fill"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelTextOverlay.Stroke">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.IPanelOverlay.Stroke"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelTextOverlay.StrokeThickness">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.IPanelOverlay.StrokeThickness"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelTextOverlay.Text">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.Text"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelTextOverlay.Foreground">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.Foreground"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelTextOverlay.BackgroundText">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.BackgroundText"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelTextOverlay.TextSize">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.TextSize"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelTextOverlay.TextIsBold">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.TextIsBold"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelTextOverlay.TextIsItalic">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.TextIsItalic"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelTextOverlay.TextIsUnderline">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.TextIsUnderline"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PanelTextOverlay.TextFamily">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.TextFamily"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.PanelTextOverlay.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.PanelTextOverlay"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.PanelTextOverlay.#ctor(ST4I.Vision.IRoi)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.PanelTextOverlay"/>
+            </summary>
+            <param name="roi">ROI</param>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.PanelTextOverlay.#ctor(ST4I.Vision.IRoi,System.String,System.String,System.UInt32,System.String,System.Double,System.String)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.PanelOverlay"/>
+            </summary>
+            <param name="roi">ROI</param>
+            <param name="text">Nội dung chữ</param>
+            <param name="textColor">Màu sắc chữ</param>
+            <param name="textSize">Kích thước chữ</param>
+            <param name="fill">Màu nền</param>
+            <param name="strokeThickness">Kích thước cạnh</param>
+            <param name="stroke">Màu sắc của cạnh</param>
+        </member>
+        <member name="T:ST4I.Vision.Drawing.TextOverlay">
+            <summary>
+            Lớp overlay hỗ trợ hiển thị text
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.TextOverlay.X">
+            <summary>
+            Gets or sets the x-coordinate of the upper-left corner
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.TextOverlay.Y">
+            <summary>
+            Gets or sets the y-coordinate of the upper-left corner
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.TextOverlay.Text">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.Text"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.TextOverlay.Foreground">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.Foreground"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.TextOverlay.BackgroundText">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.BackgroundText"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.TextOverlay.TextSize">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.TextSize"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.TextOverlay.TextIsBold">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.TextIsBold"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.TextOverlay.TextIsItalic">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.TextIsItalic"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.TextOverlay.TextIsUnderline">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.TextIsUnderline"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.TextOverlay.TextFamily">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.ITextOverlay.TextFamily"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.TextOverlay.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.TextOverlay"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.TextOverlay.#ctor(System.String,System.Double,System.Double,System.String,System.UInt32,System.String)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.PanelOverlay"/>
+            </summary>
+            <param name="text">Nội dung chữ</param>
+            <param name="x">Toạ độ theo phương x</param>
+            <param name="y">Toạ độ theo phương y</param>
+            <param name="textColor">Màu sắc chữ</param>
+            <param name="textSize">Kích thước chữ</param>
+            <param name="backgroundText">Màu nền</param>
+        </member>
+        <member name="T:ST4I.Vision.Drawing.LineOverlay">
+            <summary>
+            Lớp overlay dạng đường thẳng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.LineOverlay.P1">
+            <summary>
+            Tọa độ điểm đầu
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.LineOverlay.P2">
+            <summary>
+            Tọa độ điểm cuối
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.LineOverlay.Stroke">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.IPanelOverlay.Stroke"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.LineOverlay.StrokeThickness">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Drawing.IPanelOverlay.StrokeThickness"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.LineOverlay.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.LineOverlay"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.LineOverlay.#ctor(ST4IVisionCoreNet.Point2d,ST4IVisionCoreNet.Point2d,System.Double,System.String)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.LineOverlay"/>
+            </summary>
+            <param name="p1">Tọa độ điểm đầu</param>
+            <param name="p2">Tọa độ điểm cuối</param>
+            <param name="strokeThickness">Kích thước cạnh</param>
+            <param name="stroke">Màu sắc cạnh</param>
+        </member>
+        <member name="T:ST4I.Vision.Drawing.PathGeometryOverlay">
+            <summary>
+            Lớp overlay dạng vẽ tự do dựa vào Path Geometry
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PathGeometryOverlay.Fill">
+            <summary>
+            Màu nền của Geometry (dạng hex 8 bytes)
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PathGeometryOverlay.Stroke">
+            <summary>
+            Màu cạnh của Geometry (dạng hex 8 bytes)
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PathGeometryOverlay.StrokeThickness">
+            <summary>
+            Chiều dày của cạnh
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Drawing.PathGeometryOverlay.Data">
+            <summary>
+            Dữ liệu geometry dưới dạng string
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.PathGeometryOverlay.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.PathGeometryOverlay"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Drawing.PathGeometryOverlay.#ctor(System.String,System.String,System.Double,System.String)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Drawing.PathGeometryOverlay"/>
+            </summary>
+            <param name="data">Dữ liệu geometry dưới dạng string</param>
+            <param name="fill">Màu nền của Geometry (dạng hex 8 bytes)</param>
+            <param name="strokeThickness">Chiều dày của cạnh</param>
+            <param name="stroke">Màu cạnh của Geometry (dạng hex 8 bytes)</param>
+        </member>
+        <member name="T:ST4I.Vision.Drawing.OverlayItemType">
+            <summary>
+            Định nghĩa những dạng overlay
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Drawing.OverlayItemType.Undefined">
+            <summary>
+            Không định dạng
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Drawing.OverlayItemType.Panel">
+            <summary>
+            Dạng tứ giác
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Drawing.OverlayItemType.Ellipse">
+            <summary>
+            Dạng ellipse
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Drawing.OverlayItemType.Circle">
+            <summary>
+            Dạng đường tròn
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Drawing.OverlayItemType.Polygon">
+            <summary>
+            Dạng đa giác
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Drawing.OverlayItemType.Text">
+            <summary>
+            Dạng chuỗi ký tự
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Drawing.OverlayItemType.Line">
+            <summary>
+            Dạng đường thẳng
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Drawing.OverlayItemType.PathGeometry">
+            <summary>
+            Dạng vẽ tự do thông qua PathGeometry
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Drawing.OverlayItemType.Image">
+            <summary>
+            Dạng ảnh BitmapSource
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.AnnulusRoi">
+            <summary>
+            Roi dạng vành khăn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.AnnulusRoi.Center">
+            <summary>
+            Tâm vành khăn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.AnnulusRoi.CenterInt">
+            <summary>
+            Tọa độ tâm dạng số nguyên được làm tròn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.AnnulusRoi.InnerRadius">
+            <summary>
+            Bán kính trong
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.AnnulusRoi.OuterRadius">
+            <summary>
+            Bán kính ngoài
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.AnnulusRoi.StartAngle">
+            <summary>
+            Góc bắt đầu vành khăn. Dải từ [0, 360]
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.AnnulusRoi.EndAngle">
+            <summary>
+            Góc kết thúc vành khăn. Dải từ [0, 360]
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.AnnulusRoi.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.AnnulusRoi"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.AnnulusRoi.#ctor(ST4IVisionCoreNet.Point2d,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.AnnulusRoi"/>
+            </summary>
+            <param name="center">Tâm vành khăn</param>
+            <param name="innerRadius">Bán kính tâm trong</param>
+            <param name="outerRadius">Bán kính tâm ngoài</param>
+            <param name="startAngle">Góc bắt đầu. Giá trị trong khoảng [0, 360]. Giá trị phải nhỏ hơn góc kết thúc.</param>
+            <param name="endAngle">Góc kết thúc. Giá trị trong khoảng [0, 360]. Giá trị phải lớn hơn góc bắt đầu</param>
+        </member>
+        <member name="M:ST4I.Vision.AnnulusRoi.IsEmpty">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.IsEmpty"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.AnnulusRoi.MinRectangle">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.MinRectangle"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.AnnulusRoi.GetVertices">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.GetVertices"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.CircleRoi">
+            <summary>
+            Lớp ROI dạng đường tròn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.CircleRoi.Radius">
+            <summary>
+            Bán kính đường tròn
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.CircleRoi.#ctor">
+            <summary>
+            Khởi tạo lớp ROI dạng đường tròn
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.CircleRoi.#ctor(ST4IVisionCoreNet.Point2d,System.Double)">
+            <summary>
+            Khởi tạo lớp ROI dạng đường tròn
+            </summary>
+            <param name="center">Toạ độ tâm đường tròn</param>
+            <param name="radius">Bán kính đường tròn</param>
+        </member>
+        <member name="T:ST4I.Vision.EllipseRoi">
+            <summary>
+            Lớp Roi dạng ellipse
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.EllipseRoi.Center">
+            <summary>
+            Tọa độ tâm Ellipse
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.EllipseRoi.CenterInt">
+            <summary>
+            Tọa độ tâm Ellipse dạng số nguyên được làm tròn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.EllipseRoi.RadiusX">
+            <summary>
+            Bán kính trục X
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.EllipseRoi.RadiusY">
+            <summary>
+            Bán kính trục Y
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.EllipseRoi.IsEmpty">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.IsEmpty"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.EllipseRoi.MinRectangle">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.MinRectangle"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.EllipseRoi.GetVertices">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.GetVertices"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.EllipseRoi.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.EllipseRoi"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.EllipseRoi.#ctor(ST4IVisionCoreNet.Point2d,System.Double,System.Double)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.EllipseRoi"/>
+            </summary>
+            <param name="center">Tọa độ tâm</param>
+            <param name="radiusX">Bán kính trục X</param>
+            <param name="radiusY">Bán kính trục Y</param>
+        </member>
+        <member name="T:ST4I.Vision.PolygonRoi">
+            <summary>
+            Lớp ROI dạng đa giác
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.PolygonRoi.Vertices">
+            <summary>
+            Lấy tọa độ tất cả các đỉnh
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.PolygonRoi.IsEmpty">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.IsEmpty"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.PolygonRoi.MinRectangle">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.MinRectangle"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.PolygonRoi.GetVertices">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.GetVertices"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.PolygonRoi.#ctor">
+            <summary>
+            Khởi tạo ROI đa giác
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.PolygonRoi.#ctor(ST4IVisionCoreNet.Point2d[])">
+            <summary>
+            Khởi tạo ROI đa giác
+            </summary>
+            <param name="points">Tập hợp các đỉnh của đa giác</param>
+        </member>
+        <member name="T:ST4I.Vision.RectangleRoi">
+            <summary>
+            Lớp ROI dạng tứ giác
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.RectangleRoi.X">
+            <summary>
+            Tọa độ X trên trái
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.RectangleRoi.Y">
+            <summary>
+            Tọa độ Y trên trái
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.RectangleRoi.Width">
+            <summary>
+            Chiều rộng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.RectangleRoi.Height">
+            <summary>
+            Chiều cao
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.RectangleRoi.XInt">
+            <summary>
+            Tọa độ X trên trái dạng số nguyên được làm tròn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.RectangleRoi.YInt">
+            <summary>
+            Tọa độ Y trên trái dạng số nguyên được làm tròn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.RectangleRoi.WidthInt">
+            <summary>
+            Chiều rộng dạng số nguyên được làm tròn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.RectangleRoi.HeightInt">
+            <summary>
+            Chiều cao dạng số nguyên được làm tròn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.RectangleRoi.Angle">
+            <summary>
+            Góc xoay, đơn vị degree
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.RectangleRoi.IsEmpty">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.IsEmpty"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.RectangleRoi.MinRectangle">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.MinRectangle"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.RectangleRoi.GetVertices">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.GetVertices"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.RectangleRoi.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.RectangleRoi"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.RectangleRoi.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.RectangleRoi"/>
+            </summary>
+            <param name="x">Tọa độ X</param>
+            <param name="y">Tọa độ Y</param>
+            <param name="width">Chiều rộng tứ giác</param>
+            <param name="height">Chiều cao tứ giác</param>
+        </member>
+        <member name="T:ST4I.Vision.RoiType">
+            <summary>
+            Định dạng ROI
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.RoiType.Undefined">
+            <summary>
+            Không được định nghĩa
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.RoiType.Rectangle">
+            <summary>
+            ROI dạng tứ giác
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.RoiType.RotatedRectangle">
+            <summary>
+            ROI dạng tứ giác hỗ trợ xoay
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.RoiType.Circle">
+            <summary>
+            ROI dạng đường tròn
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.RoiType.Ellipse">
+            <summary>
+            ROI dạng ellipse
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.RoiType.Polygon">
+            <summary>
+            ROI dạng đa giác
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.RoiType.Annulus">
+            <summary>
+            ROI dạng vành khăn
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.IRoi">
+            <summary>
+            Lớp Interface cho ROI
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.IRoi.ID">
+            <summary>
+            Mã ID của ROI
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.IRoi.IsEmpty">
+            <summary>
+            Kiểm tra ROI có đang rỗng
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.IRoi.MinRectangle">
+            <summary>
+            Tìm đường bao nhỏ nhất bao quanh ROI
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.IRoi.GetVertices">
+            <summary>
+            Lấy tọa độ bao các đỉnh của ROI
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Roi">
+            <summary>
+            Lớp trừ tượng cho ROI
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Roi.ID">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.IRoi.ID"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Roi.IsEmpty">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.IsEmpty"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Roi.MinRectangle">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.MinRectangle"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Roi.GetVertices">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.IRoi.GetVertices"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Roi.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Roi"/>
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.RoiExtension">
+            <summary>
+            Lớp mở rộng tính năng cho Roi
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.RoiExtension.MinRectangleRoi(ST4I.Vision.IRoi)">
+            <summary>
+            Tìm Rectangle Roi bao quanh roi
+            </summary>
+            <param name="roi"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.RotatedRectangleRoi">
+            <summary>
+            Lớp ROI dạng tứ giác hỗ trợ xoay
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.RotatedRectangleRoi.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.RotatedRectangleRoi"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.RotatedRectangleRoi.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.RotatedRectangleRoi"/>
+            </summary>
+            <param name="x">Tọa độ X điểm trên trái của tứ giác</param>
+            <param name="y">Tọa độ Yđiểm trên trái của tứ giác</param>
+            <param name="width">Chiều rộng tứ giác</param>
+            <param name="height">Chiều cao tứ giác</param>
+            <param name="angle">Góc xoay của tứ giác tính tại tâm, đơn vị degree</param>
+        </member>
+        <member name="T:ST4I.Vision.ValueRange`1">
+            <summary>
+            Hỗ trợ cài đặt một giá trị có thể thay đổi trong một dải giá trị
+            </summary>
+            <typeparam name="T">T là dạng số</typeparam>
+        </member>
+        <member name="M:ST4I.Vision.ValueRange`1.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.ValueRange`1"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.ValueRange`1.#ctor(`0,`0)">
+            <summary>
+             <inheritdoc cref="T:ST4I.Vision.ValueRange`1"/>
+            </summary>
+            <param name="_minimum">Giá trị nhỏ nhất có thể cài đặt</param>
+            <param name="_maximum">Giá trị lớn nhất có thể cài đặt</param>
+        </member>
+        <member name="P:ST4I.Vision.ValueRange`1.Minimum">
+            <summary>
+            Giá trị nhỏ nhất có thể cài đặt
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.ValueRange`1.Maximum">
+            <summary>
+            Giá trị lớn nhất có thể cài đặt 
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.ValueRange`1.LowerValue">
+            <summary>
+            Giá trị dưới của dải giá trị
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.ValueRange`1.UpperValue">
+            <summary>
+            Giá trị trên của dải giá trị
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.ValueThresh`1">
+            <summary>
+            Hỗ trợ cài đặt và so sánh giá trị trên/dưỡi một ngưỡng
+            </summary>
+            <typeparam name="T">T must be numberic type</typeparam>
+        </member>
+        <member name="M:ST4I.Vision.ValueThresh`1.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.ValueThresh`1"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.ValueThresh`1.Minimum">
+            <summary>
+            Giá trị nhỏ nhất có thể cài đặt 
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.ValueThresh`1.Maximum">
+            <summary>
+            Giá trị lớn nhất có thể cài đặt 
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.ValueThresh`1.ThreshValue">
+            <summary>
+            Ngưỡng so sánh
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.PropRange`1">
+            <summary>
+            Hỗ trợ kiểu biến dạng dải giá trị
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:ST4I.Vision.PropRange`1.IsEnabled">
+            <summary>
+            Cho phép enable/disable giá trị
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.PropRange`1.Clone">
+            <summary>
+            Sao chép đói tượng
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.PropThresh`1">
+            <summary>
+            Lớp hỗ trợ cài đặt ngưỡng giá trị
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:ST4I.Vision.PropThresh`1.IsEnabled">
+            <summary>
+            Enable/Disable ngưỡng đánh giá
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.PropThresh`1.Clone">
+            <summary>
+            Sao chép đói tượng
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.LimitMin`1">
+            <summary>
+            Giới hạn giá trị dưới cho biến
+            </summary>
+            <typeparam name="T">Kiểu biến dạng số</typeparam>
+        </member>
+        <member name="M:ST4I.Vision.LimitMin`1.Verify(`0)">
+            <summary>
+            Đánh giá giá trị
+            </summary>
+            <param name="value">T value</param>
+            <returns>true nếu value >= ThreshValue và ngược lại</returns>
+        </member>
+        <member name="M:ST4I.Vision.LimitMin`1.Clone">
+            <summary>
+            Sao chép đói tượng
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.LimitMax`1">
+            <summary>
+            Giới hạn giá trị trên cho biến
+            </summary>
+            <typeparam name="T">Kiểu biến dạng số</typeparam>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ST4I.Vision.LimitMax`1.Verify(`0)" -->
+        <member name="M:ST4I.Vision.LimitMax`1.Clone">
+            <summary>
+            Sao chép đói tượng
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.LimitRange`1">
+            <summary>
+            Đánh giá giá trị trong dải
+            </summary>
+            <typeparam name="T">Kiểu biến dạng số</typeparam>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ST4I.Vision.LimitRange`1.Verify(`0)" -->
+        <member name="M:ST4I.Vision.LimitRange`1.Clone">
+            <summary>
+            Sao chép đói tượng
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.ValueNumeric">
+            <summary>
+            Class hỗ trợ kiểm tra/lấy giá trị thông tin biến dạng số
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.ValueNumeric.IsInteger(System.ValueType)">
+            <summary>
+            Kiểm tra có phải dạng số nguyên không
+            </summary>
+            <param name="value">Giá trị kiểm tra</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.ValueNumeric.IsFloat(System.ValueType)">
+            <summary>
+            Kiểm tra có phải dạng số thực không
+            </summary>
+            <param name="value">Giá trị kiểm tra</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.ValueNumeric.IsNumeric(System.ValueType)">
+            <summary>
+            Kiểm tra có phải dạng số không
+            </summary>
+            <param name="value">Giá trị kiểm tra</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.ValueNumeric.GetMinValueOfType``1(``0@)">
+            <summary>
+            Lấy giá trị nhỏ nhất của kiểu số
+            </summary>
+            <typeparam name="T">Giá trị số cần kiểm tra</typeparam>
+            <param name="value">Kiểu biến</param>
+        </member>
+        <member name="M:ST4I.Vision.ValueNumeric.GetMaxValueOfType``1(``0@)">
+            <summary>
+            Lấy giá trị lớn nhất của kiểu số
+            </summary>
+            <typeparam name="T">Giá trị số cần kiểm tra</typeparam>
+            <param name="value">Kiểu biến</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,4009 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ST4I.Vision.ImageBox</name>
+    </assembly>
+    <members>
+        <member name="T:ST4I.Vision.UI.ImageBox">
+            <summary>
+            Image box support Model-View-View-Model, User must set Datacontext to this control
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBox.contentControl">
+            <summary>
+            Content control
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBox.zoomAndPanControl">
+            <summary>
+            Zoom and Pan control
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBox.dragZoomCanvas">
+            <summary>
+            Canvas contain drag region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBox.dragZoomBorder">
+            <summary>
+            Region border
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBox.btnScale100">
+            <summary>
+            Button zoom scale 1
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBox.btnFill">
+            <summary>
+            Button excute fill
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.ImageBox.mouseHandlingMode">
+            <summary>
+            Specifies the current state of the mouse handling logic.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.ImageBox.origZoomAndPanControlMouseDownPoint">
+            <summary>
+            The point that was clicked relative to the ZoomAndPanControl.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.ImageBox.origContentMouseDownPoint">
+            <summary>
+            The point that was clicked relative to the content that is contained within the ZoomAndPanControl.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.ImageBox.mouseButtonDown">
+            <summary>
+            Records which mouse button clicked during mouse dragging.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.ImageBox.prevZoomRect">
+            <summary>
+            Saves the previous zoom rectangle, pressing the backspace key jumps back to this zoom rectangle.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.ImageBox.prevZoomScale">
+            <summary>
+            Save the previous content scale, pressing the backspace key jumps back to this scale.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.ImageBox.prevZoomRectSet">
+            <summary>
+            Set to 'true' when the previous zoom rect is saved.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBox.UserHadZoomed">
+            <summary>
+            Use for indicate image had zoomed by user
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBox.ZoomAndPanEnabled">
+            <summary>
+            Get zoom and pan mode
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBox.ImageSize">
+            <summary>
+            Get image raw size
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.UI.ImageBox.RoiAdded">
+            <summary>
+            Event raise when had added a new ROI
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.UI.ImageBox.RoiDeleted">
+            <summary>
+            Event raise when deleted a ROI
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.UI.ImageBox.RoiChanged">
+            <summary>
+            Event raise when ROI has changed
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.UI.ImageBox.SelectedRoi">
+            <summary>
+            Event raise when a ROI selected
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.UI.ImageBox.OverlayItemAdded">
+            <summary>
+            Event raise when had added a new overlay item
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.UI.ImageBox.OverlayItemDeleted">
+            <summary>
+            Event raise when an overlay item delelted
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.UI.ImageBox.OverlayItemChanged">
+            <summary>
+            Event raise when an overlay item changed
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.UI.ImageBox.SelectedOverlayItem">
+            <summary>
+            Event raise when an overlay item selected
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.ZoomImage(System.Double)">
+            <summary>
+            Zoom ảnh
+            </summary>
+            <param name="ratio"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.AutoFitImage">
+            <summary>
+            Tự động zoom ảnh để vừa khung hình
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.zoomAndPanControl_MouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Event raised on mouse down in the ZoomAndPanControl.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.zoomAndPanControl_MouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Event raised on mouse up in the ZoomAndPanControl.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.zoomAndPanControl_MouseMove(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Event raised on mouse move in the ZoomAndPanControl.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.zoomAndPanControl_MouseWheel(System.Object,System.Windows.Input.MouseWheelEventArgs)">
+            <summary>
+            Event raised by rotating the mouse wheel
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.ZoomIn_Executed(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            The 'ZoomIn' command (bound to the plus key) was executed.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.ZoomOut_Executed(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            The 'ZoomOut' command (bound to the minus key) was executed.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.JumpBackToPrevZoom_Executed(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            The 'JumpBackToPrevZoom' command was executed.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.JumpBackToPrevZoom_CanExecuted(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
+            <summary>
+            Determines whether the 'JumpBackToPrevZoom' command can be executed.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.Fill_Executed(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            The 'Fill' command was executed.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.OneHundredPercent_Executed(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            The 'OneHundredPercent' command was executed.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.JumpBackToPrevZoom">
+            <summary>
+            Jump back to the previous zoom level.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.ZoomOut(System.Windows.Point)">
+            <summary>
+            Zoom the viewport out, centering on the specified point (in content coordinates).
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.ZoomIn(System.Windows.Point)">
+            <summary>
+            Zoom the viewport in, centering on the specified point (in content coordinates).
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.InitDragZoomRect(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Initialise the rectangle that the use is dragging out.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.SetDragZoomRect(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Update the position and size of the rectangle that user is dragging out.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.ApplyDragZoomRect">
+            <summary>
+            When the user has finished dragging out the rectangle the zoom operation is applied.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.ClearPrevZoomRect">
+            <summary>
+            Clear the memory of the previous zoom level.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBox.zoomAndPanControl_MouseDoubleClick(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Event raised when the user has double clicked in the zoom and pan control.
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.UI.ImageBoxContext">
+            <summary>
+            ImageBox view model
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.ImageBoxContext.contentScale">
+            
+             The current scale at which the content is being viewed.
+             
+        </member>
+        <member name="F:ST4I.Vision.UI.ImageBoxContext.contentOffsetX">
+            
+             The X coordinate of the offset of the viewport onto the content (in content coordinates).
+             
+        </member>
+        <member name="F:ST4I.Vision.UI.ImageBoxContext.contentOffsetY">
+            
+             The Y coordinate of the offset of the viewport onto the content (in content coordinates).
+             
+        </member>
+        <member name="F:ST4I.Vision.UI.ImageBoxContext.contentViewportWidth">
+            
+             The width of the viewport onto the content (in content coordinates).
+             The value for this is actually computed by the main window's ZoomAndPanControl and update in the
+             view-model so that the value can be shared with the overview window.
+             
+        </member>
+        <member name="F:ST4I.Vision.UI.ImageBoxContext.contentViewportHeight">
+            
+             The height of the viewport onto the content (in content coordinates).
+             The value for this is actually computed by the main window's ZoomAndPanControl and update in the
+             view-model so that the value can be shared with the overview window.
+             
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.zoomAndPanControl">
+            <summary>
+            Zoom and pan control
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.ImageBoxContext"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.RoiAdded">
+            <summary>
+            A new ROI added event
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.RoiChanged">
+            <summary>
+            ROI has changed event
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.SelectedRoi">
+            <summary>
+            Selected ROI event
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.RoiDeleted">
+            <summary>
+            A ROI has deleleted event
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.OverlayItemAdded">
+            <summary>
+            New Overlay item added event
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.OverlayItemChanged">
+            <summary>
+            Change overlay item event
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.OverlayItemDeleted">
+            <summary>
+            Deleted overlay item event
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.SelectedOverlayItem">
+            <summary>
+            Selected overlay event
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ImageBitmap">
+            <summary>
+            Thiết lập/Lấy ảnh từ ImageBox dạng Bitmap
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.Image">
+            <summary>
+            Gán ảnh cho ImageBox 
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.UserHadZoomed">
+            <summary>
+            Get/Set indicate that user had zoomed content
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ZoomRate">
+            <summary>
+            Bước nhảy zoom. Mặc định 0.1
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ImageSize">
+            <summary>
+            Get raw size of image
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.NumberOfChannels">
+            <summary>
+            Number dimension (channels) of image
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ImageMode">
+            <summary>
+            Get/Set Image view mode
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.FunctionalMode">
+            <summary>
+            Get or set the functional mode for the ImageBox
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.MaxNumRoi">
+            <summary>
+            Maximum number of Roi can be set
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:ST4I.Vision.UI.ImageBoxContext.ZoomAndPanEnabled" -->
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.RectRegionEnabled">
+            <summary>
+            Cho phép vẽ Roi dạng tứ giác
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.RotatedRectRegionEnabled">
+            <summary>
+            Cho phép vẽ Roi dạng tứ giác có thể xoay
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.CircleRegionEnabled">
+            <summary>
+            Cho phép vẽ Roi dạng đường tròn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.PolygonRegionEnabled">
+            <summary>
+            Cho phép vẽ Roi dạng đa giác
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.AnnulusRegionEnabled">
+            <summary>
+            Cho phép vẽ Roi dạng vành khăn
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.SetEnableRoiType(ST4I.Vision.RoiType[])">
+            <summary>
+            Enable serveral type of ROI
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ShowToolbar">
+            <summary>
+            Enable/Disable toolbar
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ShowRoiToolbox">
+            <summary>
+            Visible/Hidden drawing tool
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ShowPanelProperties">
+            <summary>
+            Enable/Disable view properties bar
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.RoiToolboxEnabled">
+            <summary>
+            Enable/Disable drawing tool
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.MousePosition">
+            <summary>
+            Mouse position on image
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.OverlayType">
+            <summary>
+            Get/set overlay type
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.RoiLayer">
+            <summary>
+            Lớp Roi
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.GetRois">
+            <summary>
+            Lấy toàn bộ Roi trong ImageBox
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.AddRoi(ST4I.Vision.IRoi)">
+            <summary>
+            Thêm một Roi vào ImageBox
+            </summary>
+            <param name="roi">Roi được thêm vào</param>
+            <returns>Roi đã được thêm vào ImageBox</returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.AddRois(ST4I.Vision.IRoi[])">
+            <summary>
+            Thêm danh sách Roi vào ImageBox
+            </summary>
+            <param name="rois">Danh sách Roi</param>
+            <returns>Những Roi đã được thêm vào ImageBox</returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.SetRoi(ST4I.Vision.IRoi)">
+            <summary>
+            Xóa toàn bộ Roi cũ và thêm một một Roi mới vào ImageBox
+            </summary>
+            <param name="roi">Roi thêm vào</param>
+            <returns>Những Roi đã được thêm vào ImageBox</returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.SetRois(ST4I.Vision.IRoi[])">
+            <summary>
+            Xóa toàn bộ Roi cũ và thêm một danh sách Roi mới vào ImageBox
+            </summary>
+            <param name="rois">Danh sách Roi</param>
+            <returns>Những Roi đã được thêm vào ImageBox</returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.DeleteRoi(ST4I.Vision.IRoi)">
+            <summary>
+            Xoá Roi trong lớp Roi Overlay
+            </summary>
+            <param name="roi"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.DeleteRois">
+            <summary>
+            Xóa toàn bộ Roi trong ImageBox
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.OverlayLayer">
+            <summary>
+            Lớp Overlay
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.GetOverlays">
+            <summary>
+            Lấy danh sách Overlay
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.AddOverlay(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            Thêm một Overlay vào ImageBox
+            </summary>
+            <param name="item">Overlay được thêm vào</param>
+            <returns>Overlay đã được thêm vào ImageBox</returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.AddOverlays(ST4I.Vision.Drawing.OverlayItem[])">
+            <summary>
+            Thêm danh sách Overlay vào ImageBox
+            </summary>
+            <param name="items">Danh sách Overlay</param>
+            <returns>Những Overlay đã được thêm vào ImageBox</returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.DeleteOverlay(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            Xoá overlay trong lớp Overlay Layer
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.DeleteOverlays">
+            <summary>
+            Xóa toàn bộ Overlay trong ImageBox
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.SetOverlays(ST4I.Vision.Drawing.OverlayItem[])">
+            <summary>
+            Xóa toàn bộ Overlay cũ và thêm một danh sách Overlay mới vào ImageBox
+            </summary>
+            <param name="items">Danh sách Overlay</param>
+            <returns>Những Overlay đã được thêm vào ImageBox</returns>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ViewLayer">
+            <summary>
+            Lớp View Layer
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.GetViewItems">
+            <summary>
+            Lấy danh sách lớp View Overlay
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.AddViewItem(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            Thêm một View Overlay vào ImageBox
+            </summary>
+            <param name="item">View Overlay được thêm vào</param>
+            <returns>View Overlay đã được thêm vào ImageBox</returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.AddViewItems(ST4I.Vision.Drawing.OverlayItem[])">
+            <summary>
+            Thêm danh sách View Overlay vào ImageBox
+            </summary>
+            <param name="items">Danh sách View Overlay</param>
+            <returns>Những View Overlay đã được thêm vào ImageBox</returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.DeleteViewItems">
+            <summary>
+            Xóa toàn bộ View Overlay trong ImageBox
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.SetViewItems(ST4I.Vision.Drawing.OverlayItem[])">
+            <summary>
+            Xóa toàn bộ View Overlay cũ và thêm một danh sách View Overlay mới vào ImageBox
+            </summary>
+            <param name="items">Danh sách View Overlay</param>
+            <returns>Những View Overlay đã được thêm vào ImageBox</returns>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.MinContentScale">
+            <summary>
+            Mức scale tối thiểu dành cho ImageBox
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.MaxContentScale">
+            <summary>
+            Mức scale tối đa dành cho ImageBox
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.AnimationDuration">
+            <summary>
+            Thời gian animation scale content. Đơn vị giây
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ContentScale">
+            <summary>
+            The current scale at which the content is being viewed.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.CrossLineEnabled">
+            <summary>
+            Enable/disabe view center lines
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ContentOffsetX">
+            <summary>
+            The X coordinate of the offset of the viewport onto the content (in content coordinates).
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ContentOffsetY">
+            
+             The Y coordinate of the offset of the viewport onto the content (in content coordinates).
+             
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ContentWidth">
+            
+             The width of the content (in content coordinates).
+             
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ContentHeight">
+            
+             The heigth of the content (in content coordinates).
+             
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ContentViewportWidth">
+            
+             The width of the viewport onto the content (in content coordinates).
+             The value for this is actually computed by the main window's ZoomAndPanControl and update in the
+             view-model so that the value can be shared with the overview window.
+             
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.ContentViewportHeight">
+            
+             The heigth of the viewport onto the content (in content coordinates).
+             The value for this is actually computed by the main window's ZoomAndPanControl and update in the
+             view-model so that the value can be shared with the overview window.
+             
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.BrushColorDrawing">
+            <summary>
+            Color for drawing region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.BrushColorCrossLine">
+            <summary>
+            Color for center lines
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ImageBoxContext.SelectedIndexBrushColor4CrossLine">
+            <summary>
+            Selected index for bursh color of center lines.
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.UI.ImageBoxContext.PropertyChanged">
+            <summary>
+            <inheritdoc cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ImageBoxContext.OnPropertyChanged(System.String)">
+            <summary>
+            Create the OnPropertyChanged method to raise the event. The calling member's name will be used as the parameter.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainer.OnMouseUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when a mouse button is released.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainer.RemoveRegion(ST4I.Vision.UI.IRegion)">
+            <summary>
+            Remove region
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainer.BringRegionItemForward(ST4I.Vision.UI.IRegion)">
+            <summary>
+            Bring item forward
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainer.BringRegionItemBackward(ST4I.Vision.UI.IRegion)">
+            <summary>
+            Bring region backward
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainer.FireRegionChangedEvent(ST4I.Vision.UI.IRegion)">
+            <summary>
+            Support fire event finish drawing region from other object
+            </summary>
+            <param name="regionModel"></param>
+        </member>
+        <member name="E:ST4I.Vision.UI.OverlayContainerContext.PropertyChanged">
+            <summary>
+            <inheritdoc cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.OnPropertyChanged(System.String)">
+            <summary>
+            Create the OnPropertyChanged method to raise the event. The calling member's name will be used as the parameter.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="F:ST4I.Vision.UI.OverlayContainerContext.isLeftMouseDown">
+            <summary>
+            Set to 'true' when left mouse button is held down.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.OverlayContainerContext.lastMousePoint">
+            <summary>
+            The point the mouse was last at when dragging.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.OverlayContainerContext.isDragging">
+            <summary>
+            Set to 'true' when dragging has started.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.OverlayContainerContext.DragThreshold">
+            <summary>
+            The threshold distance the mouse-cursor must move before dragging begins.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.OverlayContainerContext.overlayType">
+            <summary>
+            Region type
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.OverlayContainerContext.drawRegionEnabled">
+            <summary>
+            Enable/Disable draw region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.OverlayContainerContext.RegionItems">
+            <summary>
+            List overlay regions
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.OverlayContainerContext.OverlayItemAdded">
+            <summary>
+            A new overlay item added event
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.OverlayContainerContext.OverlayItemDeleted">
+            <summary>
+            Deleted overlay item event
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.OverlayContainerContext.OverlayItemChanged">
+            <summary>
+            An overlay item changed event
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.OverlayContainerContext.SelectedOverlayItem">
+            <summary>
+            Selected overlay item event
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.OverlayContainerContext.Width">
+            <summary>
+            Container width
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.OverlayContainerContext.Height">
+            <summary>
+            Container height
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.OverlayContainerContext.CurrentIndexRegion">
+            <summary>
+            Current index region in RegionItems
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.OverlayContainerContext.IsVisible">
+            <summary>
+            Get/set  this value indicate this container is show/hidden
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.OverlayContainerContext.MaxNumRegion">
+            <summary>
+            Maximum number of region can be set
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.OverlayContainerContext.CurrentRegion">
+            <summary>
+            Current region which is drawingg
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.OverlayContainerContext.OverlayType">
+            <summary>
+            Region type
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.OverlayContainerContext.BrushColorDrawing">
+            <summary>
+            Color for drawing region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.OverlayContainerContext.ContentScale">
+            <summary>
+            The current scale at which the content is being viewed
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.OverlayContainerContext.DrawRegionEnabled">
+            <summary>
+            Enable/Disable draw region
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.CreateNew(ST4I.Vision.Drawing.OverlayItemType)">
+            <summary>
+            Create region with suitable type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.AddRegionToList">
+            <summary>
+            Add region to list
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.AddNewPolygonRoi(System.Windows.Point)">
+            <summary>
+            Add new region at current position
+            </summary>
+            <param name="mousePosition"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.AddTextRegion(System.Windows.Point)">
+            <summary>
+            Add a new text region
+            </summary>
+            <param name="lastMousePoint"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.AddAreaRegion(System.Windows.Point)">
+            <summary>
+            Add a new drawing region (Except polygon region)
+            </summary>
+            <param name="lastMousePoint"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.RemoveRegion(ST4I.Vision.UI.Region)">
+            <summary>
+            Remove region
+            </summary>
+            <param name="reg"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.BringRegionItemForward(ST4I.Vision.UI.Region)">
+            <summary>
+            Bring item forward
+            </summary>
+            <param name="reg"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.BringRegionItemBackward(ST4I.Vision.UI.Region)">
+            <summary>
+            Bring region backward
+            </summary>
+            <param name="reg"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.OnMouseDown(System.Windows.Input.MouseButtonEventArgs,System.Windows.Point)">
+            <summary>
+            Called when a mouse button is held down.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.OnMouseMove(System.Windows.Input.MouseEventArgs,System.Windows.Point)">
+            <summary>
+            Called when a mouse button is move.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.OnMouseUp(System.Windows.Input.MouseButtonEventArgs,System.Windows.Point)">
+            <summary>
+            Called when a mouse button is released.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.ReceiveChangeOverlayEvent(System.Object,ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            Recevie event from children overlay region
+            </summary>
+            <param name="sender"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.AddItem(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            Add an item
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.AddItems(ST4I.Vision.Drawing.OverlayItem[])">
+            <summary>
+            Add list of item
+            </summary>
+            <param name="items"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.GetItems">
+            <summary>
+            Get all items
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.DeleteItem(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            Xoá một item
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.OverlayContainerContext.DeleteItems">
+            <summary>
+            Xoá toàn bộ Item
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.UI.DrawingVisualHost">
+            <summary>
+            Lớp element chứa Drawing Visual
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.DrawingVisualHost.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.DrawingVisualHost"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.DrawingVisualHost.OnApplyTemplate">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.DrawingVisualHost.EndInit">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.DrawingVisualHost.VisualChildrenCount">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.DrawingVisualHost.GetVisualChild(System.Int32)">
+            <summary>
+            <inheritdoc />
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:ST4I.Vision.UI.DrawingVisualHost.Drawing(ST4I.Vision.Drawing.OverlayItem[])">
+            <summary>
+            Vẽ overlay
+            </summary>
+            <param name="overlays"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.DrawingVisualHost.DrawingAnOverlay(System.Windows.Media.DrawingContext,ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            Vẽ một overlay
+            </summary>
+            <param name="drawingContext"></param>
+            <param name="overlay"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.DrawingVisualHost.DrawAnnulusRoi(ST4I.Vision.AnnulusRoi)">
+            <summary>
+            Vẽ đường vành khăn
+            </summary>
+            <param name="roi"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.UI.AnnulusRegionContext">
+            <summary>
+            Context cho region dạng Annulus
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.Center">
+            <summary>
+            Tâm vành khắn
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.InnerRadius">
+            <summary>
+            Bán kính trong
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.OuterRadius">
+            <summary>
+            Bán kính ngoài
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.StartAngle">
+            <summary>
+            Góc bắt đầu so với trục hoành
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.EndAngle">
+            <summary>
+            Góc kết thúc so với trục hoành
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.OuterStartPoint">
+            <summary>
+            Toạ độ bắt đầu vẽ đường bao ngoài
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.OuterEndPoint">
+            <summary>
+            Tọa độ kết thúc vẽ đường bao ngoài
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.OuterSize">
+            <summary>
+            Kích thước đường bao ngoài
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.InnerStartPoint">
+            <summary>
+            Toạ độ bắt đầu vẽ đường bao trong
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.InnerEndPoint">
+            <summary>
+            Toạ độ kết thúc vẽ đường bao trong
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.InnerSize">
+            <summary>
+            Kích thước đường bao trong
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.IsLargeArc">
+            <summary>
+            Đường vẽ cung lớn hay cung nhỏ
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.StartLineStartPoint">
+            <summary>
+            Điểm bắt đầu của StartLine
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.StartLineEndPoint">
+            <summary>
+            Điểm kết thúc của StartLine
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.EndLineStartPoint">
+            <summary>
+            Điểm bắt đầu của EndLine
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.EndLineEndPoint">
+            <summary>
+            Điểm kết thúc của EndLine
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.AnnulusRegionContext.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.RectangleRegionContext"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.AnnulusRegionContext.#ctor(ST4I.Vision.AnnulusRoi)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.RectangleRegionContext"/>
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.AnnulusRegionContext.#ctor(ST4I.Vision.Drawing.RoiOverlay)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.RectangleRegionContext"/>
+            </summary>
+            <param name="idraw"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.AnnulusRegionContext.Init(ST4I.Vision.AnnulusRoi)">
+            <summary>
+            Khởi tạo
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="P:ST4I.Vision.UI.AnnulusRegionContext.ROI">
+            <inheritdoc/>
+        </member>
+        <member name="M:ST4I.Vision.UI.AnnulusRegionContext.ApplyDrawing(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="idraw"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.AnnulusRegionContext.UpdateArcPath(System.Windows.Point,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Cập nhật path cho ArcSegment
+            </summary>
+            <param name="center"></param>
+            <param name="innerRadius"></param>
+            <param name="outerRadius"></param>
+            <param name="startAngle"></param>
+            <param name="endAngle"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.AnnulusRegionContext.UpdateArcPath">
+            <summary>
+            Cập nhật path cho ArcSegment
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.AnnulusRegionContext.UpdateOuterPath(System.Windows.Point)">
+            <summary>
+            Cập nhật đường bao ngoài
+            </summary>
+            <param name="newPoint"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.AnnulusRegionContext.UpdateInnerPath(System.Windows.Point)">
+            <summary>
+            Cập nhật đường bao trong
+            </summary>
+            <param name="newPoint"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.AnnulusRegionContext.UpdateStartLinePath(System.Windows.Point)">
+            <summary>
+            Cập nhật đường cạnh bắt đầu
+            </summary>
+            <param name="newPoint"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.AnnulusRegionContext.UpdateEndLinePath(System.Windows.Point)">
+            <summary>
+            Cập nhật đường cạnh kết thúc
+            </summary>
+            <param name="newPoint"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.AnnulusRegionContext.TransformRegionPoints(System.Windows.Vector)">
+            <summary>
+            Adjust region points
+            </summary>
+            <param name="offset"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.AnnulusRegionContext.ChangeRadiusWithPoint(System.Windows.Point)">
+            <summary>
+            Thay đổi Radius khi tọa độ thay đổi. Hàm này được sử dụng khi vẽ Region
+            </summary>
+            <param name="newPoint"></param>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.CurrContentScale">
+            <summary>
+            Mức scale hiện tại của content
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.BaseShape.UpdateSelectedRoi">
+            <summary>
+            Sự kiện update roi
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.ID">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.UI.IRegion.ID"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.X">
+            <summary>
+            The X coordinate for the position of the node.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.Y">
+            <summary>
+            The Y coordinate for the position of the node.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.ZIndex">
+            <summary>
+            The Z index of the node.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.IsSelected">
+            <summary>
+            Get/set indicate the item is selected or not
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.Width">
+            <summary>
+            Width of region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.Height">
+            <summary>
+            Height of region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.Type">
+            <summary>
+            Roi type
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.Stroke">
+            <summary>
+            Stroke color
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.InheritStroke">
+            <summary>
+            Inherit color from parent
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.MinStrokeThickness">
+            <summary>
+            Minimum stroke thickness
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.RawStrokeThickness">
+            <summary>
+            Real Strock thickness of region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.StrokeThickness">
+            <summary>
+            Strock thickness in viewing UI
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.AdjustRegionStrokeThickness">
+            <summary>
+            Real Strock thickness of region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.SizeAdjustRegion">
+            <summary>
+            Size of adjust box
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.AdjustRegionPosition">
+            <summary>
+            Adjust position for adjust-box
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.AdjMarginTopLeft">
+            <summary>
+            Tùy chỉnh khoảng cách Top-Left
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.AdjMarginTop">
+            <summary>
+            Tùy chỉnh khoảng cách Top
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.AdjMarginTopRight">
+            <summary>
+            Tùy chỉnh khoảng cách Top-Right
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.AdjMarginRight">
+            <summary>
+            Tùy chỉnh khoảng cách Right
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.AdjMarginBottomRight">
+            <summary>
+            Tùy chỉnh khoảng cách Bottom-Right
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.AdjMarginBottom">
+            <summary>
+            Tùy chỉnh khoảng cách Bottom
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.AdjMarginBottomLeft">
+            <summary>
+            Tùy chỉnh khoảng cách Bottom-Left
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.AdjMarginLeft">
+            <summary>
+            Tùy chỉnh khoảng cách Left
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.AdjustRotationPosition">
+            <summary>
+            Adjust position for rotation-box
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.BaseShape.UpdateViewWithScale">
+            <summary>
+            Update view with current scale
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.TranslationEnable">
+            <summary>
+            Get/set this value indicate that object could translate or not
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.ResizeEnable">
+            <summary>
+            Get/set this value indicate that object could resize or not
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.BaseShape.ROI">
+            <summary>
+            Get region of interest
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.BaseShape.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.BaseShape"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.BaseShape.RegionClicked">
+            <summary>
+            Handle clicked event
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.UI.BaseShape.PropertyChanged">
+            <summary>
+            <inheritdoc cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.BaseShape.OnPropertyChanged(System.String)">
+            <summary>
+            Create the OnPropertyChanged method to raise the event. The calling member's name will be used as the parameter.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="P:ST4I.Vision.UI.EllipseRegionContext.OriginPoint">
+            <summary>
+            Original point of center
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.EllipseRegionContext.RadiusX">
+            <summary>
+            Radius X
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.EllipseRegionContext.RadiusY">
+            <summary>
+            Radius Y
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.EllipseRegionContext.CenterPoint">
+            <summary>
+            Center point of region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.EllipseRegionContext.IsEnableSupportEllipse">
+            <summary>
+            Enable adjust for ellipse
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.EllipseRegionContext.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.EllipseRegionContext"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.EllipseRegionContext.#ctor(ST4I.Vision.EllipseRoi)">
+            <summary>
+            Constructor with ROI
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.EllipseRegionContext.#ctor(ST4I.Vision.Drawing.RoiOverlay)">
+            <summary>
+            Constructor init with drawing item
+            </summary>
+            <param name="idraw"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.EllipseRegionContext.Init(ST4I.Vision.EllipseRoi)">
+            <summary>
+            Init ROI
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.EllipseRegionContext.ApplyDrawing(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="idraw"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.EllipseRegionContext.ChangeRadiusWithPoint(System.Windows.Point,ST4I.Vision.UI.AdjustDirection)">
+            <summary>
+            Change size of ellipse with given point
+            </summary>
+            <param name="position"></param>
+            <param name="direction"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.EllipseRegionContext.TransformRegionPoints(System.Windows.Vector)">
+            <summary>
+            Adjust region points
+            </summary>
+            <param name="offset"></param>
+        </member>
+        <member name="P:ST4I.Vision.UI.EllipseRegionContext.ROI">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.UI.BaseShape.ROI"/>
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.UI.IRegion">
+            <summary>
+            Lớp interface dành cho Region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.IRegion.ROI">
+            <summary>
+            Trích xuất Roi
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.IRegion.ZIndex">
+            <summary>
+            Thứ tự view Z-Index
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.IRegion.Type">
+            <summary>
+            Thể loại region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.IRegion.ID">
+            <summary>
+            Mã ID của region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.PolygonRegionContext.points">
+            <summary>
+            Points that make up the connection.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.PolygonRegionContext.IsDrawingPolygon">
+            <summary>
+            Set or get a value that indicate polygon region is drawing
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.PolygonRegionContext.DistancThreshold">
+            <summary>
+            The threshold distance between two point in list polygon points
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.PolygonRegionContext.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.PolygonRegionContext"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.PolygonRegionContext.#ctor(ST4I.Vision.PolygonRoi)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.PolygonRegionContext"/>
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.PolygonRegionContext.#ctor(ST4I.Vision.Drawing.RoiOverlay)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.PolygonRegionContext"/>
+            </summary>
+            <param name="idraw"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.PolygonRegionContext.Init(ST4I.Vision.PolygonRoi)">
+            <summary>
+            Init ROI
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.PolygonRegionContext.ApplyDrawing(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            <inheritdoc />
+            </summary>
+            <param name="idraw"></param>
+        </member>
+        <member name="P:ST4I.Vision.UI.PolygonRegionContext.Points">
+            <summary>
+            Points behind that make up the polygon region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.PolygonRegionContext.PolygonPoints">
+            <summary>
+            Points that make up the polygon region
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.PolygonRegionContext.AddNextPoint(System.Windows.Point)">
+            <summary>
+            Add next point to the polygon's points
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.PolygonRegionContext.AdjustLastPoint(System.Windows.Point)">
+            <summary>
+            Adjust position of last point of polygon's points
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.PolygonRegionContext.AdjustIndexPoint(System.Int32,System.Windows.Point)">
+            <summary>
+            Adjust point at index in polygon's points
+            </summary>
+            <param name="index"></param>
+            <param name="point"></param>
+        </member>
+        <member name="P:ST4I.Vision.UI.PolygonRegionContext.ROI">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.UI.BaseShape.ROI"/>
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.UI.RectangleRegionContext">
+            <summary>
+            Context cho Region dạng Rectangle và RotatedRectangle
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RectangleRegionContext.originPoint">
+            <summary>
+            The first point
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RectangleRegionContext.secondPoint">
+            <summary>
+            The second point for drawing rectangle region
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RectangleRegionContext.angle">
+            <summary>
+            Rotation angle
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RectangleRegionContext.translate">
+            <summary>
+            Translate X,Y
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RectangleRegionContext.OriginPoint">
+            <summary>
+            Original point. Use for rectange and circle
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RectangleRegionContext.SecondPoint">
+            <summary>
+            Second point. Use for rectange and circle
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RectangleRegionContext.Angle">
+            <summary>
+            Angle of rectangle
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RectangleRegionContext.Center">
+            <summary>
+            Center point of rectangle
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RectangleRegionContext.IsEnableRotation">
+            <summary>
+            Get enable rotation mode
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RectangleRegionContext.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.RectangleRegionContext"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RectangleRegionContext.#ctor(ST4I.Vision.RectangleRoi)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.RectangleRegionContext"/>
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.RectangleRegionContext.#ctor(ST4I.Vision.Drawing.RoiOverlay)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.RectangleRegionContext"/>
+            </summary>
+            <param name="idraw"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.RectangleRegionContext.Init(ST4I.Vision.RectangleRoi)">
+            <summary>
+            Init
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.RectangleRegionContext.ApplyDrawing(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            <inheritdoc cref="M:ST4I.Vision.UI.Region.ApplyDrawing(ST4I.Vision.Drawing.OverlayItem)"/>
+            </summary>
+            <param name="idraw"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.RectangleRegionContext.RotatePoint(System.Windows.Point,System.Double)">
+            <summary>
+            Rotate point with origin point is center of region
+            </summary>
+            <param name="point"></param>
+            <param name="angle"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ST4I.Vision.UI.RectangleRegionContext.Translate">
+            <summary>
+            Translate X,Y
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RectangleRegionContext.AdjustRectanglePoints">
+            <summary>
+            Switch original and second point if base on their's coordinator
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RectangleRegionContext.TransformRegionPoints(System.Windows.Vector)">
+            <summary>
+            Adjust region points
+            </summary>
+            <param name="offset"></param>
+        </member>
+        <member name="P:ST4I.Vision.UI.RectangleRegionContext.ROI">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.UI.IRegion.ROI"/>
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.UI.AdjustDirection">
+            <summary>
+            User adjust direction
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.UI.DrawingStructureType">
+            <summary>
+            Dạng cấu trúc vẽ
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.DrawingStructureType.Shape">
+            <summary>
+            Dạng shape
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.DrawingStructureType.Overlay">
+            <summary>
+            Dạng overlay
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.UI.Region">
+            <summary>
+            Lớp Region được vẽ trên giao diện
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.DrawingStructure">
+            <summary>
+            Drawing context type
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.ZIndex">
+            <summary>
+            The Z index of the node.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.TypeOverlay">
+            <summary>
+            Overlay type
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.IsEnableEditProps">
+            <summary>
+            Enable/Disable edit properties
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.CustomStroke">
+            <summary>
+            Custom stroke color
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.StrokeThickness">
+            <summary>
+            Stroke thickness
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.Stroke">
+            <summary>
+            Stroke color
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.Fill">
+            <summary>
+            Fill color
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.TextSize">
+            <summary>
+            Font size
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.Foreground">
+            <summary>
+            Foreground color of text
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.BackgroundText">
+            <summary>
+            Background color of text
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.Text">
+            <summary>
+            Text content
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.TextWeight">
+            <summary>
+            Font weight
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.TextStyle">
+            <summary>
+            Font style
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.TextDecoration">
+            <summary>
+            Font decoration
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.TextFamily">
+            <summary>
+            Font family
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.StrokeHover">
+            <summary>
+            Stroke when mouse over
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.RawStrokeThickness">
+            <summary>
+            Real Strock thickness of region
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.Region.DrawingProperties(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            Init properties for overlay region
+            </summary>
+            <param name="idraw"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.Region.ApplyDrawing(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            Apply style from overlay item
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.Region.GetPanelProperties(ST4I.Vision.Drawing.IPanelOverlay)">
+            <summary>
+            Get panel properties
+            </summary>
+            <param name="panel"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.Region.GetTextProperties(ST4I.Vision.Drawing.ITextOverlay)">
+            <summary>
+            Get text properties
+            </summary>
+            <param name="itext"></param>
+        </member>
+        <member name="P:ST4I.Vision.UI.Region.Overlay">
+            <summary>
+            Get Overlay Item
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.Region.RegionClicked">
+            <summary>
+            Handle clicked event
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.Region.TryParseColorFromString(System.String,System.Windows.Media.SolidColorBrush)">
+            <summary>
+            Chuyển đổi solid color từ chuỗi hex color
+            </summary>
+            <param name="color"></param>
+            <param name="alternative"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.UI.TextRegionContext">
+            <summary>
+            Context cho region dạng text
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.TextRegionContext.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.UI.TextRegionContext"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.TextRegionContext.#ctor(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            Constructor init with drawing item
+            </summary>
+            <param name="idraw"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.TextRegionContext.ApplyDrawing(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="idraw"></param>
+        </member>
+        <member name="P:ST4I.Vision.UI.TextRegionContext.ROI">
+            <summary>
+            This region doesnt has ROI, always return null
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainer.FireRegionChangedEvent(ST4I.Vision.UI.IRegion)">
+            <summary>
+            Support fire event finish drawing region from other object
+            </summary>
+            <param name="regionModel"></param>
+        </member>
+        <member name="E:ST4I.Vision.UI.RoiContainerContext.PropertyChanged">
+            <summary>
+            <inheritdoc cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.OnPropertyChanged(System.String)">
+            <summary>
+            Create the OnPropertyChanged method to raise the event. The calling member's name will be used as the parameter.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.BrushColorDrawingCollection">
+            <summary>
+            List default drawing color
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RoiContainerContext.isLeftMouseDown">
+            <summary>
+            Set to 'true' when left mouse button is held down.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RoiContainerContext.lastMousePoint">
+            <summary>
+            The point the mouse was last at when dragging.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RoiContainerContext.isDragging">
+            <summary>
+            Set to 'true' when dragging has started.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RoiContainerContext.DragThreshold">
+            <summary>
+            The threshold distance the mouse-cursor must move before dragging begins.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RoiContainerContext.drawRegionEnabled">
+            <summary>
+            Enable/Disable draw region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.RegionItems">
+            <summary>
+            List region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.Width">
+            <summary>
+            Width of container
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.Height">
+            <summary>
+            Height of container
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.CurrentIndexRegion">
+            <summary>
+            Current index region in RegionItems
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.MaxNumRoi">
+            <summary>
+            Maximum number of region can be set
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.CurrentRegion">
+            <summary>
+            Current region which is drawingg
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.IsVisible">
+            <summary>
+            Get/set  this value indicate this container is show/hidden
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.BrushColorDrawing">
+            <summary>
+            Color for drawing region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.ContentScale">
+            <summary>
+            The current scale at which the content is being viewed
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.SelectedIndexBrushColor">
+            <summary>
+            Selected index of collection brush color
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.IsEnableDrawRegion">
+            <summary>
+            Enable/Disable draw region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.RegionType">
+            <summary>
+            Region type
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RoiContainerContext.SelectedIndexRegionType">
+            <summary>
+            Selected index of region type 
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.GetKeyFromValue(System.Collections.Generic.Dictionary{ST4I.Vision.RoiType,System.Type},System.Type)">
+            <summary>
+            Get key from dictionary
+            </summary>
+            <param name="dict"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.AddRegion">
+            <summary>
+            Add region to list
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.AddNewPolygonRoi(System.Windows.Point)">
+            <summary>
+             Add new region at current position
+            </summary>
+            <param name="mousePosition">Mouse position</param>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.AddNewRegion(System.Windows.Point)">
+            <summary>
+            Add a new drawing region (Except polygon region)
+            </summary>
+            <param name="lastMousePoint"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.RemoveRegion(ST4I.Vision.UI.BaseShape)">
+            <summary>
+            Remove region
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.BringRegionItemForward(ST4I.Vision.UI.BaseShape)">
+            <summary>
+            Bring item forward
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.BringRegionItemBackward(ST4I.Vision.UI.BaseShape)">
+            <summary>
+            Bring region backward
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.OnMouseDown(System.Windows.Input.MouseButtonEventArgs,System.Windows.Point)">
+            <summary>
+            Called when a mouse button is held down.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.OnMouseMove(System.Windows.Input.MouseEventArgs,System.Windows.Point)">
+            <summary>
+            Called when a mouse button is moving
+            </summary>
+            <param name="e"></param>
+            <param name="mousePosition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.OnMouseUp(System.Windows.Input.MouseButtonEventArgs,System.Windows.Point)">
+            <summary>
+            Called when a mouse button is released.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.AddItem(ST4I.Vision.IRoi)">
+            <summary>
+            Add an item
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.AddItems(ST4I.Vision.IRoi[])">
+            <summary>
+            Add list of item
+            </summary>
+            <param name="items"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.GetItems">
+            <summary>
+            Get all items
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.DeleteItem(ST4I.Vision.IRoi)">
+            <summary>
+            Xoá một item
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RoiContainerContext.DeleteItems">
+            <summary>
+            Clear all items
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.UI.ImageSizeMode">
+            <summary>
+            Image size mode enum
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.UI.ImageBoxFunctionalModeOption">
+            <summary>
+            Funtion mode of imagebox
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.UI.MouseHandlingMode">
+            <summary>
+            Defines the current state of the mouse handling logic.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.MouseHandlingMode.None">
+            <summary>
+            Not in any special mode.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.MouseHandlingMode.DraggingRectangles">
+            <summary>
+            The user is left-dragging rectangles with the mouse.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.MouseHandlingMode.Panning">
+            <summary>
+            The user is left-mouse-button-dragging to pan the viewport.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.MouseHandlingMode.Zooming">
+            <summary>
+            The user is holding down shift and left-clicking or right-clicking to zoom in or out.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.MouseHandlingMode.DragZooming">
+            <summary>
+            The user is holding down shift and left-mouse-button-dragging to select a region to zoom to.
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.UI.DrawingRegionHelper">
+            <summary>
+            Drawing helper
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.DrawingRegionHelper.LimitRegionMove(ST4IVisionCoreNet.Point[],System.Windows.Vector,System.Windows.Size)">
+            <summary>
+            Limit region when moving region around
+            </summary>
+            <param name="vertices"></param>
+            <param name="adjust"></param>
+            <param name="maxSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.DrawingRegionHelper.ConvertToPoint(ST4IVisionCoreNet.Point2d[])">
+            <summary>
+            Đổi Point2d sang Point
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.UI.RegionChangeEventArgs">
+            <summary>
+            Drawing region event argument
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionChangeEventArgs.Item">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionChangeEventArgs.#ctor(System.Windows.RoutedEvent,System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="routedEvent"></param>
+            <param name="source"></param>
+            <param name="item"></param>
+        </member>
+        <member name="T:ST4I.Vision.UI.BooleanInvToVisibilityConverter">
+            <summary>
+            Converter between invert boolean and visibility of object
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.UI.ListBoxSelectionBehavior">
+            <summary>
+            The advanced behavior help to select and unselect item by only click
+            </summary>
+        </member>
+        <member name="E:ST4I.Vision.UI.ViewLayerContainerContext.PropertyChanged">
+            <summary>
+            <inheritdoc cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ViewLayerContainerContext.OnPropertyChanged(System.String)">
+            <summary>
+            Create the OnPropertyChanged method to raise the event. The calling member's name will be used as the parameter.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="P:ST4I.Vision.UI.ViewLayerContainerContext.OverlaySources">
+            <summary>
+            Thông tin overlays
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ViewLayerContainerContext.ImageBitmap">
+            <summary>0
+            Set or get image
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ViewLayerContainerContext.Width">
+            <summary>
+            Width of container
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ViewLayerContainerContext.Height">
+            <summary>
+            Height of container
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.ViewLayerContainerContext.IsVisible">
+            <summary>
+            Get/set  this value indicate this container is show/hidden
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ViewLayerContainerContext.AddItem(ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            Add an item
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.ViewLayerContainerContext.AddItems(ST4I.Vision.Drawing.OverlayItem[])">
+            <summary>
+            Add list of item
+            </summary>
+            <param name="items"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.ViewLayerContainerContext.DeleteItems">
+            <summary>
+            Clear all items
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.ViewLayerContainerContext.GetItems">
+            <summary>
+            Get all items
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.UI.ViewLayerContainerContext.FindItem(System.Collections.Generic.IEnumerable{ST4I.Vision.UI.IRegion},ST4I.Vision.Drawing.OverlayItem)">
+            <summary>
+            Find index of region contain overlay item
+            </summary>
+            <param name="regions"></param>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.UI.Container">
+            <summary>
+            Abstract class for container which holw all object
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.Container.RemoveRegion(ST4I.Vision.UI.IRegion)">
+            <summary>
+            Remove region
+            </summary>
+            <param name="reg"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.Container.BringRegionItemForward(ST4I.Vision.UI.IRegion)">
+            <summary>
+            Bring item forward
+            </summary>
+            <param name="reg"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.Container.BringRegionItemBackward(ST4I.Vision.UI.IRegion)">
+            <summary>
+            Bring region backward
+            </summary>
+            <param name="reg"></param>
+        </member>
+        <member name="M:ST4I.Vision.UI.Container.FireRegionChangedEvent(ST4I.Vision.UI.IRegion)">
+            <summary>
+            Support fire event finish drawing region from other object
+            </summary>
+            <param name="regionModel"></param>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionAnnulus.lastMousePoint">
+            <summary>
+            The point the mouse was last at when dragging.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionAnnulus.isLeftMouseDown">
+            <summary>
+            Set to 'true' when left mouse button is held down.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionAnnulus.DragThreshold">
+            <summary>
+            The threshold distance the mouse-cursor must move before dragging begins.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionAnnulus.isDragging">
+            <summary>
+            Set to 'true' when dragging has started.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionAnnulus.isSelectedAdjustRegion">
+            <summary>
+            Set or get a value to incdicate whether adjust region is selected
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionAnnulus.regionModel">
+            <summary>
+            Datacontext region model
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionAnnulus.RegionModel">
+            <summary>
+            Datacontext region model
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionAnnulus.ParentImageView">
+            <summary>
+            Reference to the data-bound parent.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionAnnulus.ParentItemView">
+            <summary>
+            Parent item view
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionAnnulus.OnApplyTemplate">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionAnnulus.OnMouseDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when a mouse button is held down.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionAnnulus.OnMouseMove(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Called when the mouse cursor is moved.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionAnnulus.OnMouseUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when a mouse button is released.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionAnnulus.IsEnoughForDragging(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Kiểm tra xem độ dịch chuyển vượt ngưỡng tối thiểu chưa
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionEllipse.lastMousePoint">
+            <summary>
+            The point the mouse was last at when dragging.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionEllipse.isLeftMouseDown">
+            <summary>
+            Set to 'true' when left mouse button is held down.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionEllipse.isDragging">
+            <summary>
+            Set to 'true' when dragging has started.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionEllipse.DragThreshold">
+            <summary>
+            The threshold distance the mouse-cursor must move before dragging begins.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionEllipse.adjTop">
+            <summary>
+            Rectangle adjust size of region from top side
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionEllipse.adjBottom">
+            <summary>
+            Rectangle adjust size of region from bottom side
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionEllipse.adjRight">
+            <summary>
+            Rectangle adjust size of region from right side
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionEllipse.adjLeft">
+            <summary>
+            Rectangle adjust size of region from left side
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionEllipse.isSelectedAdjustRegion">
+            <summary>
+            Set or get a value to incdicate whether adjust region is selected
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionEllipse.RegionModel">
+            <summary>
+            Datacontext region model
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionEllipse.ParentImageView">
+            <summary>
+            Reference to the data-bound parent.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionEllipse.ParentItemView">
+            <summary>
+            Parent item view
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionEllipse.OnMouseDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when a mouse button is held down.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionEllipse.OnMouseMove(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Called when the mouse cursor is moved.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionEllipse.OnMouseUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when a mouse button is released.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionItemsControl.FindAssociatedNodeItem(System.Object)">
+            <summary>
+            Find the NodeItem UI element that has the specified data context.
+            Return null if no such NodeItem exists.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionItemsControl.GetContainerForItemOverride">
+            <summary>
+            Creates or identifies the element that is used to display the given item. 
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionItemsControl.IsItemItsOwnContainerOverride(System.Object)">
+            <summary>
+            Determines if the specified item is (or is eligible to be) its own container. 
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionItemView.X">
+            <summary>
+            The X coordinate of the node.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionItemView.Y">
+            <summary>
+            The Y coordinate of the node.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionItemView.ParentImageView">
+            <summary>
+            Reference to the data-bound parent.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionPolygon.lastMousePoint">
+            <summary>
+            The point the mouse was last at when dragging.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionPolygon.isLeftMouseDown">
+            <summary>
+            Set to 'true' when left mouse button is held down.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionPolygon.isDragging">
+            <summary>
+            Set to 'true' when dragging has started.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionPolygon.DragThreshold">
+            <summary>
+            The threshold distance the mouse-cursor must move before dragging begins.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionPolygon.RegionModel">
+            <summary>
+            Datacontext region model
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionPolygon.ParentImageView">
+            <summary>
+            Reference to the data-bound parent.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionPolygon.ParentItemView">
+            <summary>
+            Parent item view
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionPolygon.OnMouseDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when a mouse button is held down.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionPolygon.OnMouseMove(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Called when the mouse cursor is moved.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionPolygon.OnMouseUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when a mouse button is released.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.PointAdjustRegion.lastMousePoint">
+            <summary>
+            The point the mouse was last at when dragging.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.PointAdjustRegion.isLeftMouseDown">
+            <summary>
+            Set to 'true' when left mouse button is held down.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.PointAdjustRegion.isDragging">
+            <summary>
+            Set to 'true' when dragging has started.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.PointAdjustRegion.DragThreshold">
+            <summary>
+            The threshold distance the mouse-cursor must move before dragging begins.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.PointAdjustRegion.pointAdjustIndex">
+            <summary>
+            Index of point in list polygon point
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.PointAdjustRegion.X">
+            <summary>
+            The X coordinate of the node.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.PointAdjustRegion.Y">
+            <summary>
+            The Y coordinate of the node.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.PointAdjustRegion.ParentImageView">
+            <summary>
+            Reference to the data-bound parent.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.PointAdjustRegion.ParentRegion">
+            <summary>
+            Reference to the data-bound parent.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.PointAdjustRegion.OnMouseDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when a mouse button is held down.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.PointAdjustRegion.OnMouseMove(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Called when the mouse cursor is moved.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.PointAdjustRegion.OnMouseUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when a mouse button is released.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionNodesAdjust.GetContainerForItemOverride">
+            <summary>
+            Creates or identifies the element that is used to display the given item. 
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionNodesAdjust.IsItemItsOwnContainerOverride(System.Object)">
+            <summary>
+            Determines if the specified item is (or is eligible to be) its own container. 
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionRectangle.lastMousePoint">
+            <summary>
+            The point the mouse was last at when dragging.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionRectangle.isLeftMouseDown">
+            <summary>
+            Set to 'true' when left mouse button is held down.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionRectangle.isDragging">
+            <summary>
+            Set to 'true' when dragging has started.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionRectangle.DragThreshold">
+            <summary>
+            The threshold distance the mouse-cursor must move before dragging begins.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionRectangle.adjTopLeft">
+            <summary>
+            Rectangle adjust size of region from top left
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionRectangle.adjTop">
+            <summary>
+            Rectangle adjust size of region from top side
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionRectangle.adjTopRight">
+            <summary>
+            Rectangle adjust size of region from top right
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionRectangle.adjRight">
+            <summary>
+            Rectangle adjust size of region from right side
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionRectangle.adjBottomRight">
+            <summary>
+            Rectangle adjust size of region from bottom right
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionRectangle.adjBottom">
+            <summary>
+            Rectangle adjust size of region from bottom
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionRectangle.adjBottomLeft">
+            <summary>
+            Rectangle adjust size of region from bottom left
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionRectangle.adjLeft">
+            <summary>
+            Rectangle adjust size of region from left side
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionRectangle.adjRotation">
+            <summary>
+            adjust rotation of region
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionRectangle.isSelectedAdjustRegion">
+            <summary>
+            Set or get a value to incdicate whether adjust region is selected
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionRectangle.regionModel">
+            <summary>
+            Datacontext region model
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionRectangle.RegionModel">
+            <summary>
+            Datacontext region model
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionRectangle.ParentImageView">
+            <summary>
+            Reference to the data-bound parent.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionRectangle.ParentItemView">
+            <summary>
+            Parent item view
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionRectangle.OnMouseDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when a mouse button is held down.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionRectangle.OnMouseMove(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Called when the mouse cursor is moved.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionRectangle.OnMouseUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when a mouse button is released.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionTemplateSelector.RectangleTemplate">
+            <summary>
+            Template dành cho Region dạng Rectangle
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionTemplateSelector.EllipseTemplate">
+            <summary>
+            Template dành cho Region dạng Ellipse
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionTemplateSelector.PolygonTemplate">
+            <summary>
+            Template dành cho Region dạng Polygon
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionTemplateSelector.AnnulusTemplate">
+            <summary>
+            Template dành cho Region dạng Annulus
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionTemplateSelector.TextTemplate">
+            <summary>
+            Template dành cho Region dạng Text
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionTemplateSelector.SelectTemplate(System.Object,System.Windows.DependencyObject)">
+            <inheritdoc/>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionText.lastMousePoint">
+            <summary>
+            The point the mouse was last at when dragging.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionText.isLeftMouseDown">
+            <summary>
+            Set to 'true' when left mouse button is held down.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionText.isDragging">
+            <summary>
+            Set to 'true' when dragging has started.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionText.DragThreshold">
+            <summary>
+            The threshold distance the mouse-cursor must move before dragging begins.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.UI.RegionText.regionModel">
+            <summary>
+            Datacontext region model
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionText.RegionModel">
+            <summary>
+            Datacontext region model
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionText.ParentImageView">
+            <summary>
+            Reference to the data-bound parent.
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.UI.RegionText.ParentItemView">
+            <summary>
+            Parent item view
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionText.OnMouseDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when a mouse button is held down.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionText.OnMouseMove(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Called when the mouse cursor is moved.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.UI.RegionText.OnMouseUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when a mouse button is released.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.ImageBox.RegionAdapter.ConvertFromROI(ST4I.Vision.IRoi)">
+            <summary>
+            Tạo region từ roi
+            </summary>
+            <param name="roi"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.ImageBox.RegionAdapter.ConvertFromOverlayItem(ST4I.Vision.Drawing.RoiOverlay)">
+            <summary>
+            Tạo lớp Region từ OverlayItem
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Internal.Themes.SetupProperty">
+            <summary>
+            Interaction logic for SetupProperty.xaml
+            </summary>
+            <summary>
+            SetupProperty
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.SetupProperty.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.SetupPropertyVM.SupportSetupPanel">
+            <summary>
+            Support setup for panel region
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.SetupPropertyVM.SupportSetupText">
+            <summary>
+            Support setup for text region
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.SetupPropertyVM.Fill">
+            <summary>
+            Background color
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.SetupPropertyVM.Stroke">
+            <summary>
+            Border color
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.SetupPropertyVM.Foreground">
+            <summary>
+            Text color
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.SetupPropertyVM.BackgroundText">
+            <summary>
+            Background text color
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.SetupPropertyVM.TextSize">
+            <summary>
+            Font size
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.SetupPropertyVM.TextIsBold">
+            <summary>
+            Set/Get style for text: bold or normal
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.SetupPropertyVM.TextIsItalic">
+            <summary>
+            Set/Get style for text: italic or normal
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.SetupPropertyVM.TextIsUnderline">
+            <summary>
+            Set/Get style for text: underline or normal
+            </summary>
+        </member>
+        <member name="T:Internal.Themes.ButtonSpinner">
+            <summary>
+            Represents a spinner control that includes two Buttons.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.ButtonSpinner.ContentProperty">
+            <summary>
+            Identifies the Content dependency property.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.ButtonSpinner.OnContentPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            ContentProperty property changed handler.
+            </summary>
+            <param name="d">ButtonSpinner that changed its Content.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="P:Internal.Themes.ButtonSpinner.DecreaseButton">
+            <summary>
+            Gets or sets the DecreaseButton template part.
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.ButtonSpinner.IncreaseButton">
+            <summary>
+            Gets or sets the IncreaseButton template part.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.ButtonSpinner.OnMouseLeftButtonUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Cancel LeftMouseButtonUp events originating from a button that has
+            been changed to disabled.
+            </summary>
+            <param name="e">The data for the event.</param>
+        </member>
+        <member name="M:Internal.Themes.ButtonSpinner.OnValidSpinDirectionChanged(Internal.Themes.ValidSpinDirections,Internal.Themes.ValidSpinDirections)">
+            <summary>
+            Called when valid spin direction changed.
+            </summary>
+            <param name="oldValue">The old value.</param>
+            <param name="newValue">The new value.</param>
+        </member>
+        <member name="M:Internal.Themes.ButtonSpinner.OnButtonClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handle click event of IncreaseButton and DecreaseButton template parts,
+            translating Click to appropriate Spin event.
+            </summary>
+            <param name="sender">Event sender, should be either IncreaseButton or DecreaseButton template part.</param>
+            <param name="e">Event args.</param>
+        </member>
+        <member name="M:Internal.Themes.ButtonSpinner.OnContentChanged(System.Object,System.Object)">
+            <summary>
+            Occurs when the Content property value changed.
+            </summary>
+            <param name="oldValue">The old value of the Content property.</param>
+            <param name="newValue">The new value of the Content property.</param>
+        </member>
+        <member name="M:Internal.Themes.ButtonSpinner.SetButtonUsage">
+            <summary>
+            Disables or enables the buttons based on the valid spin direction.
+            </summary>
+        </member>
+        <member name="T:Internal.Themes.SpinDirection">
+            <summary>
+            Represents spin directions that could be initiated by the end-user.
+            </summary>
+            <QualityBand>Preview</QualityBand>
+        </member>
+        <member name="F:Internal.Themes.SpinDirection.Increase">
+            <summary>
+            Represents a spin initiated by the end-user in order to Increase a value.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.SpinDirection.Decrease">
+            <summary>
+            Represents a spin initiated by the end-user in order to Decrease a value.
+            </summary>
+        </member>
+        <member name="T:Internal.Themes.SpinEventArgs">
+            <summary>
+            Provides data for the Spinner.Spin event.
+            </summary>
+            <QualityBand>Preview</QualityBand>
+        </member>
+        <member name="P:Internal.Themes.SpinEventArgs.Direction">
+            <summary>
+            Gets the SpinDirection for the spin that has been initiated by the 
+            end-user.
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.SpinEventArgs.UsingMouseWheel">
+            <summary>
+            Get or set whheter the spin event originated from a mouse wheel event.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.SpinEventArgs.#ctor(Internal.Themes.SpinDirection)">
+            <summary>
+            Initializes a new instance of the SpinEventArgs class.
+            </summary>
+            <param name="direction">Spin direction.</param>
+        </member>
+        <member name="T:Internal.Themes.Spinner">
+            <summary>
+            Base class for controls that represents controls that can spin.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.Spinner.ValidSpinDirectionProperty">
+            <summary>
+            Identifies the ValidSpinDirection dependency property.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Spinner.OnValidSpinDirectionPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            ValidSpinDirectionProperty property changed handler.
+            </summary>
+            <param name="d">ButtonSpinner that changed its ValidSpinDirection.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="E:Internal.Themes.Spinner.Spin">
+            <summary>
+            Occurs when spinning is initiated by the end-user.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Spinner.#ctor">
+            <summary>
+            Initializes a new instance of the Spinner class.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Spinner.OnSpin(Internal.Themes.SpinEventArgs)">
+            <summary>
+            Raises the OnSpin event when spinning is initiated by the end-user.
+            </summary>
+            <param name="e">Spin event args.</param>
+        </member>
+        <member name="M:Internal.Themes.Spinner.OnValidSpinDirectionChanged(Internal.Themes.ValidSpinDirections,Internal.Themes.ValidSpinDirections)">
+            <summary>
+            Called when valid spin direction changed.
+            </summary>
+            <param name="oldValue">The old value.</param>
+            <param name="newValue">The new value.</param>
+        </member>
+        <member name="T:Internal.Themes.ValidSpinDirections">
+            <summary>
+            Represents spin directions that are valid.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.ValidSpinDirections.None">
+            <summary>
+            Can not increase nor decrease.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.ValidSpinDirections.Increase">
+            <summary>
+            Can increase.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.ValidSpinDirections.Decrease">
+            <summary>
+            Can decrease.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.ColorCanvas.#cctor">
+            <summary>
+            Static class constructor
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.ColorCanvas.AProperty">
+            <summary>
+            Dependency property for channel A (Opacity)
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.ColorCanvas.RProperty">
+            <summary>
+            Dependency property for channel Red (R) of RGB.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.ColorCanvas.GProperty">
+            <summary>
+            Dependency property for channel Green (G) of RGB.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.ColorCanvas.BProperty">
+            <summary>
+            Dependency property for channel Blue (B) of RGB.
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.ColorCanvas.DisplayColorSpace">
+            <summary>
+            Defines the color space (RGB, HSV ...) in which values are displayed.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.ColorCanvas.UpdateSelectedColorFromHSV(System.Double,System.Double,System.Double)">
+            <summary>
+            Updates the currently selected color in the color canvas
+            from the given HSV parameters.
+            </summary>
+            <param name="hue"></param>
+            <param name="saturation"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Internal.Themes.ColorCanvas.UpdateSelectedColor">
+            <summary>
+            Updates the currently selected color of the color canvas
+            from the A,R,G,B parameters in the color canvas .
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.ColorCanvas.UpdateRGBValues(System.Nullable{System.Windows.Media.Color})">
+            <summary>
+            Updates all color channels in all spaces (Opacity, RGB, HSV)
+            from the given color parameter, or does nothing if the given
+            color parameter 'Has No Value' or is null.
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="M:Internal.Themes.ColorCanvas.ConvertFromString(System.String)">
+            <summary>
+            Attempts to convert a string to a System.Windows.Media.Color.
+            </summary>
+            <param name="colorValue">
+            This shoudl contain an hexadecimal code, such as: FF008000
+            without the '#' character as in normal color coding conventions.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:Internal.Themes.ColorPicker">
+            <summary>
+            Class implements a color picker control.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.ColorPicker.ButtonStyleProperty">
+            <summary>
+            Defines the stayle that is applied to the toggle button of the color picker.
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.ColorPicker.ButtonStyle">
+            <summary>
+            Defines the stayle that is applied to the toggle button of the color picker.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.ColorPicker.ColorModeProperty">
+             <summary>
+             Determines the color mode of the Color Picker PopUp Control.
+            
+             The PopUp Control can show different color controls (eg. Palette of Color Canvas)
+             to select a color from and this is the property that determines the current mode/display.
+             </summary>
+        </member>
+        <member name="M:Internal.Themes.Controls.ColorSpectrumSlider.#cctor">
+            <summary>
+            Class constructor
+            </summary>
+        </member>
+        <member name="T:Internal.Themes.ColorItem">
+            <summary>
+            Model a color with a color value and name.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.ColorItem.#ctor(System.Nullable{System.Windows.Media.Color},System.String)">
+            <summary>
+            Class constructor
+            </summary>
+            <param name="color"></param>
+            <param name="name"></param>
+        </member>
+        <member name="P:Internal.Themes.ColorItem.Color">
+            <summary>
+            Gets/sets the color value of this item.
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.ColorItem.Name">
+            <summary>
+            Gets/sets the name of this item.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.ColorItem.Equals(System.Object)">
+            <summary>
+            Standard object method to compute equality between 2 color items.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Internal.Themes.ColorItem.GetHashCode">
+            <summary>
+            Serves as a hash function.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Internal.Themes.ColorSorter">
+            <summary>
+            Class exposes a method that compares two objects.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.ColorSorter.Compare(System.Object,System.Object)">
+            <summary>
+            Method compares 2 objects and returns an int value to indicate equality,
+            less, or greater value.
+            </summary>
+            <param name="firstItem"></param>
+            <param name="secondItem"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Internal.Themes.Primitives.HsvColor">
+            <summary>
+            Class models a color using the HSV (Hue, Saturation, Value) color space
+            instead of RGB values generally used for the RGB (Red, Green, Blue) color space.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.HsvColor.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Class constructor.
+            </summary>
+            <param name="hue"></param>
+            <param name="saturation"></param>
+            <param name="value"></param>
+        </member>
+        <member name="P:Internal.Themes.Primitives.HsvColor.Hue">
+            <summary>
+            Gets/sets the Hue (H) component of the HSV color space object.
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.Primitives.HsvColor.Saturation">
+            <summary>
+            Gets/sets the Saturation (S) component of the HSV color space object.
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.Primitives.HsvColor.Value">
+            <summary>
+            Gets/sets the Value (V) component of the HSV color space object.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.HsvColor.RGBToHSV(System.Nullable{System.Windows.Media.Color})">
+            <summary>
+            Converts the given RGB color values into a HSV color.
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Internal.Themes.Primitives.HsvColor.RGBFromHSV(Internal.Themes.Primitives.HsvColor)">
+            <summary>
+            Converts the given HSV color values into a RGB color.
+            </summary>
+            <param name="hsvColor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Internal.Themes.Primitives.Selector.OnSelectedItemsCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            When SelectedItems collection implements INotifyPropertyChanged, this is the callback.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Internal.Themes.Primitives.Selector.OnItemsSourceCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            When the ItemsSource implements INotifyPropertyChanged, this is the change callback.
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Internal.Themes.Primitives.Selector.OnSelectedMemberPathValuesChanged">
+            <summary>
+            This is called when any value of any item referenced by SelectedMemberPath
+            is modified. This may affect the SelectedItems collection.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.Selector.OnValueMemberPathValuesChanged">
+            <summary>
+            This is called when any value of any item referenced by ValueMemberPath
+            is modified. This will affect the SelectedValue property
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.Selector.OnItemSelectionChanged(Internal.Themes.Primitives.ItemSelectionChangedEventArgs)">
+            <summary>
+            This method will be called when the "IsSelected" property of an SelectorItem
+            has been modified.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Internal.Themes.Primitives.Selector.UpdateSelectedValue">
+            <summary>
+            Updates the SelectedValue property based on what is present in the SelectedItems property.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.Selector.UpdateSelectedItem">
+            <summary>
+            Updates the SelectedItem property based on what is present in the SelectedItems property.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.Selector.UpdateFromSelectedMemberPathValues">
+            <summary>
+            Update the SelectedItems collection based on the values
+            refered to by the SelectedMemberPath property.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.Selector.UpdateFromSelectedItems">
+            <summary>
+            Updates the following based on the content of SelectedItems:
+            - All SelectorItems "IsSelected" properties
+            - Values refered to by SelectedMemberPath
+            - SelectedItem property
+            - SelectedValue property
+            Refered to by the SelectedMemberPath property.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.Selector.RemoveUnavailableSelectedItems">
+            <summary>
+            Removes all items from SelectedItems that are no longer in ItemsSource.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.Selector.UpdateFromSelectedValue">
+            <summary>
+            Updates the SelectedItems collection based on the content of
+            the SelectedValue property.
+            </summary>
+        </member>
+        <member name="T:Internal.Themes.Primitives.MouseWheelActiveTrigger">
+            <summary>
+            Specify when the mouse wheel is active.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.Primitives.UpDownBase`1.PART_TextBox">
+            <summary>
+            Name constant for Text template part.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.Primitives.UpDownBase`1.PART_Spinner">
+            <summary>
+            Name constant for Spinner template part.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.Primitives.UpDownBase`1._isSyncingTextAndValueProperties">
+            <summary>
+            Flags if the Text and Value properties are in the process of being sync'd
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.Primitives.UpDownBase`1.MouseWheelActiveTriggerProperty">
+            <summary>
+            Identifies the MouseWheelActiveTrigger dependency property
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.Primitives.UpDownBase`1.MouseWheelActiveTrigger">
+            <summary>
+            Get or set when the mouse wheel event should affect the value.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.UpDownBase`1.DoDecrement">
+            <summary>
+            Performs an increment if conditions allow it.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.UpDownBase`1.DoIncrement">
+            <summary>
+            Performs a decrement if conditions allow it.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.UpDownBase`1.ConvertTextToValue(System.String)">
+            <summary>
+            Converts the formatted text to a value.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.UpDownBase`1.ConvertValueToText">
+            <summary>
+            Converts the value to formatted text.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Internal.Themes.Primitives.UpDownBase`1.OnIncrement">
+            <summary>
+            Called by OnSpin when the spin direction is SpinDirection.Increase.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.UpDownBase`1.OnDecrement">
+            <summary>
+            Called by OnSpin when the spin direction is SpinDirection.Descrease.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Primitives.UpDownBase`1.SetValidSpinDirection">
+            <summary>
+            Sets the valid spin directions.
+            </summary>
+        </member>
+        <member name="T:Internal.Themes.Behaviours.AllowableCharactersTextBoxBehavior">
+            <summary>
+            Class implements a textbox behaviour that can help filter textbox characters
+            for valid characters only. Filtering for hex input is, for example, realized
+            by attaching this behaviour to a textbox and setting the RegularExpression
+            property to: "^[0-9|a-f|A-F]+$"
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Behaviours.AllowableCharactersTextBoxBehavior.GetRegularExpressionProperty(System.Windows.DependencyObject)">
+            <summary>
+            Implements the getter method of the regular expression dependency property.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Internal.Themes.Behaviours.AllowableCharactersTextBoxBehavior.SetRegularExpressionProperty(System.Windows.DependencyObject,System.String)">
+            <summary>
+            Implements the setter method of the regular expression dependency property.
+            </summary>
+            <param name="obj"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Internal.Themes.Behaviours.AllowableCharactersTextBoxBehavior.OnRegularExpressionPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Attach detach behaviour when regular expression property has changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Internal.Themes.Behaviours.AllowableCharactersTextBoxBehavior.OnPaste(System.Object,System.Windows.DataObjectPastingEventArgs)">
+            <summary>
+            Method checks if pasted string contains input that is invalid and cancels
+            past command if string is not conforming to regular expression.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Internal.Themes.Behaviours.AllowableCharactersTextBoxBehavior.IsValid(System.String,System.Boolean,System.String)">
+            <summary>
+            Determines whether string conforms to regurlar expression or not.
+            </summary>
+            <param name="newText"></param>
+            <param name="paste"></param>
+            <param name="regularExpression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Internal.Themes.Behaviours.AllowableCharactersTextBoxBehavior.uiElement_PreviewTextInput(System.Object,System.Windows.Input.TextCompositionEventArgs)">
+            <summary>
+            Previews a text change and cancels the change if text appears to be invalid.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Internal.Themes.ListBoxSelectionBehavior">
+            <summary>
+            The advanced behavior help to select and unselect item by only click
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Converters.ColorToSolidColorBrushConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a Color to a SolidColorBrush.
+            </summary>
+            <param name="value">The Color produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+            A converted SolidColorBrush. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Internal.Themes.Converters.ColorToSolidColorBrushConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a SolidColorBrush to a Color.
+            </summary>
+            <remarks>Currently not used in toolkit, but provided for developer use in their own projects</remarks>
+            <param name="value">The SolidColorBrush that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+            A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="T:Internal.Themes.Converters.FactorToDoubleConverter">
+            <summary>
+            Scales a double value by its scale factor (eg. 100.00) up (convert)
+            or down (convertback), or vice versa if factor is set to 0.01...
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Converters.FactorToDoubleConverter.#ctor">
+            <summary>
+            Class constructor
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.Converters.FactorToDoubleConverter.Factor">
+            <summary>
+            Gets/sets the factor for multiplication and division
+            between source (viewmodel) and target (view).
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Converters.FactorToDoubleConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a <seealso cref="T:System.Windows.Visibility"/> value
+            into a <seealso cref="T:System.Boolean"/> value.
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Internal.Themes.Converters.FactorToDoubleConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a <seealso cref="T:System.Boolean"/> value
+            into a <seealso cref="T:System.Windows.Visibility"/> value.
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Internal.Themes.Converters.WindowContentBorderMarginConverter">
+            <summary>
+            Sets the margin for the thumb grip, the top buttons, or for the content border in the WindowControl.
+            </summary>
+        </member>
+        <member name="M:Internal.Themes.Converters.WindowControlBackgroundConverter.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Used in the WindowContainer Template to calculate the resulting background brush
+            from the WindowBackground (values[0]) and WindowOpacity (values[1]) propreties.
+            </summary>
+            <param name="values"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Internal.Themes.Core.Media.WindowColors">
+             <summary>
+             Contains system colors and configurations that can be used by the control themes.
+            
+             Mainly extracted from the registry because theses values are not exposed by the standard .NET API.
+             </summary>
+        </member>
+        <member name="P:Internal.Themes.Core.Media.WindowColors.ColorizationColor">
+             <summary>
+             Relative to the \HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM\ColorizationColor Registry key.
+            
+             Gets the window chrome color.
+             </summary>
+        </member>
+        <member name="P:Internal.Themes.Core.Media.WindowColors.ColorizationOpaqueBlend">
+             <summary>
+             Relative to the \HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM\ColorizationOpaqueBlend Registry key:
+            
+             Gets whether transparency is disabled.
+            
+             Returns true if transparency is disabled; false otherwise.
+             </summary>
+        </member>
+        <member name="M:Internal.Themes.Core.Utilities.ColorUtilities.FormatColorString(System.String,System.Boolean)">
+            <summary>
+            Converts a <seealso cref="T:System.Windows.Media.Color"/> value into a string expression.
+            </summary>
+            <param name="stringToFormat"></param>
+            <param name="isUsingAlphaChannel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Internal.Themes.Core.Utilities.ColorUtilities.GetFormatedColorString(System.Nullable{System.Windows.Media.Color},System.Boolean)">
+            <summary>
+            Converts a <seealso cref="T:System.Windows.Media.Color"/> value into a string expression.
+            </summary>
+            <param name="colorToFormat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Internal.Themes.Core.Utilities.ColorUtilities.GenerateHsvSpectrum">
+            <summary>
+            Generates a list of colors with hues ranging from 0 to 360 and
+            a saturation and value of 1.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Internal.Themes.Core.Utilities.TreeHelper.GetParent(System.Windows.DependencyObject)">
+            <summary>
+            Tries its best to return the specified element's parent. It will 
+            try to find, in this order, the VisualParent, LogicalParent, LogicalTemplatedParent.
+            It only works for Visual, FrameworkElement or FrameworkContentElement.
+            </summary>
+            <param name="element">The element to which to return the parent. It will only 
+            work if element is a Visual, a FrameworkElement or a FrameworkContentElement.</param>
+            <remarks>If the logical parent is not found (Parent), we check the TemplatedParent
+            (see FrameworkElement.Parent documentation). But, we never actually witnessed
+            this situation.</remarks>
+        </member>
+        <member name="M:Internal.Themes.Core.Utilities.TreeHelper.FindParent``1(System.Windows.DependencyObject)">
+            <summary>
+            This will search for a parent of the specified type.
+            </summary>
+            <typeparam name="T">The type of the element to find</typeparam>
+            <param name="startingObject">The node where the search begins. This element is not checked.</param>
+            <returns>Returns the found element. Null if nothing is found.</returns>
+        </member>
+        <member name="M:Internal.Themes.Core.Utilities.TreeHelper.FindParent``1(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            This will search for a parent of the specified type.
+            </summary>
+            <typeparam name="T">The type of the element to find</typeparam>
+            <param name="startingObject">The node where the search begins.</param>
+            <param name="checkStartingObject">Should the specified startingObject be checked first.</param>
+            <returns>Returns the found element. Null if nothing is found.</returns>
+        </member>
+        <member name="M:Internal.Themes.Core.Utilities.TreeHelper.FindParent``1(System.Windows.DependencyObject,System.Boolean,System.Func{``0,System.Boolean})">
+            <summary>
+            This will search for a parent of the specified type.
+            </summary>
+            <typeparam name="T">The type of the element to find</typeparam>
+            <param name="startingObject">The node where the search begins.</param>
+            <param name="checkStartingObject">Should the specified startingObject be checked first.</param>
+            <param name="additionalCheck">Provide a callback to check additional properties 
+            of the found elements. Can be left Null if no additional criteria are needed.</param>
+            <returns>Returns the found element. Null if nothing is found.</returns>
+            <example>Button button = TreeHelper.FindParent&lt;Button&gt;( this, foundChild => foundChild.Focusable );</example>
+        </member>
+        <member name="M:Internal.Themes.Core.Utilities.TreeHelper.FindChild``1(System.Windows.DependencyObject)">
+            <summary>
+            This will search for a child of the specified type. The search is performed 
+            hierarchically, breadth first (as opposed to depth first).
+            </summary>
+            <typeparam name="T">The type of the element to find</typeparam>
+            <param name="parent">The root of the tree to search for. This element itself is not checked.</param>
+            <returns>Returns the found element. Null if nothing is found.</returns>
+        </member>
+        <member name="M:Internal.Themes.Core.Utilities.TreeHelper.FindChild``1(System.Windows.DependencyObject,System.Func{``0,System.Boolean})">
+            <summary>
+            This will search for a child of the specified type. The search is performed 
+            hierarchically, breadth first (as opposed to depth first).
+            </summary>
+            <typeparam name="T">The type of the element to find</typeparam>
+            <param name="parent">The root of the tree to search for. This element itself is not checked.</param>
+            <param name="additionalCheck">Provide a callback to check additional properties 
+            of the found elements. Can be left Null if no additional criteria are needed.</param>
+            <returns>Returns the found element. Null if nothing is found.</returns>
+            <example>Button button = TreeHelper.FindChild&lt;Button&gt;( this, foundChild => foundChild.Focusable );</example>
+        </member>
+        <member name="M:Internal.Themes.Core.Utilities.TreeHelper.IsDescendantOf(System.Windows.DependencyObject,System.Windows.DependencyObject)">
+            <summary>
+            Returns true if the specified element is a child of parent somewhere in the visual 
+            tree. This method will work for Visual, FrameworkElement and FrameworkContentElement.
+            </summary>
+            <param name="element">The element that is potentially a child of the specified parent.</param>
+            <param name="parent">The element that is potentially a parent of the specified element.</param>
+        </member>
+        <member name="M:Internal.Themes.Core.Utilities.TreeHelper.IsDescendantOf(System.Windows.DependencyObject,System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Returns true if the specified element is a child of parent somewhere in the visual 
+            tree. This method will work for Visual, FrameworkElement and FrameworkContentElement.
+            </summary>
+            <param name="element">The element that is potentially a child of the specified parent.</param>
+            <param name="parent">The element that is potentially a parent of the specified element.</param>
+        </member>
+        <member name="T:Internal.Themes.Core.Utilities.ValueChangeHelper">
+            <summary>
+            This helper class will raise events when a specific
+            path value on one or many items changes.
+            </summary>
+        </member>
+        <member name="F:Internal.Themes.Core.Utilities.ValueChangeHelper.ValueProperty">
+            <summary>
+            This private property serves as the target of a binding that monitors the value of the binding
+            of each item in the source.
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.PackIcon.Kind">
+            <summary>
+            Gets or sets the icon to display.
+            </summary>
+        </member>
+        <member name="P:Internal.Themes.PackIcon.Data">
+            <summary>
+            Gets the icon path data for the current <see cref="P:Internal.Themes.PackIcon.Kind"/>.
+            </summary>
+        </member>
+        <member name="T:Internal.Themes.PackIconDataFactory">
+            ******************************************
+            This code is auto generated. Do not amend.
+            ******************************************
+        </member>
+        <member name="T:Internal.Themes.PackIconKind">
+            ******************************************
+            This code is auto generated. Do not amend.
+            ******************************************
+            <summary>
+            List of available icons for use with <see cref="T:Internal.Themes.PackIcon" />.
+            </summary>
+            <remarks>
+            All icons sourced from Material Design Icons Font - https://materialdesignicons.com/ - in accordance of 
+            https://github.com/Templarian/MaterialDesign/blob/master/LICENSE.
+            </remarks>
+        </member>
+        <member name="F:ColorPickerControl.ResourceKeys.ResourceKeys.ControlAccentColorKey">
+            <summary>
+            Accent Color Key - This Color key is used to accent elements in the UI
+            (e.g.: Color of Activated Normal Window Frame, ResizeGrip, Focus or MouseOver input elements)
+            </summary>
+        </member>
+        <member name="F:ColorPickerControl.ResourceKeys.ResourceKeys.ControlAccentBrushKey">
+            <summary>
+            Accent Brush Key - This Brush key is used to accent elements in the UI
+            (e.g.: Color of Activated Normal Window Frame, ResizeGrip, Focus or MouseOver input elements)
+            </summary>
+        </member>
+        <member name="F:ColorPickerControl.ResourceKeys.ResourceKeys.PopUpOpenBorderBrushKey">
+            <summary>
+            Styles the border of a PopUp Control when it is open.
+            </summary>
+        </member>
+        <member name="F:ColorPickerControl.ResourceKeys.ResourceKeys.VerticalSLideThumbMouseOverBrushKey">
+            <summary>
+            Styles the thumb of the vertical color spectrum slider when mouse is over.
+            </summary>
+        </member>
+        <member name="F:ColorPickerControl.ResourceKeys.ResourceKeys.VerticalSLideThumbForegroundBrushKey">
+            <summary>
+            Styles the foreground color of the thumb of the vertical color spectrum slider.
+            </summary>
+        </member>
+        <member name="F:ColorPickerControl.ResourceKeys.ResourceKeys.CanvasSLideThumbForegroundBrushKey">
+            <summary>
+            Styles the foreground color of the color canvas thumb of the color slider.
+            </summary>
+        </member>
+        <member name="F:ColorPickerControl.ResourceKeys.ResourceKeys.CanvasSLideThumbBorderBrushKey">
+            <summary>
+            Styles the border color of the color canvas thumb of the color slider.
+            </summary>
+        </member>
+        <member name="T:ZoomAndPan.AnimationHelper">
+            <summary>
+            A helper class to simplify animation.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.AnimationHelper.StartAnimation(System.Windows.UIElement,System.Windows.DependencyProperty,System.Double,System.Double)">
+            <summary>
+            Starts an animation to a particular value on the specified dependency property.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.AnimationHelper.StartAnimation(System.Windows.UIElement,System.Windows.DependencyProperty,System.Double,System.Double,System.EventHandler)">
+            <summary>
+            Starts an animation to a particular value on the specified dependency property.
+            You can pass in an event handler to call when the animation has completed.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.AnimationHelper.CancelAnimation(System.Windows.UIElement,System.Windows.DependencyProperty)">
+            <summary>
+            Cancel any animations that are running on the specified dependency property.
+            </summary>
+        </member>
+        <member name="T:ZoomAndPan.ZoomAndPanControl">
+            <summary>
+            A class that wraps up zooming and panning of it's content.
+            </summary>
+            <summary>
+            This is an extension to the ZoomAndPanControol class that implements
+            the IScrollInfo interface properties and functions.
+            
+            IScrollInfo is implemented to allow ZoomAndPanControl to be wrapped (in XAML)
+            in a ScrollViewer.  IScrollInfo allows the ScrollViewer and ZoomAndPanControl to 
+            communicate important information such as the horizontal and vertical scrollbar offsets.
+            
+            There is a good series of articles showing how to implement IScrollInfo starting here:
+                http://blogs.msdn.com/bencon/archive/2006/01/05/509991.aspx
+                
+            </summary>
+        </member>
+        <member name="F:ZoomAndPan.ZoomAndPanControl.content">
+            <summary>
+            Reference to the underlying content, which is named PART_Content in the template.
+            </summary>
+        </member>
+        <member name="F:ZoomAndPan.ZoomAndPanControl.contentScaleTransform">
+            <summary>
+            The transform that is applied to the content to scale it by 'ContentScale'.
+            </summary>
+        </member>
+        <member name="F:ZoomAndPan.ZoomAndPanControl.contentOffsetTransform">
+            <summary>
+            The transform that is applied to the content to offset it by 'ContentOffsetX' and 'ContentOffsetY'.
+            </summary>
+        </member>
+        <member name="F:ZoomAndPan.ZoomAndPanControl.enableContentOffsetUpdateFromScale">
+            <summary>
+            Enable the update of the content offset as the content scale changes.
+            This enabled for zooming about a point (google-maps style zooming) and zooming to a rect.
+            </summary>
+        </member>
+        <member name="F:ZoomAndPan.ZoomAndPanControl.disableScrollOffsetSync">
+            <summary>
+            Used to disable syncronization between IScrollInfo interface and ContentOffsetX/ContentOffsetY.
+            </summary>
+        </member>
+        <member name="F:ZoomAndPan.ZoomAndPanControl.disableContentFocusSync">
+            <summary>
+            Normally when content offsets changes the content focus is automatically updated.
+            This syncronization is disabled when 'disableContentFocusSync' is set to 'true'.
+            When we are zooming in or out we 'disableContentFocusSync' is set to 'true' because 
+            we are zooming in or out relative to the content focus we don't want to update the focus.
+            </summary>
+        </member>
+        <member name="F:ZoomAndPan.ZoomAndPanControl.constrainedContentViewportWidth">
+            <summary>
+            The width of the viewport in content coordinates, clamped to the width of the content.
+            </summary>
+        </member>
+        <member name="F:ZoomAndPan.ZoomAndPanControl.constrainedContentViewportHeight">
+            <summary>
+            The height of the viewport in content coordinates, clamped to the height of the content.
+            </summary>
+        </member>
+        <member name="F:ZoomAndPan.ZoomAndPanControl.canVerticallyScroll">
+            <summary>
+            Set to 'true' when the vertical scrollbar is enabled.
+            </summary>
+        </member>
+        <member name="F:ZoomAndPan.ZoomAndPanControl.canHorizontallyScroll">
+            <summary>
+            Set to 'true' when the vertical scrollbar is enabled.
+            </summary>
+        </member>
+        <member name="F:ZoomAndPan.ZoomAndPanControl.unScaledExtent">
+            <summary>
+            Records the unscaled extent of the content.
+            This is calculated during the measure and arrange.
+            </summary>
+        </member>
+        <member name="F:ZoomAndPan.ZoomAndPanControl.viewport">
+            <summary>
+            Records the size of the viewport (in viewport coordinates) onto the content.
+            This is calculated during the measure and arrange.
+            </summary>
+        </member>
+        <member name="F:ZoomAndPan.ZoomAndPanControl.scrollOwner">
+            <summary>
+            Reference to the ScrollViewer that is wrapped (in XAML) around the ZoomAndPanControl.
+            Or set to null if there is no ScrollViewer.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ContentOffsetX">
+            <summary>
+            Get/set the X offset (in content coordinates) of the view on the content.
+            </summary>
+        </member>
+        <member name="E:ZoomAndPan.ZoomAndPanControl.ContentOffsetXChanged">
+            <summary>
+            Event raised when the ContentOffsetX property has changed.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ContentOffsetY">
+            <summary>
+            Get/set the Y offset (in content coordinates) of the view on the content.
+            </summary>
+        </member>
+        <member name="E:ZoomAndPan.ZoomAndPanControl.ContentOffsetYChanged">
+            <summary>
+            Event raised when the ContentOffsetY property has changed.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ContentScale">
+            <summary>
+            Get/set the current scale (or zoom factor) of the content.
+            </summary>
+        </member>
+        <member name="E:ZoomAndPan.ZoomAndPanControl.ContentScaleChanged">
+            <summary>
+            Event raised when the ContentScale property has changed.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.MinContentScale">
+            <summary>
+            Get/set the minimum value for 'ContentScale'.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.MaxContentScale">
+            <summary>
+            Get/set the maximum value for 'ContentScale'.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ContentZoomFocusX">
+            <summary>
+            The X coordinate of the content focus, this is the point that we are focusing on when zooming.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ContentZoomFocusY">
+            <summary>
+            The Y coordinate of the content focus, this is the point that we are focusing on when zooming.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ViewportZoomFocusX">
+            <summary>
+            The X coordinate of the viewport focus, this is the point in the viewport (in viewport coordinates) 
+            that the content focus point is locked to while zooming in.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ViewportZoomFocusY">
+            <summary>
+            The Y coordinate of the viewport focus, this is the point in the viewport (in viewport coordinates) 
+            that the content focus point is locked to while zooming in.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.AnimationDuration">
+            <summary>
+            The duration of the animations (in seconds) started by calling AnimatedZoomTo and the other animation methods.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ContentViewportWidth">
+            <summary>
+            Get the viewport width, in content coordinates.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ContentViewportHeight">
+            <summary>
+            Get the viewport height, in content coordinates.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.IsMouseWheelScrollingEnabled">
+            <summary>
+            Set to 'true' to enable the mouse wheel to scroll the zoom and pan control.
+            This is set to 'false' by default.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.AnimatedZoomTo(System.Double,System.Windows.Rect)">
+            <summary>
+            Do an animated zoom to view a specific scale and rectangle (in content coordinates).
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.AnimatedZoomTo(System.Windows.Rect)">
+            <summary>
+            Do an animated zoom to the specified rectangle (in content coordinates).
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ZoomTo(System.Windows.Rect)">
+            <summary>
+            Instantly zoom to the specified rectangle (in content coordinates).
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.SnapContentOffsetTo(System.Windows.Point)">
+            <summary>
+            Instantly center the view on the specified point (in content coordinates).
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.SnapTo(System.Windows.Point)">
+            <summary>
+            Instantly center the view on the specified point (in content coordinates).
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.AnimatedSnapTo(System.Windows.Point)">
+            <summary>
+            Use animation to center the view on the specified point (in content coordinates).
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.AnimatedZoomAboutPoint(System.Double,System.Windows.Point)">
+            <summary>
+            Zoom in/out centered on the specified point (in content coordinates).
+            The focus point is kept locked to it's on screen position (ala google maps).
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ZoomAboutPoint(System.Double,System.Windows.Point)">
+            <summary>
+            Zoom in/out centered on the specified point (in content coordinates).
+            The focus point is kept locked to it's on screen position (ala google maps).
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.AnimatedZoomTo(System.Double)">
+            <summary>
+            Zoom in/out centered on the viewport center.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ZoomTo(System.Double)">
+            <summary>
+            Zoom in/out centered on the viewport center.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.AnimatedScaleToFit">
+            <summary>
+            Do animation that scales the content so that it fits completely in the control.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.AnimatedScaleToFit(System.Double,System.Double)">
+            <summary>
+            Force zoom with animation that scales the content so that it fits completely in the control.
+            </summary>
+            <param name="width">Specific width</param>
+            <param name="height">Specific height</param>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ScaleToFit">
+            <summary>
+            Instantly scale the content so that it fits completely in the control.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ScaleToFit(System.Double,System.Double)">
+            <summary>
+            Instantly scale the content so that it fits completely in the control.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.#cctor">
+            <summary>
+            Static constructor to define metadata for the control (and link it to the style in Generic.xaml).
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.OnApplyTemplate">
+            <summary>
+            Called when a template has been applied to the control.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.AnimatedZoomPointToViewportCenter(System.Double,System.Windows.Point,System.EventHandler)">
+            <summary>
+            Zoom to the specified scale and move the specified focus point to the center of the viewport.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ZoomPointToViewportCenter(System.Double,System.Windows.Point)">
+            <summary>
+            Zoom to the specified scale and move the specified focus point to the center of the viewport.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ContentScale_PropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Event raised when the 'ContentScale' property has changed value.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ContentScale_Coerce(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            Method called to clamp the 'ContentScale' value to its valid range.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.MinOrMaxContentScale_PropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Event raised 'MinContentScale' or 'MaxContentScale' has changed.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ContentOffsetX_PropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Event raised when the 'ContentOffsetX' property has changed value.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ContentOffsetX_Coerce(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            Method called to clamp the 'ContentOffsetX' value to its valid range.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ContentOffsetY_PropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Event raised when the 'ContentOffsetY' property has changed value.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ContentOffsetY_Coerce(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            Method called to clamp the 'ContentOffsetY' value to its valid range.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ResetViewportZoomFocus">
+            <summary>
+            Reset the viewport zoom focus to the center of the viewport.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.UpdateViewportSize(System.Windows.Size)">
+            <summary>
+            Update the viewport size from the specified size.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.UpdateContentViewportSize">
+            <summary>
+            Update the size of the viewport in content coordinates after the viewport size or 'ContentScale' has changed.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.UpdateTranslationX">
+            <summary>
+            Update the X coordinate of the translation transformation.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.UpdateTranslationY">
+            <summary>
+            Update the Y coordinate of the translation transformation.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.UpdateContentZoomFocusX">
+            <summary>
+            Update the X coordinate of the zoom focus point in content coordinates.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.UpdateContentZoomFocusY">
+            <summary>
+            Update the Y coordinate of the zoom focus point in content coordinates.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.MeasureOverride(System.Windows.Size)">
+            <summary>
+            Measure the control and it's children.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.ArrangeOverride(System.Windows.Size)">
+            <summary>
+            Arrange the control and it's children.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.CanVerticallyScroll">
+            <summary>
+            Set to 'true' when the vertical scrollbar is enabled.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.CanHorizontallyScroll">
+            <summary>
+            Set to 'true' when the vertical scrollbar is enabled.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ExtentWidth">
+            <summary>
+            The width of the content (with 'ContentScale' applied).
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ExtentHeight">
+            <summary>
+            The height of the content (with 'ContentScale' applied).
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ViewportWidth">
+            <summary>
+            Get the width of the viewport onto the content.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ViewportHeight">
+            <summary>
+            Get the height of the viewport onto the content.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.ScrollOwner">
+            <summary>
+            Reference to the ScrollViewer that is wrapped (in XAML) around the ZoomAndPanControl.
+            Or set to null if there is no ScrollViewer.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.HorizontalOffset">
+            <summary>
+            The offset of the horizontal scrollbar.
+            </summary>
+        </member>
+        <member name="P:ZoomAndPan.ZoomAndPanControl.VerticalOffset">
+            <summary>
+            The offset of the vertical scrollbar.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.SetHorizontalOffset(System.Double)">
+            <summary>
+            Called when the offset of the horizontal scrollbar has been set.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.SetVerticalOffset(System.Double)">
+            <summary>
+            Called when the offset of the vertical scrollbar has been set.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.LineUp">
+            <summary>
+            Shift the content offset one line up.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.LineDown">
+            <summary>
+            Shift the content offset one line down.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.LineLeft">
+            <summary>
+            Shift the content offset one line left.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.LineRight">
+            <summary>
+            Shift the content offset one line right.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.PageUp">
+            <summary>
+            Shift the content offset one page up.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.PageDown">
+            <summary>
+            Shift the content offset one page down.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.PageLeft">
+            <summary>
+            Shift the content offset one page left.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.PageRight">
+            <summary>
+            Shift the content offset one page right.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.MouseWheelDown">
+            <summary>
+            Don't handle mouse wheel input from the ScrollViewer, the mouse wheel is
+            used for zooming in and out, not for manipulating the scrollbars.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.MouseWheelLeft">
+            <summary>
+            Don't handle mouse wheel input from the ScrollViewer, the mouse wheel is
+            used for zooming in and out, not for manipulating the scrollbars.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.MouseWheelRight">
+            <summary>
+            Don't handle mouse wheel input from the ScrollViewer, the mouse wheel is
+            used for zooming in and out, not for manipulating the scrollbars.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.MouseWheelUp">
+            <summary>
+            Don't handle mouse wheel input from the ScrollViewer, the mouse wheel is
+            used for zooming in and out, not for manipulating the scrollbars.
+            </summary>
+        </member>
+        <member name="M:ZoomAndPan.ZoomAndPanControl.MakeVisible(System.Windows.Media.Visual,System.Windows.Rect)">
+            <summary>
+            Bring the specified rectangle to view.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1394 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ST4I.Vision.BaseModule</name>
+    </assembly>
+    <members>
+        <member name="T:ST4I.Vision.Module.BarcodeReport">
+            <summary>
+            Thông tin về barcode
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.BarcodeReport.Content">
+            <summary>
+            Kết quả barcode
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.BarcodeReport.Vertices">
+            <summary>
+            Toạ độ các đỉnh của đối tượng được tìm thấy
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.BarcodeReport.Type">
+            <summary>
+            Loại barcode
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.BarcodeResult">
+            <summary>
+            Thông tin về barcode
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.BarcodeResult.ProcessedRoi">
+            <summary>
+            Vùng roi thực tế xử lý
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.BarcodeResult.Status">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Module.IModuleData.Status"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.BarcodeResult.BarcodeItems">
+            <summary>
+            Danh sách kết qủa barcode
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.BarcodeType">
+            <summary>
+            Loại barcode
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.BarcodeType.Unknown">
+            <summary>
+            The type of barcode is unknown
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.BarcodeType.Codabar">
+            <summary>
+            The barcode is of type Codabar
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.BarcodeType.Code39">
+            <summary>
+            The barcode is of type Code 39
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.BarcodeType.Code93">
+            <summary>
+            The barcode is of type Code 93
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.BarcodeType.Code128">
+            <summary>
+            The barcode is of type Code 128
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.BarcodeType.Ean8">
+            <summary>
+            The barcode is of type EAN 8
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.BarcodeType.Ean13">
+            <summary>
+            The barcode is of type EAN 13
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.BarcodeType.I2Of5">
+            <summary>
+            The barcode is of type Code 25
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.BarcodeType.Msi">
+            <summary>
+            The barcode is of type MSI code
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.BarcodeType.UpcA">
+            <summary>
+            The barcode is of type UPC A
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.BarcodeType.Pharmacode">
+            <summary>
+            The barcode is of type Pharmacode
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.BarcodeType.RssLimited">
+            <summary>
+            The barcode is of type GS1 DataBar
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.Code2DResult">
+            <summary>
+            Thông tin về QrCode
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.Code2DResult.Content">
+            <summary>
+            Kết quả QrCode
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.Code2DResult.Vertices">
+            <summary>
+            Toạ độ các đỉnh của đối tượng được tìm thấy
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.Code2DResult.ProcessedRoi">
+            <summary>
+            Vùng roi thực tế xử lý
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.Code2DResult.Type">
+            <summary>
+            Loại mã code
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.Code2DResult.Status">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Module.IModuleData.Status"/>
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.Code2DType">
+            <summary>
+            Loại mã code 2D
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.Code2DType.DataMatrix">
+            <summary>
+            Data Matrix
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.Code2DType.PDF417">
+            <summary>
+            PDF417
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.Code2DType.QRCode">
+            <summary>
+            QR Code
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.DataMatrixMatrixSize">
+            <summary>
+            Kích thước của datamatrix
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.EnumDescriptionConverter">
+            <summary>
+            Chuyển đổi hiển thị Enum trên giao diện sự dụng Description Atrribute
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.EnumDescriptionConverter.#ctor(System.Type)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Module.EnumDescriptionConverter"/>
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:ST4I.Vision.Module.EnumDescriptionConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            <inheritdoc cref="M:System.ComponentModel.EnumConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)"/>
+            </summary>
+            <param name="context"></param>
+            <param name="culture"></param>
+            <param name="value"></param>
+            <param name="destinationType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Module.EdgeAnalyst">
+            <summary>
+            Trích xuất thông tin từ cạnh
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.ExtractEdge(System.Collections.Generic.List{ST4I.Vision.Module.EdgeLineProfile},ST4I.Vision.Module.SearchEdgeMode)">
+            <summary>
+            Trích xuất thông tin cạnh để tìm đường thẳng
+            </summary>
+            <param name="edgeLineProfiles"></param>
+            <param name="searchEdgeMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.ExtractEdge(System.Collections.Generic.List{ST4I.Vision.Module.EdgeLineProfile})">
+            <summary>
+            Trích xuất thông tin cạnh để tìm đường thẳng
+            </summary>
+            <param name="edgeLineProfiles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.FindEdge(System.Collections.Generic.List{System.Double},System.Single,System.Collections.Generic.List{ST4IVisionCoreNet.Point2d},ST4I.Vision.Module.EdgePolaritySearchMode)">
+            <summary>
+            Tìm thông tin cạnh trên đường thẳng
+            </summary>
+            <param name="gradientInfor">Danh sách giá trị gradient</param>
+            <param name="threshold">Ngưỡng xác định</param>
+            <param name="point2Fs">Danh sách các điểm</param>
+            <param name="edgePolaritySearchMode"></param>
+            <returns>Thông tin các cạnh tìm được</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.GetGradientInfoOnLine(ST4IVisionCoreNet.Mat,System.Collections.Generic.List{ST4IVisionCoreNet.Point2d})">
+            <summary>
+            Xác định giá trị gradient tại các điểm trên đường thẳng
+            </summary>
+            <param name="mat">Ảnh gradient</param>
+            <param name="point2Fs">Danh sách các điểm trên đường thẳng</param>
+            <returns>Danh sách giá trị gradient</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.GetLinesInfo(ST4I.Vision.RectangleRoi,ST4I.Vision.Module.SearchDirection,System.Int32)">
+            <summary>
+            Xác định thông tin các đường tìm kiểm theo hướng đã chọn trong ROI
+            </summary>
+            <param name="roi">Vùng quan tâm</param>
+            <param name="searchDirection">Hướng tìm kiếm</param>
+            <param name="gap">Khoảng cách giữa các đường</param>
+            <returns>Thông tin các đường</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.GetPointsOnLine(ST4I.Vision.Module.LineInfo)">
+            <summary>
+            Xác định vị trí các điểm trên một đường thẳng
+            </summary>
+            <param name="lineInfo">Thông tin đường thẳng</param>
+            <returns>Danh sách các điểm trên đường thẳng</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.CreatKernel(System.Int32,System.Double,ST4I.Vision.Module.SearchDirection)">
+            <summary>
+            Tạo sobel kernel
+            </summary>
+            <param name="size">Kích thước sobel kernel</param>
+            <param name="angleInDegrees">Góc tính gradient</param>
+            <param name="searchDirection"></param>
+            <returns>Sobel Kernel</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.CreatKernel(System.Int32,System.Double)">
+            <summary>
+            Tạo sobel kernel
+            </summary>
+            <param name="size">Kích thước sobel kernel</param>
+            <param name="angleInDegrees">Góc tính gradient</param>
+            <returns>Sobel Kernel</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.RotatePoint(ST4IVisionCoreNet.Point2d,ST4IVisionCoreNet.Point2d,System.Double)">
+            <summary>
+            Quay điểm xung quanh một điểm
+            </summary>
+            <param name="pointToRotate">Điểm cần quay</param>
+            <param name="centerPoint">Tâm quay</param>
+            <param name="angleInDegrees">Góc quay</param>
+            <returns>Tọa độ điểm nhận được sau khi quay</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.CalculateDistance(ST4IVisionCoreNet.Point2d,ST4IVisionCoreNet.Point2d)">
+            <summary>
+            Tính khoảng cách giữa hai điểm
+            </summary>
+            <param name="point1">Điểm thứ nhất</param>
+            <param name="point2">Điểm thứ hai</param>
+            <returns>Khoảng cách giữa hai điểm</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.CalculateDistance(ST4IVisionCoreNet.Point2f,ST4IVisionCoreNet.Point2f)">
+            <summary>
+            Tính khoảng cách giữa hai điểm
+            </summary>
+            <param name="point1">Điểm thứ nhất</param>
+            <param name="point2">Điểm thứ hai</param>
+            <returns>Khoảng cách giữa hai điểm</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.CalculateDistance(ST4IVisionCoreNet.Point2f,ST4IVisionCoreNet.Point)">
+            <summary>
+            Tính khoảng cách giữa hai điểm
+            </summary>
+            <param name="point1">Điểm thứ nhất</param>
+            <param name="point2">Điểm thứ hai</param>
+            <returns>Khoảng cách giữa hai điểm</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.BilinearInterpolation(ST4IVisionCoreNet.Point2d,ST4IVisionCoreNet.Mat)">
+            <summary>
+            Nội suy điểm theo phương pháp Bilinear Interpolation
+            </summary>
+            <param name="point">Điểm đầu vào</param>
+            <param name="mat">Ảnh chứa điểm đó</param>
+            <returns>Giá trị tại điểm input</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.EdgeAnalyst.GetPixelAccurate(System.Int32,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{ST4IVisionCoreNet.Point2d})">
+            <summary>
+            Tính toán subpixel
+            </summary>
+            <param name="index">Thứ tự pixel cần tính trong list</param>
+            <param name="gradientInfor">Danh sách thông tin gradient</param>
+            <param name="point2Fs">Danh sách điểm</param>
+            <returns>Kết quả tọa độ chính xác</returns>
+        </member>
+        <member name="T:ST4I.Vision.Module.EdgeLineProfile">
+            <summary>
+            Thông tin các cạnh và giá trị gradient trên đường thẳng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.EdgeLineProfile.Edges">
+            <summary>
+            Danh sách các điểm cạnh tìm được
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.EdgePoint">
+            <summary>
+            Thông tin về điểm trên cạnh
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.EdgePoint.Position">
+            <summary>
+            Tọa độ của cạnh
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.EdgePoint.Distance">
+            <summary>
+            Khoảng cách
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.EdgePoint.Polarity">
+            <summary>
+            Hướng lên hay xuống
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.EdgePoint.Gradient">
+            <summary>
+            Giá trị gradient
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.EdgePolarity">
+            <summary>
+            Phân cực cạnh
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.EdgePolarity.Falling">
+            <summary>
+            The edge is a falling edge.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.EdgePolarity.Rising">
+            <summary>
+            The edge is a rising edge.
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.EdgePolaritySearchMode">
+            <summary>
+            Xác định Polarity của các cạnh để tìm kiếm.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.EdgePolaritySearchMode.All">
+            <summary>
+            Searches for all edges.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.EdgePolaritySearchMode.DarkToBright">
+            <summary>
+            Searches for rising edges only.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.EdgePolaritySearchMode.BrightToDark">
+            <summary>
+            Searches for falling edges only.
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.SearchEdgeMode">
+            <summary>
+            Chế độ tìm kiếm đường tròn
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.SearchEdgeMode.FirstEdge">
+            <summary>
+            Fits a circle on the first points detected
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.SearchEdgeMode.BestEdge">
+            <summary>
+             Fits a circle on the best points detected 
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.LineInfo">
+            <summary>
+            Thông tin đường thẳng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.LineInfo.Start">
+            <summary>
+            Điểm bắt đầu của đường thẳng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.LineInfo.End">
+            <summary>
+            Điểm kết thúc của đường thẳng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.LineInfo.Slope">
+            <summary>
+            Góc của đường thẳng
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.LineProfile">
+            <summary>
+            Profile của một đường theo gradient
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.LineProfile.GradientProfile">
+            <summary>
+            Danh sách gradient trên đường thẳng
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.LocationTransformMode">
+            <summary>
+            Chế độ hỗ trợ định vị đối tượng
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.LocationTransformMode.XYAxisAngle">
+            <summary>
+            Định vị theo trục X,Y và góc
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.LocationTransformMode.XYAxis">
+            <summary>
+            Định vị theo trục X,Y
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.LocationTransformMode.XAxis">
+            <summary>
+            Định vị theo trục X
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.LocationTransformMode.YAxis">
+            <summary>
+            Định vị theo trục Y
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.ObjectLocation">
+            <summary>
+            Vị trí của đối tượng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.ObjectLocation.Position">
+            <summary>
+            Tọa độ của đối tượng
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.ObjectLocation.Angle">
+            <summary>
+            Góc xoay đơn vị degree
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.ObjectLocation.#ctor">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Module.ObjectLocation"/>
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.ObjectLocation.#ctor(ST4IVisionCoreNet.Point2d,System.Double)">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Module.ObjectLocation"/>
+            </summary>
+            <param name="position">Tọa độ của vật</param>
+            <param name="angle">Góc xoay của vật</param>
+        </member>
+        <member name="T:ST4I.Vision.Module.Utils.TransformDeviation">
+            <summary>
+            Độ lệch khoảng cách dịch chuyển theo 3 chiều x,y,angle
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.Utils.TransformDeviation.Dx">
+            <summary>
+            Độ lệch theo trục X
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.Utils.TransformDeviation.Dy">
+            <summary>
+            Độ lệch theo trục Y
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.Utils.TransformDeviation.Dr">
+            <summary>
+            Độ lệch theo trục Xoay
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.Utils.TransformationSupporter">
+            <summary>
+            Class hỗ trợ dịch chuyển object trong không gian 2 chiều
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.Utils.TransformationSupporter.CalcDeviation(ST4I.Vision.Module.ObjectLocation,ST4I.Vision.Module.ObjectLocation,ST4IVisionCoreNet.Point2d)">
+            <summary>
+            Tính toán độ lệch dịch chuyển giữa 2 vị trí tọa độ trong không gian
+            </summary>
+            <param name="sourceLocation">Tọa độ nguồn</param>
+            <param name="destLocation">Tọa độ đích</param>
+            <param name="origin">Gốc tọa độ</param>
+            <returns>Độ lệch</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.Utils.TransformationSupporter.CalcDeviationWithoutRotation(ST4I.Vision.Module.ObjectLocation,ST4I.Vision.Module.ObjectLocation,ST4IVisionCoreNet.Point2d)">
+            <summary>
+            Tính toán độ lệch dịch chuyển giữa 2 vị trí tọa độ trong không gian, không hỗ trợ góc xoay
+            </summary>
+            <param name="sourceLocation">Tọa độ nguồn</param>
+            <param name="destLocation">Tọa độ đích</param>
+            <param name="origin">Gốc tọa độ</param>
+            <returns>Độ lệch</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.Utils.TransformationSupporter.EuclideanTransformRoi(ST4I.Vision.IRoi,ST4I.Vision.Module.Utils.TransformDeviation,ST4IVisionCoreNet.Point)">
+            <summary>
+            Dịch chuyển roi theo độ lệch
+            </summary>
+            <param name="roi"></param>
+            <param name="dev"></param>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Module.PatternMatchingBase">
+            <summary>
+            Lớp thể hiện thuật toán matching cơ bản
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingBase.MatchingOptions">
+            <summary>
+            Tham số cài đặt
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.PatternMatchingBase.hadLearnPattern">
+            <summary>
+            Biến thể hiện đối tượng đã được học
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.PatternMatchingBase.TEMPLATE_IMG_NAME">
+            <summary>
+            Tên ảnh template
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.PatternMatchingBase.MIN_MATCH_SCORE">
+            <summary>
+            Giá trị tối thiểu của matching
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.PatternMatchingBase.MAX_MATCH_SCORE">
+            <summary>
+            Giá trị tối đa của matching
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingBase.MinNumOfMatch">
+            <summary>
+            Số lượng tối thiểu cần tìm thấy, mặc định bằng 1
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingBase.MaxNumOfMatch">
+             <summary>
+            Số lượng tối đa cần tìm thấy, mặc định bằng 1
+             </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingBase.RotationRange">
+            <summary>
+            Khoảng góc quay cho phép tìm kiếm
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingBase.ScaleRange">
+            <summary>
+            Khoảng scale của vật tìm kiếm
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingBase.SearchingRoi">
+            <summary>
+            Vùng tìm kiếm của ảnh, nếu bằng null thì thuật toán sẽ tìm trên toàn bộ ảnh
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingBase.TemplateRoi">
+            <summary>
+            Vùng ảnh chứa mẫu
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingBase.TemplatePosition">
+            <summary>
+            Vị trí tiêu chuẩn của ảnh mẫu
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingBase.PathTemplate">
+            <summary>
+            Đường dẫn lưu ảnh template. Lưu ý đường dẫn là địa chỉ tương đối
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.PatternMatchingBase.HadLearnPattern">
+            <summary>
+            Trả về kết quả thuật toán đã hoàn thành việc học tập mẫu hay chưa
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.PatternMatchingBase.LearnPattern(System.Boolean)">
+            <summary>
+            Thực hiện việc học pattern với thông số đã được cài đặt trước đó. Cần lưu ý hoàn tất cài đặt trước khi gọi hàm này
+            </summary>
+            <param name="forceLearn">Gán bằng true nếu muốn học pattern ngay cả khi chương trình đã được học trước đó</param>
+        </member>
+        <member name="M:ST4I.Vision.Module.PatternMatchingBase.Match">
+            <summary>
+            Tìm kiếm nhiều đối tượng với các tham số đã được cài đặt trước đó. Chú ý cần truyền ảnh trước khi gọi hàm này.
+            </summary>
+            <returns>Kết quả tìm kiếm</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.PatternMatchingBase.VerifyResult(ST4I.Vision.Module.PatternMatchingResult)">
+            <summary>
+            Kiểm tra kết quả xem thỏa mãn điều kiện đã cài đặt
+            </summary>
+            <param name="result">Dữ liệu cần kiểm tra</param>
+            <returns></returns>
+        </member>
+        <member name="F:ST4I.Vision.Module.PatternMatchingBase.disposedValue">
+            <summary>
+            To detect redundant calls
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.PatternMatchingBase.Dispose">
+            <summary>
+            Public implementation of Dispose pattern callable by consumers.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.PatternMatchingBase.Dispose(System.Boolean)">
+            <summary>
+            Protected implementation of Dispose pattern
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:ST4I.Vision.Module.PatternMatchingOptions">
+            <summary>
+            Tham số cài đặt cho Correlation Pattern Matching
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.MatchScore">
+            <summary>
+            Ngưỡng cài đặt cho tìm kiếm vật. Đối tượng cần có score >= matchScore 
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.StartAngle">
+            <summary>
+            Góc bắt đầu tìm kiếm
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.EndAngle">
+            <summary>
+            Góc kết thúc tìm kiếm
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.StartScale">
+            <summary>
+            Scale bắt đầu tìm kiếm
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.EndScale">
+            <summary>
+            Scale kết thúc tìm kiếm
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.ObjectOverlapPercentage">
+            <summary>
+            Tỷ lệ phần trăm đối tượng được đè lên nhau. Dải % từ [0,100]
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.PyramidLevel">
+            <summary>
+            Cấp độ pyramid. Cần chú ý nếu pyramid quá cao pattern sẽ rất mờ và có thể gây ra sai số
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.NumberOfObjectToFind">
+            <summary>
+            Số lượng đối tượng cần tìm thấy, cài đặt thông số này giúp quá trình tìm kiếm có thể kết thúc sớm hơn, mặc định bằng 1
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.IsSubpixelEnalbed">
+            <summary>
+            Chế độ subpixel cho phép xác định vật mẫu độ chính xác nhỏ hơn 1 pixel
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.RatioMatchScorePyramidDown">
+            <summary>
+            Tỷ lệ match score sẽ được giảm dần theo các cấp pyramid. Phương thức sẽ là matchScore * ratioMatchScorePyramidDown
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.RatioFilterOverlapPyramidDown">
+            <summary>
+            Tỷ lệ overlap percentage sẽ được nhân tỷ lệ theo các cấp pyramid, dải giá trị [0, 2]. 
+            Phương thức sẽ là objectOverlapPercentage * ratioFilterOverlapPyramidDown. Nếu objectOverlapPercentage = 0 thì tầng kế tiếp objectOverlapPercentage = ratioFilterOverlapPyramidDown
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.FilterOverlapInPyramidLevel">
+            <summary>
+            Cho phép lọc các phần tử đè lên nhau cho tất cả các tần pyramid trừ tần cuối cùng, tầng cuối mặc định luôn lọc các phần tử đè lên nhau
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.AngleRangeStepSerachInPyramid">
+            <summary>
+            Số bước góc được tìm kiếm khi qua tầng kế tiếp. Ví dụ khi vật xác định ở góc 8°, tầng tiếp theo có bước angle là 0.3°
+            angleRangeStepSerachInPyramid = 1, thì dải góc tìm kiếm sẽ là [7.7, 8, 8.3], nếu angleRangeStepSerachInPyramid = 2 
+            thì dải góc tìm kiếm sẽ là [7.4, 7.7, 8, 8.3, 8.6] 
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.PaddingSearchRoi">
+            <summary>
+            Độ mở rộng tìm kiếm của đối tượng ở tầng tiếp theo. Vùng tìm kiếm sẽ được mở rộng tỷ lệ theo 2 chiều [width, height] = [paddingSearchRoi, paddingSearchRoi]
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingOptions.Anchor">
+            <summary>
+            Điểm đánh dấu người dùng trên vật mẫu, tọa độ được lưu với gốc tọa độ của vật mẫu chứ không phải tọa độ của ảnh. 
+            Nếu người dùng không đánh dấu thì kết quả điểm anchor sẽ tương ứng với tọa độ tâm của vật bắt được.
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.PatternMatchingReport">
+            <summary>
+            Thông tin về vị trí của vật thể được tìm thấy bằng những phương pháp Matching
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingReport.MatchScore">
+            <summary>
+            Điểm số tương quan của thuật toán, giải từ [0, 1]
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingReport.Anchor">
+            <summary>
+            Điểm đánh dấu của người dùng tương ứng với template
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingReport.Center">
+            <summary>
+            Điểm tọa độ tâm của đối tượng được tìm thấy
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingReport.Vertices">
+            <summary>
+            Toạ độ các đỉnh của đối tượng được tìm thấy
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingReport.Angle">
+            <summary>
+            Góc xoay của đối tượng so với ảnh template. Đơn vị degree
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingReport.Scale">
+            <summary>
+            Hệ số scale của vật được tìm thấy so với ảnh template
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.PatternMatchingReport.ToString">
+            <summary>
+            <inheritdoc cref="M:System.Object.ToString"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Module.PatternMatchingResult">
+            <summary>
+            Thông tin về vị trí của vật thể được tìm thấy bằng những phương pháp Matching
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingResult.ProcessedRoi">
+            <summary>
+            Vùng roi thực tế xử lý
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingResult.Status">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Module.IModuleData.Status"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.PatternMatchingResult.MatchedItems">
+            <summary>
+            Danh sách kết qủa đối tượng tìm thấy
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.SearchDirection">
+            <summary>
+            Xác định hướng kiểm tra Vùng quan tâm (ROI) khi thực hiện phát hiện đường.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.SearchDirection.LeftToRight">
+            <summary>
+            Searches from the left of the ROI to the right.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.SearchDirection.RightToLeft">
+            <summary>
+            Searches from the right of the ROI to the left.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.SearchDirection.TopToBottom">
+            <summary>
+            Searches from the top of the ROI to the bottom.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.SearchDirection.BottomToTop">
+            <summary>
+            Searches from the bottom of the ROI to the top.
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.SpokeDirection">
+            <summary>
+            Xác định hướng kiểm tra Vùng quan tâm (ROI)
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.SpokeDirection.OutsideToInside">
+            <summary>
+            The method searches from the outside of the search area to the inside of the search area.
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.SpokeDirection.InsideToOutside">
+            <summary>
+            The method searches from the inside of the search area to the outside of the search area.
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.ColorSpaceType">
+            <summary>
+            Color Space of Image
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.ColorSpaceType.Gray">
+            <summary>
+            Gray
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.ColorSpaceType.BGR">
+            <summary>
+            BGR
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.ColorSpaceType.HSV">
+            <summary>
+            HSV full
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.ColorSpaceType.HSV_Half">
+            <summary>
+            HSV
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.ColorSpaceType.HLS">
+            <summary>
+            HLS full
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.ColorSpaceType.HLS_Half">
+            <summary>
+            HLS
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.ChannelIndexType">
+            <summary>
+            Lấy giá trị index dưới dạng enum
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.ChannelIndexType.First">
+            <summary>
+            Channel đầu tiên
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.ChannelIndexType.Second">
+            <summary>
+            Channel thứ hai
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.ChannelIndexType.Third">
+            <summary>
+            Channel thứ ba
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.ChannelIndexType.All">
+            <summary>
+            Tất cả channel
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.ImageResult">
+            <summary>
+            Thông tin về ảnh
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.ImageResult.Status">
+            <summary>
+            <inheritdoc cref="P:ST4I.Vision.Module.IModuleData.Status"/>
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.ImageResult.Image">
+            <summary>
+            Dữ liệu ảnh
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.ImageResult._disposed">
+            To detect redundant calls
+        </member>
+        <member name="M:ST4I.Vision.Module.ImageResult.Finalize">
+            <summary>
+            Hàm hủy đối tượng
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.ImageResult.Dispose">
+            <summary>
+            Public implementation of Dispose pattern callable by consumers.
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.ImageResult.Dispose(System.Boolean)">
+            <summary>
+            Protected implementation of Dispose pattern.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:ST4I.Vision.Module.IModuleData">
+            <summary>
+            Lớp Interface cho tất cả kết quả của vision core
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.IModuleData.Status">
+            <summary>
+            Kết quả trạng thái của module
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.IVisionModule">
+            <summary>
+            Lớp interface cho vision module
+            </summary>
+        </member>
+        <member name="P:ST4I.Vision.Module.IVisionModule.ModuleType">
+            <summary>
+            Phương pháp xử lý
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.RoiSetupMode">
+            <summary>
+            Chế độ cài đặt ROI
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.RoiSetupMode.Constant">
+            <summary>
+            Người dùng vẽ ROI
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.RoiSetupMode.FullImage">
+            <summary>
+            Kích thước xử lý là toàn bộ ảnh
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.VisionModuleType">
+            <summary>
+            Phân loại chức năng của từng vision module
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.Undefined">
+            <summary>
+            Chưa định nghĩa
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.ReadImageFile">
+            <summary>
+            Đọc ảnh từ file
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.GrabImageCamera">
+            <summary>
+            Trích xuất ảnh từ camera
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.CreateROI">
+            <summary>
+            Tạo ROI
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.GrayNCCMatching">
+            <summary>
+            Matching theo phương pháp Gray NCC
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.GrayMatchingNI">
+            <summary>
+            Matching theo phương pháp Gray Matching dựa trên thư viện NI
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.GrayMatchingHalcon">
+            <summary>
+            Matching theo phương pháp Gray Matching dựa trên thư viện Halcon
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.EdgeMatching">
+            <summary>
+            Matching theo cạnh
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.FeatureMatching">
+            <summary>
+            Matching theo feature
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.MeasureIntensity">
+            <summary>
+            Đo intensity cho ảnh đơn kênh
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.MeasureMeanAndStdDevColor">
+            <summary>
+            Đo mean và standard deviation cho đa kênh
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.FindLine">
+            <summary>
+            Tìm đường thẳng
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.FindCircle">
+            <summary>
+            Tìm hình tròn
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.Caliper">
+            <summary>
+            Tìm khoảng cách dạng thước kẹp
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.ReadBarcode">
+            <summary>
+            Đọc barcode
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.ReadBarcodeNI">
+            <summary>
+            Đọc barcode dựa trên thư viện NI
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.Read2DCode">
+            <summary>
+            Đọc mã code 2D
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.Read2DCodeNI">
+            <summary>
+            Đọc mã code 2D dựa trên thư viện NI
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.ConvertMatToVisionImage">
+            <summary>
+            Chuyển đổi ảnh Mat sang Vision Image của NI
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.ConvertVisionImageToMat">
+            <summary>
+            Chuyển đổi ảnh từ 
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.ColorConversion">
+            <summary>
+            Chuyển đổi hệ màu
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.ExtractColorPlane">
+            <summary>
+            Trích xuất channel màu
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.CountPixel">
+            <summary>
+            Đếm pixel theo ngưỡng đo
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.OCR_ClassifySVM">
+            <summary>
+            Đọc OCR dạng classify theo SVM
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.OCR_ClassifyCNN">
+            <summary>
+            Đọc OCR dạng classify theo mạng CNN
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.OCR_Tesseract">
+            <summary>
+            Đọc OCR theo thư viện tesseract
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.OCR_Pd">
+            <summary>
+            Deep learning OCR
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.OCR_YL">
+            <summary>
+            Deep learning OCR
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.OCV_Basic">
+            <summary>
+            Kiểm tra chất lượng chữ
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.ShapeClassify">
+            <summary>
+            Phân loại theo biên dạng
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.ColorClassify">
+            <summary>
+            Phân loại theo màu sắc
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.BlobDetection">
+            <summary>
+            Phát hiện blob
+            </summary>
+        </member>
+        <member name="F:ST4I.Vision.Module.VisionModuleType.BgcEnhancement">
+            <summary>
+            Cải thiện chất lượng ảnh: brightness, gain, contrast
+            </summary>
+        </member>
+        <member name="T:ST4I.Vision.Module.ImageUtils">
+            <summary>
+            <inheritdoc cref="T:ST4I.Vision.Module.ImageUtils"/>
+            </summary>
+            <summary>
+            Tổng hợp hàm độc lập hỗ trợ xử lý ảnh
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.ImageUtils.CreateImageMaskByRoi(ST4IVisionCoreNet.Size,ST4I.Vision.IRoi,System.Boolean)">
+            <summary>
+            Tạo ảnh mask theo vùng Roi
+            </summary>
+            <param name="size">Kích thước ảnh mask</param>
+            <param name="roi">Vùng mask</param>
+            <param name="inverted">Nếu bằng true, ảnh mask sẽ được từ trắng thành đen</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.ImageUtils.CreateImageMaskByRoi(ST4IVisionCoreNet.Size,ST4IVisionCoreNet.Point2d[],System.Boolean)">
+            <summary>
+            Tạo lớp mask với đầu vào là đỉnh của hình đa giác
+            </summary>
+            <param name="size">Kích thước của ảnh mask</param>
+            <param name="points">Danh sách tọa độ của vùng mask</param>
+            <param name="inverted">Nếu bằng true, ảnh mask sẽ được từ trắng thành đen</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.ImageUtils.ExtractImageByRoi(ST4IVisionCoreNet.Mat,ST4I.Vision.IRoi,ST4IVisionCoreNet.Scalar)">
+            <summary>
+            Cắt ảnh theo vùng ROI, Hàm sẽ trả vè một ảnh mới theo vùng ROI chỉ định
+            </summary>
+            <param name="image">Ảnh đầu vào</param>
+            <param name="roi">Vùng Roi cất ảnh</param>
+            <param name="backgroundColor">Màu sắc nền vùng biên ngoài trong trường hợp ROI thuộc dạng đa giác</param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.ImageUtils.Release(ST4IVisionCoreNet.Mat)">
+            <summary>
+            Hàm dispose ảnh an toàn, kiểm tra ảnh có đang null trước khi dispose
+            </summary>
+            <param name="image"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ST4I.Vision.Module.ImageUtils.IsNotEmpty(ST4IVisionCoreNet.Mat)" -->
+        <!-- Badly formed XML comment ignored for member "M:ST4I.Vision.Module.ImageUtils.IsEmpty(ST4IVisionCoreNet.Mat)" -->
+        <member name="M:ST4I.Vision.Module.ImageUtils.RotationImage(ST4IVisionCoreNet.Mat,ST4IVisionCoreNet.Point2f,System.Double,ST4IVisionCoreNet.InterpolationFlags,ST4IVisionCoreNet.BorderTypes,ST4IVisionCoreNet.Scalar)">
+            <summary>
+            Xoay ảnh với góc tự do
+            </summary>
+            <param name="scr">Ảnh đầu vào</param>
+            <param name="origin">Tọa độ tâm xoay</param>
+            <param name="angle">Góc xoay</param>
+            <param name="interMethod">Phương pháp Interpolation</param>
+            <param name="borderMode">Phương pháp ngoại suy pixel</param>
+            <param name="backgroundColor">Màu nền</param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Module.MathCoord">
+            <summary>
+            Thư viện toán dành cho xử tọa độ
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.ConvertToPoint(ST4IVisionCoreNet.Point2d[])">
+            <summary>
+            Đổi Point2d sang Point
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.ShiftPoints(ST4IVisionCoreNet.Point[],ST4IVisionCoreNet.Point)">
+            <summary>
+            Transform list of point with new offset
+            </summary>
+            <param name="points"></param>
+            <param name="offset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.ShiftPoints(ST4IVisionCoreNet.Point2d[],ST4IVisionCoreNet.Point)">
+            <summary>
+            Transform list of point with new offset
+            </summary>
+            <param name="points"></param>
+            <param name="offset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.Shift(ST4IVisionCoreNet.Rect,ST4IVisionCoreNet.Point)">
+            <summary>
+            Dịch chuyển vùng Rect theo offset mới
+            </summary>
+            <param name="rect"></param>
+            <param name="offset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.CopyPoints(ST4IVisionCoreNet.Point[])">
+            <summary>
+            Copy points
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.ConvertPointToPoint2f(System.Collections.Generic.IEnumerable{ST4IVisionCoreNet.Point},System.Int32,System.Int32)">
+            <summary>
+            Chuyển đổi một danh sách Point sang một danh sách Point2f
+            </summary>
+            <param name="sourcePoints"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.ConvertPoint2fToPoint(System.Collections.Generic.IEnumerable{ST4IVisionCoreNet.Point2f},System.Int32,System.Int32)">
+            <summary>
+            Chuyển đổi một danh sách Point2f sang một danh sách Point
+            </summary>
+            <param name="sourcePoints"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.GetVertices(ST4IVisionCoreNet.Rect)">
+            <summary>
+            Get 4 vertices of rectangle in orientation: top left -> top right -> bottom right -> bottom left
+            </summary>
+            <param name="rect"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.GetCenter(ST4IVisionCoreNet.Rect)">
+            <summary>
+            Tìm tâm của Rectangle
+            </summary>
+            <param name="rect"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.RoundToPoint(ST4IVisionCoreNet.Point2f)">
+            <summary>
+            Round Point2f to Point
+            </summary>
+            <param name="pointF"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.AngleBetweenTwoVectors(ST4IVisionCoreNet.Point2f[],ST4IVisionCoreNet.Point2f[],System.Boolean)">
+            <summary>
+            Calculate angle bewteen two vectors. Unit degree
+            </summary>
+            <param name="lstA">Vector made by two point</param>
+            <param name="lstB">Vector made by two point</param>
+            <param name="direction">If direction is true: return angle with orientation</param>
+            <returns>Angle between two vectors</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.OrderVertices(ST4IVisionCoreNet.Point[])">
+            <summary>
+            Order 4 vertices of RotatedRect in orientation: top left -> top right -> bottom right -> bottom left.
+            </summary>
+            <param name="lstPoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.RotatePoint(ST4IVisionCoreNet.Point,System.Double,ST4IVisionCoreNet.Point)">
+            <summary>
+            Xoay điểm theo góc và tọa độ tâm
+            </summary>
+            <param name="source"></param>
+            <param name="angle"></param>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.RotatePoint(ST4IVisionCoreNet.Point2d,System.Double,ST4IVisionCoreNet.Point2d)">
+            <summary>
+            Xoay điểm theo góc và theo tọa độ tâm xay chỉ định
+            </summary>
+            <param name="point"></param>
+            <param name="angle"></param>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.RotatePoints(System.Collections.Generic.IEnumerable{ST4IVisionCoreNet.Point2d},System.Double,ST4IVisionCoreNet.Point2d)">
+            <summary>
+            Xoay danh sách tọa độ tại tâm với góc lệch
+            </summary>
+            <param name="points"></param>
+            <param name="angle"></param>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.GetCircleByThreePoints(ST4IVisionCoreNet.Point,ST4IVisionCoreNet.Point,ST4IVisionCoreNet.Point,System.Double@)">
+            <summary>
+            Tìm tâm đường tròn được tạo lập bởi 3 điểm
+            </summary>
+            <param name="P1"></param>
+            <param name="P2"></param>
+            <param name="P3"></param>
+            <param name="radius"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.DistanceBetweenTwoPoints(ST4IVisionCoreNet.Point,ST4IVisionCoreNet.Point)">
+            <summary>
+            Khoảng cách giữa 2 điểm
+            </summary>
+            <param name="source"></param>
+            <param name="dest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.DistanceBetweenTwoPoints(ST4IVisionCoreNet.Point2d,ST4IVisionCoreNet.Point2d)">
+            <summary>
+            Khoảng cách giữa 2 điểm
+            </summary>
+            <param name="source"></param>
+            <param name="dest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.CenterOfTwoPoints(ST4IVisionCoreNet.Point,ST4IVisionCoreNet.Point)">
+            <summary>
+            Tìm tâm giữa 2 điểm
+            </summary>
+            <param name="A"></param>
+            <param name="B"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.EuclideanTransformPoint(ST4IVisionCoreNet.Point2d,System.Double,System.Double,System.Double,ST4IVisionCoreNet.Point)">
+            <summary>
+            Dịch chuyển điểm: xoay và dịch chuyển theo tọa độ tâm chỉ định
+            </summary>
+            <param name="point"></param>
+            <param name="dx"></param>
+            <param name="dy"></param>
+            <param name="angle"></param>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.MathCoord.EuclideanTransformPoints(System.Collections.Generic.IEnumerable{ST4IVisionCoreNet.Point2d},System.Double,System.Double,System.Double,ST4IVisionCoreNet.Point)">
+            <summary>
+            Dịch chuyển điểm: xoay và dịch chuyển theo tọa độ tâm chỉ định
+            </summary>
+            <param name="points"></param>
+            <param name="dx"></param>
+            <param name="dy"></param>
+            <param name="angle"></param>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ST4I.Vision.Module.RangeOfColorSpace">
+            <summary>
+            Dải giá trị của không gian màu
+            </summary>
+        </member>
+        <member name="M:ST4I.Vision.Module.RangeOfColorSpace.GetChannels(ST4I.Vision.Module.ChannelIndexType)">
+            <summary>
+            Lấy dải giá trị index theo định nghĩa ChannelIndexType. Nếu là ChannelIndexType.First thì sẽ trả về {0}, là ChannelIndexType.Second sẽ là {1}
+            </summary>
+            <param name="channel">Kênh màu</param>
+            <returns>Dải thứ tự</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.RangeOfColorSpace.GetValueRangeFOfChannel(ST4I.Vision.Module.ColorSpaceType,ST4I.Vision.Module.ChannelIndexType)">
+            <summary>
+            Lấy giải giá trị theo không gian màu và channel
+            </summary>
+            <param name="colorSpace">Không gian màu</param>
+            <param name="channel">Kênh màu</param>
+            <returns>Dải giá trị theo không gian màu và channel</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.RangeOfColorSpace.GetValueRangeOfChannel(ST4I.Vision.Module.ColorSpaceType,ST4I.Vision.Module.ChannelIndexType)">
+            <summary>
+            Lấy giải giá trị theo không gian màu và channel
+            </summary>
+            <param name="colorSpace">Không gian màu</param>
+            <param name="channel">Kênh màu</param>
+            <returns>Dải giá trị theo không gian màu và channel</returns>
+        </member>
+        <member name="M:ST4I.Vision.Module.RangeOfColorSpace.GetValueRangeOfColorSpace(ST4I.Vision.Module.ColorSpaceType)">
+            <summary>
+            Lấy dải giá trị của không gian màu
+            </summary>
+            <param name="colorSpace">Dạng không gian màu</param>
+            <returns>Dải giá trị theo không gian màu</returns>
+        </member>
+    </members>
+</doc>
