@@ -31,7 +31,6 @@
             <Grid Grid.Row="0">
                 <TextBlock Text="Create New Project" Margin="30 0 0 0"
 						   FontSize="24"
-						   
 						   HorizontalAlignment="Left"
 						   VerticalAlignment="Center"/>
             </Grid>

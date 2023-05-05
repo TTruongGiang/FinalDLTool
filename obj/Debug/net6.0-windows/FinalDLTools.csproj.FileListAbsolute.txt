@@ -81,3 +81,5 @@ D:\Vision Project\FinalDLTools\bin\Debug\net6.0-windows\ST4IVisionCoreNet.WpfExt
 D:\Vision Project\FinalDLTools\bin\Debug\net6.0-windows\ST4IVisionCoreNet.pdb
 D:\Vision Project\FinalDLTools\bin\Debug\net6.0-windows\ST4IVisionCoreNet.xml
 D:\Vision Project\FinalDLTools\bin\Debug\net6.0-windows\ST4IVisionCoreNet.WpfExtensions.pdb
+D:\Vision Project\FinalDLTools\obj\Debug\net6.0-windows\EditLabelUI.g.cs
+D:\Vision Project\FinalDLTools\obj\Debug\net6.0-windows\EditLabelUI.baml

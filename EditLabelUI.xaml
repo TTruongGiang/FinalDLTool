@@ -1,0 +1,69 @@
+﻿<Window x:Class="FinalDLTools.EditLabelUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
+        xmlns:tool="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:FinalDLTools"
+        mc:Ignorable="d"
+        x:Name="EditUI"
+        Title="EditLabelUI" Height="200" Width="300"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" >
+
+    <Window.DataContext>
+        <local:EditLabelContext/>
+    </Window.DataContext>
+    <Border Background="#454545">
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Text="Edit Class Label" Margin="10"
+                           FontSize="14"
+						   Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+						   HorizontalAlignment="Left"
+						   VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <TextBlock Text="Edit Name : " Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12"/>
+                    <ui:TextBox  Height="50" Width="180" Margin="5" Text="{Binding Label}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <TextBlock Text="Edit Color : " Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12"/>
+                    <tool:ColorPicker 
+                        VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" 
+                        Width="180"
+                        Height="50"
+                        DisplayColorAndName="True" 
+                        DisplayColorTooltip="True"
+                        SelectedColor="{Binding SelectedColor}"
+                        />
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2">
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right">
+                    <ui:Button  Content="Cancel" Margin="10" 
+                                Command="{Binding CancelCommad}"
+                                CommandParameter="{Binding ElementName=EditUI}"/>
+                    <ui:Button  Content="Change" Margin="10" 
+                                Command="{Binding EditLabelCommand}"
+                                CommandParameter="{Binding ElementName=EditUI}"
+                                IsEnabled="{Binding IsEnableChange}"
+                                Appearance="Primary" 
+                                />
+                </StackPanel>
+
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

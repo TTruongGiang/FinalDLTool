@@ -86,14 +86,12 @@ namespace FinalDLTools
         private Color selectedColor;
         public Color SelectedColor
         {
-            get
-            {
-                return selectedColor;
-            }
+            get { return selectedColor; }
             set
             {
                 selectedColor = value;
                 OnPropertyChanged();
+                OnPropertyChanged("IsEnableAdd");
             }
         }
 

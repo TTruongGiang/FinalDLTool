@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\Vision Project\FinalDLTools\App.xaml
-4-1186887684
+51820379174
 
-11-734351695
+13-967177581
 22317958140
-MainWindow.xaml;NewLabelUI.xaml;NewProjectUI.xaml;Styles\Generic.xaml;
+EditLabelUI.xaml;MainWindow.xaml;NewLabelUI.xaml;NewProjectUI.xaml;Styles\Generic.xaml;
 
-False
+True
 

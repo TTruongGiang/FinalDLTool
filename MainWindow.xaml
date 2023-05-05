@@ -194,7 +194,7 @@
                                                 <ListBox Grid.Row="1" Margin="5" 
                                                         x:Name="ListProject"
                                                         HorizontalAlignment="Center"
-                                                        BorderThickness="0,0,0,0"
+                                                        BorderThickness="1,1,1,1"
                                                         ItemsSource="{Binding ListProjectCreate}" 
                                                         Visibility="{Binding IsVisibilityListBox, Converter={StaticResource BooleanToVisibilityConverter}}"
                                                         SelectionMode="Single">
@@ -300,7 +300,7 @@
                                             <Grid Grid.Row="1" Grid.Column="0">
 
                                                 <ui:Button Icon="ChevronLeft48" Command="{Binding PreviousImageCommand }"
-                                                    HorizontalAlignment="Center"
+                                                    HorizontalAlignment="Center" 
                                                     VerticalAlignment="Center"
                                                     FontSize="16" Margin="10"/>
 
@@ -332,7 +332,7 @@
                                             <Grid Grid.Row="1" Grid.Column="3">
 
                                                 <ui:Button Icon="ChevronRight48" Command="{Binding NextImageCommand }"
-                                                    HorizontalAlignment="Right"
+                                                    HorizontalAlignment="Right" 
                                                     VerticalAlignment="Center"
                                                     FontSize="16" Margin="10"/>
 
@@ -362,7 +362,7 @@
 
                                                 <ui:Button Icon="Delete48" Grid.Column="1" Command="{Binding RemoveImageCommand }"
                                                            CommandParameter="{Binding ElementName=ListImage, Path=SelectedItems}"
-                                                    Margin="10"
+                                                    Margin="10" 
                                                     FontSize="20" 
                                                     VerticalAlignment="Center"
                                                     HorizontalAlignment="Right"/>
@@ -385,10 +385,10 @@
 
                                 <!--Image-->
                                 <Grid Grid.Column="1" Margin="0 15 0 15">
-                                    <Grid>
+                                    <Border BorderBrush="DarkGray" BorderThickness="1">
                                         <imbUI:ImageBox DataContext="{Binding ImageBoxView}"
                                                         />
-                                    </Grid>
+                                    </Border>
                                 </Grid>
 
                                 <Grid Grid.Column="2" Margin="10">
@@ -430,7 +430,8 @@
                                                                  SelectedIndex="{Binding SelectedLabelIndex}"
                                                                  Margin="0"
                                                                  SelectionMode="Single">
-                                                            <ListBox.ItemTemplate >
+                                                            <ListBox.ItemTemplate>
+                                                                
                                                                 <DataTemplate>
                                                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                                                         <Border Background="{Binding Color}" CornerRadius="4" Height="25" Width="25"/>
@@ -469,7 +470,7 @@
                                                     FontSize="20" 
                                                     VerticalAlignment="Center"
                                                     HorizontalAlignment="Left"/>
-                                                <ui:Button Icon="Edit48" Grid.Column="1" Command="{Binding EditLabelCommand }"
+                                                <ui:Button Icon="BotAdd24" Grid.Column="1" 
                                                     Margin="10" IsEnabled="{Binding IsEnableButton}"
                                                     FontSize="20" 
                                                     VerticalAlignment="Center"

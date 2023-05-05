@@ -1,22 +1,19 @@
-﻿using System;
-using System.Windows;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Microsoft.Win32;
+using Ookii.Dialogs.Wpf;
+using OpenCvSharp;
 using ST4I.Vision;
 using ST4I.Vision.Controls;
 using ST4I.Vision.Core;
-using Ookii.Dialogs.Wpf;
 using ST4I.Vision.UI;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
-using System.IO;
+using System.Windows;
 using System.Windows.Media.Imaging;
-using Microsoft.Win32;
-using Xceed.Wpf.Toolkit;
-using OpenCvSharp;
 
 
 
@@ -45,6 +42,10 @@ namespace FinalDLTools
             set { image = value; }
         }
 
+        public bool IsEnable
+        {
+            get { return ListImage.Count > 0; }
+        }
         public bool IsEnableButton
         {
             get { return ListLabelClass.Count > 0; }
@@ -75,7 +76,7 @@ namespace FinalDLTools
             set { listLabelClass = value; OnPropertyChanged(); }
         }
 
-        public ObservableCollection <ProjectModel> ListProjectCreate
+        public ObservableCollection<ProjectModel> ListProjectCreate
         {
             get { return listProjectCreate; }
             set { listProjectCreate = value; OnPropertyChanged(); }
@@ -86,7 +87,7 @@ namespace FinalDLTools
             get { return listLabelName; }
             set { listLabelName = value; OnPropertyChanged(); }
         }
-        
+
         public ObservableCollection<string> ListLabelColor
         {
             get { return listLabelColor; }
@@ -105,9 +106,9 @@ namespace FinalDLTools
             set
             {
                 selectedIndex = value;
-                ImageBoxView.ImageBitmap = new BitmapImage(new Uri(ListImage[value].PathFile));
-                Image?.Dispose();
-                Image = Cv2.ImRead(ListImage[value].PathFile, ImreadModes.AnyColor);
+                //ImageBoxView.ImageBitmap = new BitmapImage(new Uri(ListImage[value].PathFile));
+                //Image?.Dispose();
+                //Image = Cv2.ImRead(ListImage[value].PathFile, ImreadModes.AnyColor);
                 OnPropertyChanged();
             }
         }
@@ -144,12 +145,19 @@ namespace FinalDLTools
         {
             imageBoxView = new ImageBoxContext()
             {
+                RotatedRectRegionEnabled = false,
+                CircleRegionEnabled = false,
+                PolygonRegionEnabled = false,
+                AnnulusRegionEnabled = false,
+                RectRegionEnabled = true,
                 MaxNumRoi = 1
             };
             ImageBoxView.RoiToolboxEnabled = true;
+            ImageBoxView.ShowPanelProperties = false;
+
             ImageBoxView.RoiAdded += OnRoiAdded;
             ImageBoxView.RoiDeleted += OnRoiDeleted;
-
+            ImageBoxView.RoiChanged += OnRoiChanged;
             RemoveLabelCommand = new RelayCommand(OnRemoveLabelCommand);
             EditLabelCommand = new RelayCommand(OnEditLabelCommand);
             OpenProjectCommand = new RelayCommand(OnOpenProjectCommand);
@@ -162,9 +170,23 @@ namespace FinalDLTools
             RemoveImageCommand = new RelayCommand(OnRemoveImageCommand);
         }
 
+        private void OnRoiChanged(object sender, IRoi roi)
+        {
+            Roi = roi;
+            try
+            {
+                var imageSample = ImageUtils.ExtractImageByRoi(image, Roi);
+
+            }
+            catch (Exception err)
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show(err.ToString());
+            }
+        }
+
         private void OnEditLabelCommand(object obj)
         {
-            throw new NotImplementedException();
+
         }
 
         private void OnRemoveLabelCommand(object obj)
@@ -189,10 +211,10 @@ namespace FinalDLTools
                         {
                             SelectedLabelIndex = index;
                         }
-                        
+
                     }
                 }
-            }    
+            }
         }
 
         private void OnRoiDeleted(object sender, IRoi roi)
@@ -206,7 +228,7 @@ namespace FinalDLTools
             try
             {
                 var imageSample = ImageUtils.ExtractImageByRoi(image, Roi);
-                
+
             }
             catch (Exception err)
             {
@@ -262,35 +284,84 @@ namespace FinalDLTools
 
         private void OnRemoveImageCommand(object obj)
         {
-            System.Collections.IList items = (System.Collections.IList)obj;
-            var collection = items.Cast<ImageModel>();
-            List<int> lstIndex = new List<int>();
-            foreach (var item in collection)
+            if (SelectedIndex > -1)
             {
-                lstIndex.Add(ListImage.IndexOf(item));
-            }
-            foreach (var idx in lstIndex)
-            {
-                ListImage.RemoveAt(idx);
-                OnPropertyChanged("TotalFile");
+                if (Xceed.Wpf.Toolkit.MessageBox.Show("Are you sure you want to delete this image?", "Delete Image", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    var index = SelectedIndex;
+                    System.Collections.IList items = (System.Collections.IList)obj;
+                    var collection = items.Cast<ImageModel>();
+                    List<int> lstIndex = new List<int>();
+                    foreach (var item in collection)
+                    {
+                        lstIndex.Add(ListImage.IndexOf(item));
+                    }
+                    foreach (var idx in lstIndex)
+                    {
+                        ListImage.RemoveAt(idx);
+                        OnPropertyChanged("TotalFile");
 
-            }
+                    }
 
-            // Update the number of image
-            for (int i = 0; i < ListImage.Count; i++)
-            {
-                ListImage[i].NumofImage = i + 1;
-            }
+                    // Update the number of image
+                    for (int i = 0; i < ListImage.Count; i++)
+                    {
+                        ListImage[i].NumofImage = i + 1;
+                    }
 
-            // Update list image after remove
-            var newListImage = new ObservableCollection<ImageModel>(ListImage);
+                    // Update list image after remove
+                    var newListImage = new ObservableCollection<ImageModel>(ListImage);
 
-            // Clear the list of added file paths and update it
-            addedFilePaths.Clear();
-            foreach (var item in newListImage)
-            {
-                addedFilePaths.Add(item.PathFile);
+                    // Clear the list of added file paths and update it
+                    addedFilePaths.Clear();
+                    foreach (var item in newListImage)
+                    {
+                        addedFilePaths.Add(item.PathFile);
+                    }
+                    if (index != 0)
+                    {
+                        SelectedIndex = index - 1;
+                    }
+                    else
+                    {
+                        if (ListImage.Count > 0)
+                        {
+                            SelectedIndex = index;
+                        }
+
+                    }
+                    OnPropertyChanged("TotalFile");
+                }
             }
+            //System.Collections.IList items = (System.Collections.IList)obj;
+            //var collection = items.Cast<ImageModel>();
+            //List<int> lstIndex = new List<int>();
+            //foreach (var item in collection)
+            //{
+            //    lstIndex.Add(ListImage.IndexOf(item));
+            //}
+            //foreach (var idx in lstIndex)
+            //{
+            //    ListImage.RemoveAt(idx);
+            //    OnPropertyChanged("TotalFile");
+
+            //}
+
+            //// Update the number of image
+            //for (int i = 0; i < ListImage.Count; i++)
+            //{
+            //    ListImage[i].NumofImage = i + 1;
+            //}
+
+            //// Update list image after remove
+            //var newListImage = new ObservableCollection<ImageModel>(ListImage);
+
+            //// Clear the list of added file paths and update it
+            //addedFilePaths.Clear();
+            //foreach (var item in newListImage)
+            //{
+            //    addedFilePaths.Add(item.PathFile);
+            //}
         }
 
         private void OnPreviousImageCommand(object obj)
@@ -333,7 +404,7 @@ namespace FinalDLTools
                     ListLabelColor.Add(add.SelectedColor.ToString());
                     SelectedLabelIndex = ListLabelClass.Count - 1;
                     OnPropertyChanged("IsEnableButton");
-                   
+
                 }
                 else
                 {

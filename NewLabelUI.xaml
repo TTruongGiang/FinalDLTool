@@ -8,10 +8,9 @@
         xmlns:local="clr-namespace:FinalDLTools"
         x:Name="LabelUI"
         mc:Ignorable="d"
-        Title="NewLabelUI" 
+        Title="NewLabelUI" Height="200" Width="300"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
-        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"
-        Height="200" Width="300">
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" >
 
     <Window.DataContext>
         <local:NewLabelContext/>
@@ -24,7 +23,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock Text="Create New Label Class" Margin="10"
+                <TextBlock Text="Create Class Label" Margin="10"
                            FontSize="14"
 						   Foreground="{DynamicResource TextFillColorPrimaryBrush}"
 						   HorizontalAlignment="Left"
@@ -37,7 +36,7 @@
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" Grid.Row="0">
                     <TextBlock Text="Name : " Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12"/>
-                    <ui:TextBox  Height="50" Width="200" Margin="5" Text="{Binding Label}"  />
+                    <ui:TextBox  Height="50" Width="200" Margin="5" Text="{Binding Label}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="1">
                     <TextBlock Text="Color : " Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12"/>
@@ -55,13 +54,14 @@
             <Grid Grid.Row="2">
                 <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right">
                     <ui:Button  Content="Cancel" Margin="10" 
-                                Command="{Binding CancelCommad}" 
+                                Command="{Binding CancelCommad}"
                                 CommandParameter="{Binding ElementName=LabelUI}"/>
                     <ui:Button  Content="Add" Margin="10" 
-                                Command="{Binding AddLabelCommand}" 
-                                Appearance="Primary" 
+                                Command="{Binding AddLabelCommand}"
                                 CommandParameter="{Binding ElementName=LabelUI}"
-                                IsEnabled="{Binding IsEnableAdd}"/>
+                                IsEnabled="{Binding IsEnableAdd}"
+                                Appearance="Primary" 
+                                />
                 </StackPanel>
 
             </Grid>
